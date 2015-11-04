@@ -1,1 +1,16 @@
 @CHARSET "UTF-8";
+/*
+.bg_white {
+	background: white;	
+}
+
+<이미지를 사용할 경우>
+.bg_용도 {
+	background: url("default.jpg");	
+}
+
+ ex) 
+ bg_menu {
+ 	background: url("menu.jpg");	
+ }
+*/

@@ -1,1 +1,16 @@
 @CHARSET "UTF-8";
+/* 폰트를 추가할경우 폰트명으로 추가하면 됩니다. */
+/* -의 경우 _로 대체합니다. */
+
+.serif {
+	font-family: serif; 
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
