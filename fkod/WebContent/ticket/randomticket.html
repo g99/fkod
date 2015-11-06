@@ -33,8 +33,8 @@ body {
 }
 
 .item2 {
-	-webkit-flex: 1;
-	flex: 1;
+	-webkit-flex: 0.5;
+	flex: 0.5;
 	
 	margin-right: 5px;
 	margin-left: 5px;
@@ -49,8 +49,8 @@ body {
 }
 
 .item4 {
-	-webkit-flex: 0.5;
-	flex: 0.5;
+	-webkit-flex: 1;
+	flex: 1;
 	
 	margin-left: 5px;
 }
@@ -64,6 +64,17 @@ body {
 	font-weight: bold;
 	line-height: 0px;
 	text-align: center;
+}
+
+.item2 h5 {
+	height: 40px;
+	padding: 0 20px;
+	margin: 0px;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 250%;
+	text-align: center;
+	font-size: 15px;
 }
 
 /* /// CONTAINER */
@@ -132,6 +143,7 @@ body {
 #menu .inset .category .radio:checked+.link+.sub {
 	display: table;
 }
+
 /* LIST category */
 #menu .inset .category .sub .list-category {
 	min-width: 218px;
@@ -188,7 +200,7 @@ body {
 	padding: 5px;
 }
 
-.item2 #container #menu .inset .category .sub .list-category dl {
+.item1 #container #menu .inset .category .sub .list-category dl {
 	max-height: 205px;
 	overflow: auto;
 }
@@ -224,7 +236,7 @@ body {
 .times .list-category {
 	background: #81B300;
 	padding: 5px;
-	max-height: 375px;
+	max-height: 338px;
 }
 
 .times .list-category dl {
@@ -235,7 +247,7 @@ body {
     margin-bottom: 10px;
 }
 
-.hall {
+.white_15px {
 	font-size: 15px;
 	height: 25px;
 	padding: 5px 5px;
@@ -244,6 +256,56 @@ body {
 	font-weight: bold;
 }
 
+.basic {
+	background-color: #81B300;
+	margin: 10px;
+}
+
+.ratelist {
+	width: 100px;
+	height: 20px;
+	padding: 5px 5px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+}
+
+.item4 .info {
+	background-color: #81B300;
+	padding: 10px;
+	padding-bottom: 15px;
+	margin: 10px;
+}
+
+.infotitle {
+	width: 60px;
+	height: 15px;
+	padding: 3px 3px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+	font-size: 13px;
+	border-right: 2px solid hsla(0, 0%, 100%, 1);
+}
+.randomtag {
+	width: 60px;
+	height: 15px;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+	font-size: 13px;
+}
+.cal {
+	margin-top: 30px;
+}
+
+
+
 .item4 .choiceseat {
 	display: none;
 }
@@ -251,14 +313,11 @@ body {
 .item4 .choiceseatlabel {
 	position: absolute;
  	top: 448px;
-    left: 777px;
-    /* vertical-align: middle; */
-	/* top: 140px; */
-	/* margin: auto; */
+    left: 655px;
 	background-color: #202020;
     
 	cursor: pointer;
-	width: 111px;
+	width: 233px;
 	height: 40px;
 	padding: 5px 5px;
 	display: block;
@@ -279,82 +338,7 @@ body {
 	<div class="wrap">
 		<!-- FLEX-CONTAINER -->
 		<div class="flex-container">
-			
 			<div class="flex-item item1">
-				<h4>영화</h4>
-				<!-- CONTAINER -->
-				<main id="container"> <!-- MENU -->
-				<nav id="menu">
-					<!-- INSET -->
-					<dl class="inset">
-						<!-- category -->
-						<dt class="category">
-							<!-- LINK -->
-							<input id="resrate" class="radio" name="links" type="radio">
-							<label class="link" for="resrate">예매율</label>
-							<!-- /// END LINK -->
-							<!-- SUB -->
-							<div class="sub">
-								<!-- LIST category -->
-								<div class="list-category">
-									<dl>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-									</dl>
-								</div>
-								<!-- /// END LIST category -->
-							</div>
-							<!-- /// END SUB -->
-						</dt>
-						<!-- /// END category -->
-						<!-- category -->
-						<dt class="category">
-							<!-- LINK -->
-							<input id="koreanorder" class="radio" name="links" type="radio">
-							<label class="link" for="koreanorder">가나다</label>
-							<!-- /// END LINK -->
-							<!-- SUB -->
-							<div class="sub">
-								<!-- LIST category -->
-								<div class="list-category">
-									<dl>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-									</dl>
-								</div>
-								<!-- /// END LIST category -->
-							</div>
-							<!-- /// END SUB -->
-						</dt>
-						<!-- /// END category -->
-					</dl>
-					<!-- /// END INSET -->
-				</nav>
-				<!-- /// END MENU --> </main>
-				<!-- /// END CONTAINER -->
-			</div>
-			<div class="flex-item item2">
 				<h4>극장</h4>
 				<div class="bookmark">
 				<label class="subtitle">자주 가는 극장</label>
@@ -413,30 +397,8 @@ body {
 							<div class="sub">
 								<div class="list-category">
 									<dl>
-										<dt class="category">
-											<input id="special_seoul" class="radio" name="links3" type="radio">
-											<label class="link" for="special_seoul">서울</label>
-											<div class="sub">
-												<div class="list-category">
-												<dl>
-													<dt><a href="#">강남</a></dt>
-													<dt><a href="#">압구정</a></dt>
-												</dl>
-												</div>
-											</div>
-										</dt>
-										<dt class="category">
-											<input id="special_ki" class="radio" name="links3" type="radio">
-											<label class="link" for="special_ki">경기·인천</label>
-											<div class="sub">
-												<div class="list-category">
-												<dl>
-													<dt><a href="#">인천</a></dt>
-													<dt><a href="#">부천</a></dt>
-												</dl>
-												</div>
-											</div>
-										</dt>
+										<dt><a href="#">강남</a></dt>
+										<dt><a href="#">압구정</a></dt>
 									</dl>
 								</div>
 							</div>
@@ -445,17 +407,15 @@ body {
 				</nav>
 				</main>
 			</div>
-			<div class="flex-item item3">
+			<div class="flex-item item2">
 				<h4>날짜</h4>
-				<div class="date">
-					<input type="date" name="bday" min="2015-11-05" max="2015-12-05"><br>
+				<div class="dday" style="background-color: #81B300;">
+				<h5>10일</h5>
 				</div>
-			</div>
-			<div class="flex-item item4">
 				<h4>시간</h4>
 				<div class="times">
 					<div class="list-category">
-						<label class="hall">6관</label>
+						<label class="white_15px">6관</label>
 						<dl>
 							<dt><a href="#">⊙08:00</a></dt>
 							<dt><a href="#">10:30</a></dt>
@@ -468,11 +428,115 @@ body {
 						</dl>
 					</div>
 				</div>
-				<!-- <label class="choiceseat">좌석선택</label> -->
-				<!-- <input class="choiceseat" type="submit" value="좌석선택"> -->
-				<form action="seats.html">
+			</div>
+			<div class="flex-item item3">
+				<div class="basic">
+					<div class="normal">
+						<label class="ratelist">일반</label>
+						<select>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="1">5</option>
+							<option value="2">6</option>
+							<option value="3">7</option>
+							<option value="4">8</option>
+						</select>
+					</div>
+					<div class="adolescent">
+						<label class="ratelist">청소년</label>
+						<select>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="1">5</option>
+							<option value="2">6</option>
+							<option value="3">7</option>
+							<option value="4">8</option>
+						</select>
+					</div>
+					<div class="treatment">
+						<label class="ratelist">우대</label>
+						<select>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="1">5</option>
+							<option value="2">6</option>
+							<option value="3">7</option>
+							<option value="4">8</option>
+						</select>
+					</div>
+				</div>
+				<div class="basic">
+					<label class="white_15px" style="text-align: center;">랜덤 영화 리스트</label>
+					<div class="times">
+					<div class="list-category">
+						<dl>
+							<dt><label class="randomtag">마션</label></dt>
+							<dt><label class="randomtag">인턴</label></dt>
+							<dt><label class="randomtag">팬</label></dt>
+						</dl>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="flex-item item4">
+				<h4>결제 정보</h4>
+				<div class="info">
+					<div class="movieinfo">
+						<div class="infoline">
+							<label class="infotitle">영화</label>
+							<h5 style="display: inline-block;margin: 0;">마션, 인턴, 팬</h5>
+							<label class="randomtag"> 중 랜덤 선택 1</label>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">일시</label>
+							<h5 style="display: inline-block;margin: 0;">2015.11.10(화) 20:30</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">인원</label>
+							<h5 style="display: inline-block;margin: 0;">일반3명</h5>
+							<h5 style="display: inline-block;margin: 0;">청소년3명</h5>
+							<h5 style="display: inline-block;margin: 0;">우대3명</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">좌석명</label>
+							<h5 style="display: inline-block;margin: 0;">일반석</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">좌석번호</label>
+							<h5 style="display: inline-block;margin: 0;">?</h5>
+						</div>
+					</div>
+					<div class="cal">
+						<div class="normal">
+							<label class="infotitle">일반</label>
+							<h5 style="display: inline-block;margin: 0;">5,000원 X 3</h5>
+						</div>
+						<div class="adolescent">
+							<label class="infotitle">청소년</label>
+							<h5 style="display: inline-block;margin: 0;">3,500원 X 3</h5>
+						</div>
+						<div class="treatment">
+							<label class="infotitle">우대</label>
+							<h5 style="display: inline-block;margin: 0;">2,000원 X 3</h5>
+						</div>
+						<div class="sum">
+							<label class="infotitle">총금액</label>
+							<h5 style="display: inline-block;margin: 0;">31,500원</h5>
+						</div>
+					</div>
+				</div>
+				<form action="#>
 				<input id="choiceseat" class="choiceseat" name="next" type="submit">
-				<label class="choiceseatlabel" for="choiceseat">좌석선택</label>
+				<label class="choiceseatlabel" for="choiceseat">예매하기</label>
 				</form>
 			</div>
 			
