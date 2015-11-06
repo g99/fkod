@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/common.css" type="text/css">
+<style>
+body {
+	background:;
+}
+
+/* /// FLEX-CONTAINER */
+.flex-container {
+	display: -webkit-flex;
+	display: flex;
+	width: 900px;
+	height: 500px;
+	background-image: url("../images/res_bg.jpg");
+}
+
+.flex-item {
+	/*  background-color: cornflowerblue; */
+	background-color: hsla(30, 30%, 30%, .3);
+	margin: 10px;
+}
+
+.item1 {
+	-webkit-flex: 2.5;
+	flex: 2.5;
+	margin-right: 5px;
+}
+.item2 {
+	-webkit-flex: 1;
+	flex: 1;
+	margin-left: 5px;
+}
+
+.flex-container h3 {
+	height: 20px;
+	padding: 0 20px;
+	border-bottom: 5px solid hsla(0, 0%, 100%, 1);
+	margin-bottom: 0px;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 0px;
+	text-align: center;
+}
+
+.number {
+	background-color: #81B300;
+	margin: 10px;
+}
+
+.ratelist {
+	width: 100px;
+	height: 20px;
+	padding: 5px 5px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+}
+
+.seats {
+	background-color: #81B300;
+	margin: 10px;
+	padding: 5px;
+	text-align: center;
+}
+.seats .screenborder{
+	background: hsla(0, 0%, 100%, .2);
+	border-bottom: 2px solid hsla(0, 0%, 100%, 1);
+}
+.seats .screen {
+	width: 100px;
+	height: 15px;
+	padding: 5px 5px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+}
+.seatsblock {
+	margin: 10px;
+}
+.seatsblock .check {
+	display: none;
+}
+.seatsblock .rownum {
+	width: 12px;
+	height: 12px;
+	padding: 5px 5px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+	font-size: 13px;
+}
+.seatsblock .empty {
+	width: 12px;
+	height: 12px;
+	padding: 5px 5px;
+	display: inline-block;
+}
+.seatsblock .seatnum {
+	background-color: #404020;
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	padding: 5px 5px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 70%;
+	font-size: 13px;
+}
+.seatsblock .seatnum:hover {
+	background-color: #808020;
+}
+
+.item2 .info {
+	background-color: #81B300;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	margin: 10px;
+}
+
+.infotitle {
+	width: 60px;
+	height: 15px;
+	padding: 3px 3px;
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 100%;
+	font-size: 13px;
+	border-right: 2px solid hsla(0, 0%, 100%, 1);
+}
+.cal {
+	margin-top: 30px;
+}
+
+
+
+.item2 .dores {
+	display: none;
+}
+
+.item2 .doreslabel {
+	position: absolute;
+ 	top: 448px;
+    left: 650px;
+	background-color: #202020;
+    
+	cursor: pointer;
+	width: 238px;
+	height: 40px;
+	padding: 5px 5px;
+	display: block;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	line-height: 220%;
+}
+
+.item2 .doreslabel:hover {
+	color: #81B300;
+}
+
+</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<!-- FLEX-CONTAINER -->
+		<div class="flex-container">
+			<div class="flex-item item1">
+				<h3>인원 / 좌석</h3>
+				<div class="number">
+					<div class="normal">
+						<label class="ratelist">일반</label>
+						<!-- <input type="number" name="quantity" min="1" max="5">
+						<input type="submit" value="Send"> -->
+						<select>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="1">5</option>
+							<option value="2">6</option>
+							<option value="3">7</option>
+							<option value="4">8</option>
+						</select>
+					</div>
+					<div class="adolescent">
+						<label class="ratelist">청소년</label>
+						<select>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="1">5</option>
+							<option value="2">6</option>
+							<option value="3">7</option>
+							<option value="4">8</option>
+						</select>
+					</div>
+					<div class="treatment">
+						<label class="ratelist">우대</label>
+						<select>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="1">5</option>
+							<option value="2">6</option>
+							<option value="3">7</option>
+							<option value="4">8</option>
+						</select>
+					</div>
+				</div>
+				<div class="seats">
+					<div class="screenborder">
+						<label class="screen">SCREEN</label>
+					</div>
+					<div class="seatsblock">
+						<label class="rownum" for="">A</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">B</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">C</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">D</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">E</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">F</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">G</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+						<label class="rownum" for="">H</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10
+						</label><br><label class="rownum" for="">I</label>
+						<input id="check1" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check1">1</label>
+						<input id="check2" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check2">2</label>
+						<label class="empty"></label>
+						<input id="check3" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check3">3</label>
+						<input id="check4" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check4">4</label>
+						<input id="check5" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check5">5</label>
+						<input id="check6" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check6">6</label>
+						<input id="check7" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check7">7</label>
+						<input id="check8" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check8">8</label>
+						<label class="empty"></label>
+						<input id="check9" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check9">9</label>
+						<input id="check10" class="check" name="chair" type="checkbox">
+						<label class="seatnum" for="check10">10</label><br>
+					</div>
+				</div>
+			</div>
+			<div class="flex-item item2">
+				<h3>결제 정보</h3>
+				<div class="info">
+					<div class="movieinfo">
+						<div class="infoline">
+							<label class="infotitle">영화</label>
+							<h5 style="display: inline-block;margin: 0;">성난변호사 2D 15세 관람가</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">일시</label>
+							<h5 style="display: inline-block;margin: 0;">2015.10.11(일) 20:30</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">인원</label>
+							<h5 style="display: inline-block;margin: 0;">일반3명</h5>
+							<h5 style="display: inline-block;margin: 0;">청소년3명</h5>
+							<h5 style="display: inline-block;margin: 0;">우대3명</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">좌석명</label>
+							<h5 style="display: inline-block;margin: 0;">일반석</h5>
+						</div>
+						<div class="infoline">
+							<label class="infotitle">좌석번호</label>
+							<h5 style="display: inline-block;margin: 0;">F5, F6, F7, F8, G5, G6, G7, G8, G9</h5>
+						</div>
+					</div>
+					<div class="cal">
+						<div class="normal">
+							<label class="infotitle">일반</label>
+							<h5 style="display: inline-block;margin: 0;">10,000원 X 3</h5>
+						</div>
+						<div class="adolescent">
+							<label class="infotitle">청소년</label>
+							<h5 style="display: inline-block;margin: 0;">7,000원 X 3</h5>
+						</div>
+						<div class="treatment">
+							<label class="infotitle">우대</label>
+							<h5 style="display: inline-block;margin: 0;">4,000원 X 3</h5>
+						</div>
+						<div class="sum">
+							<label class="infotitle">총금액</label>
+							<h5 style="display: inline-block;margin: 0;">63,000원</h5>
+						</div>
+					</div>
+				</div>
+				<form action="confirm.html">
+				<input id="dores" class="dores" name="next" type="submit">
+				<label class="doreslabel" for="dores">예매하기</label>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
