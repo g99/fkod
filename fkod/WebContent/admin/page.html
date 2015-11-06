@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/common.css"  type="text/css" />
+<style>
+    body {
+        margin:10px auto;
+        padding: 0;
+}
+    ul.menu {
+        width: 200px;
+        text-indent: 10px;
+}
+    ul.menu, ul.menu ul{
+        margin:0;
+        padding:0;
+}
+
+    .group .nav {
+        height: 35px;
+        line-height: 35px;
+        background:orange;
+}
+    ul.sub li {
+        margin-bottom: 0;
+        height:35px;
+        line-height:35px;
+        background:gray;
+}
+    ul.sub li a {
+        display: block;
+        width: 100%;
+        height:100%;
+        text-decoration:none;
+        color:#000;
+}
+    ul.sub li:hover {
+        background:#cf0;
+}
+	.papup{
+	clear: left;
+	width: 30%;
+	height: 50px;
+	margin: 20px;
+	}
+
+	.header{
+	margin: 10px;
+	border: 1px solid orange;
+	}
+	.group{
+	margin: 10px;
+	}
+	.papup2{
+	float: left;
+	}
+
+
+</style>
+</head>
+<body>
+<div class="warp">
+<div class="header"><h1>◈팝업창 관리◈</h1></div>
+		<form action="../index.html">
+		팝업창<br /><input class="papup2" type="radio" name="papup" value="ON" checked> ON <br>
+    	<input type="radio" name="papup" value="OFF" > OFF <br>
+		팝업창 파일 등록: <input class="papup" type="file" name="img"><input type="submit" value="등록">
+	</form>
+</div>
+</body>
+</html>

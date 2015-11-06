@@ -3,8 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/common.css" type="text/css" />
+<style>
+body {
+	margin: 10px auto;
+	padding: 0;
+}
+
+.menu {
+	float: left;
+	width: 200px;
+	text-indent: 10px;
+	padding-top: 200px;
+}
+
+ul.menu, ul.menu ul {
+	padding: 0;
+}
+
+.group .nav {
+	height: 35px;
+	line-height: 35px;
+	background: orange;
+}
+
+ul.sub li {
+	margin-bottom: 0;
+	height: 35px;
+	line-height: 35px;
+	background: gray;
+}
+
+ul.sub li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: #000;
+}
+
+ul.sub li:hover {
+	background: #cf0;
+}
+
+
+
+.header {
+	margin: 10px;
+	border: 1px solid orange;
+}
+
+.group {
+	margin: 10px;
+}
+
+.iframe {
+	float: right;
+	width: 85%;
+	height: 755px;
+	margin: 10px;
+	border: 1px solid orange;
+}
+	.home{
+	background: url("../images/home_alt.png");
+	background-size: 100% 100%; 
+	}
+</style>
+	<script type="text/javascript">
+	function movie(){
+		var sitesrc = "movie.html";
+		document.getElementById("siteframe").src = sitesrc;
+	}
+	function list(){
+		var sitesrc = "list.html";
+		document.getElementById("siteframe").src = sitesrc;
+	}
+	function page(){
+		var sitesrc = "page.html";
+		document.getElementById("siteframe").src = sitesrc;
+	}
+	function admin(){
+		var sitesrc = "first.html";
+		document.getElementById("siteframe").src = sitesrc;
+	}
+	</script>
+	
+		
 </head>
 <body>
-
+	<div class="warp">
+		<!-- <div class="header">
+			<h1>◈관리자 초기 페이지◈</h1>
+		</div> -->
+		
+		<iframe class="iframe" src="first.html" id="siteframe"></iframe>
+		<!--     <div class="box_1" ></div>
+    <div class="box_2" ></div> -->
+		<a href="#" onclick="admin()"><div class="home" style="width: 200px; height: 100px;" ></div></a>
+			<ul class="menu">
+				<li class="group">
+					<div class="nav">회원 관리</div>
+					<ul class="sub">
+						<li><a href="#" onclick="list()">회원 목록</a></li>
+					</ul>
+				</li>
+				<li class="group">
+					<div class="nav">영화 관리</div>
+					<ul class="sub">
+						<li><a href="#" onclick="movie()">영화 등록</a></li>
+						<li><a href="#">영화 수정</a></li>
+					</ul>
+				</li>
+				<li class="group">
+					<div class="nav">페이지 관리</div>
+					<ul class="sub">
+						<li><a href="#">메뉴 관리</a></li>
+						<li><a href="#" onclick="page()">팝업창 관리</a></li>
+						<li><a href="#">기타 관리</a></li>
+					</ul>
+				</li>
+			</ul>
+		
+	</div>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.main{
+	margin: 10px;
+	border: 1px solid orange;
+	}
+	.poster{
+	float: left;
+	width: 85%;
+	margin: 20px;
+	}
+	.director{
+	float: left;
+	width: 85%;
+	margin: 20px;
+	}
+	.actor{
+	float: left;
+	width: 85%;
+	margin: 20px;
+	}
+	.genre{
+	float: left;
+	width: 85%;
+	margin: 20px;
+	}
+	.con{
+	float: left;
+	width: 85%;
+	height: 50px;
+	border: 1px solid orange;
+	margin: 20px;
+	}
+	.button{
+	margin: 10px;
+	}
+
+</style>
+</head>
+<body>
+<div class="warp">
+<div class="main"><h1>◈영화 수정◈</h1></div>
+		<form action="../index.html">
+		<div class="poster">포스터 등록: <input type="file" name="img"><input type="submit" value="등록"></div> 
+		</form>
+		<form action="../index.html">
+		<div class="director">감독: <input list="name" name="name"><input type="submit"value="등록"></div>
+		</form>
+		<form action="../index.html">
+		<div class="actor">배우: <input list="name" name="name"><input type="submit"value="등록"></div>
+		</form>
+		<form action="../index.html">
+		<div class="genre">장르: <input list="name" name="name"><input type="submit"value="등록"></div>
+		</form>
+		<div class="con">내용</div>
+		<form action="../index.html">
+		<div class="button"><input type="submit" value="등록"></div> 
+		<div class="button"><input type="submit" value="수정"></div> 
+		</form>
+	</div>
+</body>
+</html>
