@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입-정보입력</title>
+
+<style>
+.inline{display: inline}
+</style>
+
+
+
+</head>
+<body>
+
+	<div class="wrap" style="width: 100%; margin: auto">
+		
+		<div style="width: 540px; height: 565px; margin-top: 100px; margin-left: 170px;">
+		<h3 class="inline">정보입력</h3>
+		<h5 class="inline"> &nbsp;&nbsp;&nbsp; 회원가입에 필요한 고객님의 정보를 입력해주세요</h5> <br><br>
+		
+		
+		
+		<form action="#" method="GET" target="_blank">  
+		* 아이디 : <input type="text" name="userid" size="8"> <input type="button" value="중복확인" onclick="alert('중복확인이 완료되었습니다.')"> 영문이나 숫자 혹은 그 조합 8~12자리 <br><br>
+		* 비밀번호 : <input type="password" name="password" size="7" > 영문혹은 숫자 혹은 그 조합 10자리 이상 <br><br>
+		* 비밀번호 확인 : <input type="password" name="password" size="7"> <br><br>
+		* 이름 : <input type="text" name="이름" placeholder="실명을 입력하세요." size="11"> <br><br>
+		* 생년월일 : &nbsp;&nbsp;<input type="text" name="생년" size="6"> 년
+		<input type="text" name="월" size="4"> 월
+		<input type="text" name="일" size="4"> 일
+		<br><br>
+		주소 : <input type="text" name="post_num" size="4" value="" readonly> -
+		<input type="text" name="post_num" size="4" value="" readonly> <input type="image" src="../images/add_search.PNG" /> <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="address" size="20" placeholder="상세주소를 입력해주세요." autocomplete="on"> <br><br>
+		* 성별 : <input type="radio" name="성별" value="남" checked> 남
+		 		<input type="radio" name="성별" value="여"> 여 <br><br>
+		* 이메일 : <input type="email" name="email" autocomplete="on"> <br><br>
+		* 휴대폰 : <input type="text" name="tel_num" size = "3" />-
+		<input type="text" name="tel_num" size = "3" />-
+		<input type="text" name="tel_num" size = "3" />
+
+
+		<br><br><br><br><br>
+		<input type="image" src="../images/suc.PNG" alt="submit"/>
+		<input type="image" src="../images/cancel.PNG" alt="cancel" />
+		</form>
+		</div>
+
+
+
+
+
+
+
+
+	</div>
+</body>
+</html>
