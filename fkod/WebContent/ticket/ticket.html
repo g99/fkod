@@ -4,320 +4,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/common.css" type="text/css">
-<style>
-body {
-	background:;
-}
-
-/* /// FLEX-CONTAINER */
-.flex-container {
-	display: -webkit-flex;
-	display: flex;
-	width: 900px;
-	height: 500px;
-	background-image: url("../images/res_bg.jpg");
-}
-
-.flex-item {
-	/*  background-color: cornflowerblue; */
-	background-color: hsla(30, 30%, 30%, .3);
-	margin: 10px;
-}
-
-.item1 {
-	-webkit-flex: 1;
-	flex: 1;
-	
-	margin-right: 5px;
-}
-
-.item2 {
-	-webkit-flex: 1;
-	flex: 1;
-	
-	margin-right: 5px;
-	margin-left: 5px;
-}
-
-.item3 {
-	-webkit-flex: 1;
-	flex: 1;
-	
-	margin-right: 5px;
-	margin-left: 5px;
-}
-
-.item4 {
-	-webkit-flex: 0.5;
-	flex: 0.5;
-	
-	margin-left: 5px;
-}
-
-.flex-container h4 {
-	height: 20px;
-	padding: 0 20px;
-	border-bottom: 5px solid hsla(0, 0%, 100%, 1);
-	margin-bottom: 0px;
-	color: #FFF;
-	font-weight: bold;
-	line-height: 0px;
-	text-align: center;
-}
-
-/* /// CONTAINER */
-#container {
-	position: relative;
-	padding: 0px 0;
-	height: 35px;
-	font-family: sans-serif;
-	color: #666;
-	line-height: normal;
-	-webkit-font-smoothing: antialiased;
-}
-/* /// MENU */
-#menu {
-	height: 35px;
-	box-shadow: 0 3px #81B300;
-}
-/* INSET */
-#menu .inset {
-	position: relative;
-	max-width: 700px;
-	height: 35px;
-	margin: auto;
-}
-/* category */
-#menu .inset .category {
-	float: left;
-	height: 35px;
-	border-right-width: 2px solid hsla(0, 0%, 100%, 1);
-} /* 아이템 다음줄 사이간격 */
-/* LINK */
-#menu .inset .category .radio {
-	display: none;
-}
-
-#menu .inset .category .link {
-	cursor: pointer;
-	height: 25px;
-	padding: 5px 5px;
-	display: block;
-	color: #333;
-	font-weight: bold;
-	
-	/* line-height: 15px; */
-}
-
-#menu .inset .category .link:hover {
-	color: #81B300;
-}
-
-#menu .inset .category .radio:checked+.link {
-	background: #81B300;
-	color: #FFF;
-}
-/* SUB */
-#menu .inset .category .sub {
-	position: absolute;
-	top: 35px;
-	left: 0;
-	right: 0;
-	padding: 5px;
-	background: #81B300;
-	display: none;
-}
-
-#menu .inset .category .radio:checked+.link+.sub {
-	display: table;
-}
-/* LIST category */
-#menu .inset .category .sub .list-category {
-	min-width: 218px;
-	padding: 10px;
-	padding-right: 5px;
-	display: table-cell;
-}
-
-#menu .inset .category .sub .list-category a {
-	padding: 5px 10px;
-	display: block;
-	font-size: 90%;
-	color: #FFF;
-	text-decoration: none;
-}
-
-#menu .inset .category .sub .list-category a:hover {
-	background: hsla(0, 0%, 100%, .1);
-}
-
-#menu .inset .category .sub .list-category #form {
-	display: table;
-}
-
-#menu .inset .category .sub .list-category dl {
-	max-height: 337px;
-	overflow: auto;
-}
-
-#menu .inset .category .sub .list-category #form dt {
-	position: relative;
-	display: table-cell;
-	color: #FFF;
-}
-
-.bookmark .subtitle {
-	height: 20px;
-	padding: 8px;
-	
-	display: block;
-	color: #333;
-	font-weight: bold;
-	line-height: 15px;
-}
-
-.bookmark dl {
-	border-top: 3px solid #81B300;
-	border-bottom: 3px solid #81B300;
-	min-height: 70px;
-	max-height: 70px;
-	overflow: auto;
-	margin-top: 0px;
-	margin-bottom: 10px;
-	padding: 5px;
-}
-
-.item2 #container #menu .inset .category .sub .list-category dl {
-	max-height: 205px;
-	overflow: auto;
-}
-
-.bookmark .list-category a {
-	padding: 2px 5px;
-	display: block;
-	font-size: 90%;
-	color: #FFF;
-	text-decoration: none;
-}
-
-.bookmark .list-category a:hover {
-	background: hsla(0, 0%, 100%, .1);
-}
-
-.bookmark .list-category {
-	background: #81B300;
-}
-
-.times .list-category a {
-	padding: 2px 5px;
-	display: block;
-	font-size: 90%;
-	color: #FFF;
-	text-decoration: none;
-}
-
-.times .list-category a:hover {
-	background: hsla(0, 0%, 100%, .1);
-}
-
-.times .list-category {
-	background: #81B300;
-	padding: 5px;
-	max-height: 375px;
-}
-
-.times .list-category dl {
-	border-top: 3px solid #FFFFFF;
-	border-bottom: 3px solid #FFFFFF;
-	overflow: auto;
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
-
-.hall {
-	font-size: 15px;
-	height: 25px;
-	padding: 5px 5px;
-	display: block;
-	color: #FFF;
-	font-weight: bold;
-}
-
-.item4 .choiceseat {
-	display: none;
-}
-
-.item4 .choiceseatlabel {
-	position: absolute;
- 	top: 448px;
-    left: 777px;
-    /* vertical-align: middle; */
-	/* top: 140px; */
-	/* margin: auto; */
-	background-color: #202020;
-    
-	cursor: pointer;
-	width: 111px;
-	height: 40px;
-	padding: 5px 5px;
-	display: block;
-	color: #FFF;
-	font-weight: bold;
-	text-align: center;
-	line-height: 220%;
-}
-
-.item4 .choiceseatlabel:hover {
-	color: #81B300;
-}
-
-</style>
+<link rel="stylesheet" href="../css/common.css" type="text/css" />
 </head>
-
 <body>
-	<div class="wrap">
+	<div class="ticket_wrap">
 		<!-- FLEX-CONTAINER -->
-		<div class="flex-container">
-			
-			<div class="flex-item item1">
+		<div class="ticket_flex-container">
+
+			<div class="ticket_flex-item ticket_item1">
 				<h4>영화</h4>
 				<!-- CONTAINER -->
-				<main id="container"> <!-- MENU -->
-				<nav id="menu">
+				<main id="ticket_container"> <!-- MENU -->
+				<nav id="ticket_menu">
 					<!-- INSET -->
-					<dl class="inset">
+					<dl class="ticket_inset">
 						<!-- category -->
-						<dt class="category">
+						<dt class="ticket_category">
 							<!-- LINK -->
-							<input id="resrate" class="radio" name="links" type="radio">
-							<label class="link" for="resrate">예매율</label>
+							<input id="ticket_resrate" class="ticket_radio" name="links"
+								type="radio"> <label class="ticket_link"
+								for="ticket_resrate">예매율</label>
 							<!-- /// END LINK -->
 							<!-- SUB -->
-							<div class="sub">
+							<div class="ticket_sub">
 								<!-- LIST category -->
-								<div class="list-category">
+								<div class="ticket_list-category">
 									<dl>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
+										<dt>
+											<a href="#">마션</a>
+										</dt>
+										<dt>
+											<a href="#">인턴</a>
+										</dt>
+										<dt>
+											<a href="#">탐정-더비기닝</a>
+										</dt>
+										<dt>
+											<a href="#">팬</a>
+										</dt>
+										<dt>
+											<a href="#">퐁네프의연인들</a>
+										</dt>
+										<dt>
+											<a href="#">마션</a>
+										</dt>
+										<dt>
+											<a href="#">인턴</a>
+										</dt>
+										<dt>
+											<a href="#">탐정-더비기닝</a>
+										</dt>
+										<dt>
+											<a href="#">팬</a>
+										</dt>
+										<dt>
+											<a href="#">퐁네프의연인들</a>
+										</dt>
+										<dt>
+											<a href="#">마션</a>
+										</dt>
+										<dt>
+											<a href="#">인턴</a>
+										</dt>
+										<dt>
+											<a href="#">탐정-더비기닝</a>
+										</dt>
+										<dt>
+											<a href="#">팬</a>
+										</dt>
+										<dt>
+											<a href="#">퐁네프의연인들</a>
+										</dt>
+										<dt>
+											<a href="#">마션</a>
+										</dt>
+										<dt>
+											<a href="#">인턴</a>
+										</dt>
+										<dt>
+											<a href="#">탐정-더비기닝</a>
+										</dt>
+										<dt>
+											<a href="#">팬</a>
+										</dt>
+										<dt>
+											<a href="#">퐁네프의연인들</a>
+										</dt>
 									</dl>
 								</div>
 								<!-- /// END LIST category -->
@@ -326,21 +98,32 @@ body {
 						</dt>
 						<!-- /// END category -->
 						<!-- category -->
-						<dt class="category">
+						<dt class="ticket_category">
 							<!-- LINK -->
-							<input id="koreanorder" class="radio" name="links" type="radio">
-							<label class="link" for="koreanorder">가나다</label>
+							<input id="ticket_koreanorder" class="ticket_radio" name="links"
+								type="radio"> <label class="ticket_link"
+								for="ticket_koreanorder">가나다</label>
 							<!-- /// END LINK -->
 							<!-- SUB -->
-							<div class="sub">
+							<div class="ticket_sub">
 								<!-- LIST category -->
-								<div class="list-category">
+								<div class="ticket_list-category">
 									<dl>
-										<dt><a href="#">마션</a></dt>
-										<dt><a href="#">인턴</a></dt>
-										<dt><a href="#">탐정-더비기닝</a></dt>
-										<dt><a href="#">팬</a></dt>
-										<dt><a href="#">퐁네프의연인들</a></dt>
+										<dt>
+											<a href="#">마션</a>
+										</dt>
+										<dt>
+											<a href="#">인턴</a>
+										</dt>
+										<dt>
+											<a href="#">탐정-더비기닝</a>
+										</dt>
+										<dt>
+											<a href="#">팬</a>
+										</dt>
+										<dt>
+											<a href="#">퐁네프의연인들</a>
+										</dt>
 									</dl>
 								</div>
 								<!-- /// END LIST category -->
@@ -354,86 +137,141 @@ body {
 				<!-- /// END MENU --> </main>
 				<!-- /// END CONTAINER -->
 			</div>
-			<div class="flex-item item2">
+			<div class="ticket_flex-item ticket_item2">
 				<h4>극장</h4>
-				<div class="bookmark">
-				<label class="subtitle">자주 가는 극장</label>
-					<div class="list-category">
+				<div class="ticket_bookmark">
+					<label class="ticket_subtitle">자주 가는 극장</label>
+					<div class="ticket_list-category">
 						<dl>
-							<dt><a href="#">강남점</a></dt>
-							<dt><a href="#">압구정점</a></dt>
-							<dt><a href="#">강변점</a></dt>
+							<dt>
+								<a href="#">강남점</a>
+							</dt>
+							<dt>
+								<a href="#">압구정점</a>
+							</dt>
+							<dt>
+								<a href="#">강변점</a>
+							</dt>
 						</dl>
 					</div>
 				</div>
-				<main id="container">
-				<nav id="menu">
-					<dl class="inset">
-						<dt class="category">
-							<input id="normal" class="radio" name="links2" type="radio">
-							<label class="link" for="normal">일반</label>
-							<div class="sub">
-								<div class="list-category">
+				<main id="ticket_container">
+				<nav id="ticket_menu">
+					<dl class="ticket_inset">
+						<dt class="ticket_category">
+							<input id="ticket_normal" class="ticket_radio" name="links2"
+								type="radio"> <label class="ticket_link"
+								for="ticket_normal">일반</label>
+							<div class="ticket_sub">
+								<div class="ticket_list-category">
 									<dl>
-										<dt><a href="#">강남</a></dt>
-										<dt><a href="#">압구정</a></dt>
-										<dt><a href="#">강변</a></dt>
-										<dt><a href="#">목동</a></dt>
-										<dt><a href="#">명동</a></dt>
-										<dt><a href="#">대학로</a></dt>
-										<dt><a href="#">강동</a></dt>
-										<dt><a href="#">구로</a></dt>
-										<dt><a href="#">강남</a></dt>
-										<dt><a href="#">압구정</a></dt>
-										<dt><a href="#">강변</a></dt>
-										<dt><a href="#">목동</a></dt>
-										<dt><a href="#">명동</a></dt>
-										<dt><a href="#">대학로</a></dt>
-										<dt><a href="#">강동</a></dt>
-										<dt><a href="#">구로</a></dt>
+										<dt>
+											<a href="#">강남</a>
+										</dt>
+										<dt>
+											<a href="#">압구정</a>
+										</dt>
+										<dt>
+											<a href="#">강변</a>
+										</dt>
+										<dt>
+											<a href="#">목동</a>
+										</dt>
+										<dt>
+											<a href="#">명동</a>
+										</dt>
+										<dt>
+											<a href="#">대학로</a>
+										</dt>
+										<dt>
+											<a href="#">강동</a>
+										</dt>
+										<dt>
+											<a href="#">구로</a>
+										</dt>
+										<dt>
+											<a href="#">강남</a>
+										</dt>
+										<dt>
+											<a href="#">압구정</a>
+										</dt>
+										<dt>
+											<a href="#">강변</a>
+										</dt>
+										<dt>
+											<a href="#">목동</a>
+										</dt>
+										<dt>
+											<a href="#">명동</a>
+										</dt>
+										<dt>
+											<a href="#">대학로</a>
+										</dt>
+										<dt>
+											<a href="#">강동</a>
+										</dt>
+										<dt>
+											<a href="#">구로</a>
+										</dt>
 									</dl>
 								</div>
 							</div>
 						</dt>
-						<dt class="category">
-							<input id="art" class="radio" name="links2" type="radio">
-							<label class="link" for="art">아트</label>
-							<div class="sub">
-								<div class="list-category">
+						<dt class="ticket_category">
+							<input id="ticket_art" class="ticket_radio" name="links2"
+								type="radio"> <label class="ticket_link"
+								for="ticket_art">아트</label>
+							<div class="ticket_sub">
+								<div class="ticket_list-category">
 									<dl>
-										<dt><a href="#">강남</a></dt>
-										<dt><a href="#">압구정</a></dt>
+										<dt>
+											<a href="#">강남</a>
+										</dt>
+										<dt>
+											<a href="#">압구정</a>
+										</dt>
 									</dl>
 								</div>
 							</div>
 						</dt>
-						<dt class="category">
-							<input id="special" class="radio" name="links2" type="radio">
-							<label class="link" for="special">특별관</label>
-							<div class="sub">
-								<div class="list-category">
+						<dt class="ticket_category">
+							<input id="ticket_special" class="ticket_radio" name="links2"
+								type="radio"> <label class="ticket_link"
+								for="ticket_special">특별관</label>
+							<div class="ticket_sub">
+								<div class="ticket_list-category">
 									<dl>
-										<dt class="category">
-											<input id="special_seoul" class="radio" name="links3" type="radio">
-											<label class="link" for="special_seoul">서울</label>
-											<div class="sub">
-												<div class="list-category">
-												<dl>
-													<dt><a href="#">강남</a></dt>
-													<dt><a href="#">압구정</a></dt>
-												</dl>
+										<dt class="ticket_category">
+											<input id="ticket_special_seoul" class="ticket_radio"
+												name="links3" type="radio"> <label
+												class="ticket_link" for="ticket_special_seoul">서울</label>
+											<div class="ticket_sub">
+												<div class="ticket_list-category">
+													<dl>
+														<dt>
+															<a href="#">강남</a>
+														</dt>
+														<dt>
+															<a href="#">압구정</a>
+														</dt>
+													</dl>
 												</div>
 											</div>
 										</dt>
-										<dt class="category">
-											<input id="special_ki" class="radio" name="links3" type="radio">
-											<label class="link" for="special_ki">경기·인천</label>
-											<div class="sub">
-												<div class="list-category">
-												<dl>
-													<dt><a href="#">인천</a></dt>
-													<dt><a href="#">부천</a></dt>
-												</dl>
+										<dt class="ticket_category">
+											<input id="ticket_special_ki" class="ticket_radio"
+												name="links3" type="radio"> <label
+												class="ticket_link" for="ticket_special_ki">경기·인천</label>
+											<div class="ticket_sub">
+												<div class="ticket_list-category">
+													<dl>
+														<dt>
+															<a href="#">인천</a>
+														</dt>
+														<dt>
+															<a href="#">부천</a>
+														</dt>
+													</dl>
 												</div>
 											</div>
 										</dt>
@@ -445,37 +283,54 @@ body {
 				</nav>
 				</main>
 			</div>
-			<div class="flex-item item3">
+			<div class="ticket_flex-item ticket_item3">
 				<h4>날짜</h4>
-				<div class="date">
+				<div class="ticket_date">
 					<input type="date" name="bday" min="2015-11-05" max="2015-12-05"><br>
 				</div>
 			</div>
-			<div class="flex-item item4">
+			<div class="ticket_flex-item ticket_item4">
 				<h4>시간</h4>
-				<div class="times">
-					<div class="list-category">
-						<label class="hall">6관</label>
+				<div class="ticket_times">
+					<div class="ticket_list-category">
+						<label class="ticket_hall">6관</label>
 						<dl>
-							<dt><a href="#">⊙08:00</a></dt>
-							<dt><a href="#">10:30</a></dt>
-							<dt><a href="#">13:00</a></dt>
-							<dt><a href="#">15:30</a></dt>
-							<dt><a href="#">18:00</a></dt>
-							<dt><a href="#">20:30</a></dt>
-							<dt><a href="#">23:00</a></dt>
-							<dt><a href="#">★01:30</a></dt>
+							<dt>
+								<a href="#">⊙08:00</a>
+							</dt>
+							<dt>
+								<a href="#">10:30</a>
+							</dt>
+							<dt>
+								<a href="#">13:00</a>
+							</dt>
+							<dt>
+								<a href="#">15:30</a>
+							</dt>
+							<dt>
+								<a href="#">18:00</a>
+							</dt>
+							<dt>
+								<a href="#">20:30</a>
+							</dt>
+							<dt>
+								<a href="#">23:00</a>
+							</dt>
+							<dt>
+								<a href="#">★01:30</a>
+							</dt>
 						</dl>
 					</div>
 				</div>
-				<!-- <label class="choiceseat">좌석선택</label> -->
-				<!-- <input class="choiceseat" type="submit" value="좌석선택"> -->
+				<!-- <label class="ticket_choiceseat">좌석선택</label> -->
+				<!-- <input class="ticket_choiceseat" type="submit" value="좌석선택"> -->
 				<form action="seats.html">
-				<input id="choiceseat" class="choiceseat" name="next" type="submit">
-				<label class="choiceseatlabel" for="choiceseat">좌석선택</label>
+					<input id="ticket_choiceseat" class="ticket_choiceseat" name="next"
+						type="submit"> <label class="ticket_choiceseatlabel"
+						for="ticket_choiceseat">좌석선택</label>
 				</form>
 			</div>
-			
+
 		</div>
 	</div>
 

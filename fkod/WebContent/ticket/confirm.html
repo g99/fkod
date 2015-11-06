@@ -5,141 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/common.css" type="text/css">
-<style>
-body {
-	background:;
-}
-
-/* /// FLEX-CONTAINER */
-.flex-container {
-	display: -webkit-flex;
-	display: flex;
-	width: 900px;
-	height: 500px;
-	background-image: url("../images/res_bg.jpg");
-}
-
-.flex-item {
-	/*  background-color: cornflowerblue; */
-	background-color: hsla(30, 30%, 30%, .3);
-	margin: 10px;
-}
-
-.item1 {
-	-webkit-flex: 2.5;
-	flex: 2.5;
-}
-.item2 {
-	-webkit-flex: 1;
-	flex: 1;
-}
-
-.flex-container h3 {
-	height: 20px;
-	padding: 0 20px;
-	border-bottom: 5px solid hsla(0, 0%, 100%, 1);
-	margin-bottom: 0px;
-	color: #FFF;
-	font-weight: bold;
-	line-height: 0px;
-	text-align: center;
-}
-
-.infomain {
-	background-color: #81B300;
-	padding-top: 10px;
-	padding-bottom: 15px;
-	margin: 10px;
-}
-
-
-.item1 .resconfirm {
-	display: none;
-}
-
-.item1 .resconfirmlabel {
-	position: absolute;
- 	top: 448px;
-    left: 777px;
-	background-color: #202020;
-    
-	cursor: pointer;
-	width: 111px;
-	height: 40px;
-	padding: 5px 5px;
-	display: block;
-	color: #FFF;
-	font-weight: bold;
-	text-align: center;
-	line-height: 220%;
-}
-
-.item1 .resconfirmlabel:hover {
-	color: #81B300;
-}
-</style>
 </head>
-
 <body>
-	<div class="wrap">
+	<div class="confirm_wrap">
 		<!-- FLEX-CONTAINER -->
-		<div class="flex-container">
-				<div class="flex-item item1">
+		<div class="confirm_flex-container">
+				<div class="confirm_flex-item confirm_item1">
 					<h3>예매 확인</h3>
-					<div class="infomain">
-						<div class="info" style="display: inline-block;">
-							<div class="info">
-					<div class="movieinfo">
-						<div class="infoline">
-							<label class="infotitle">영화</label>
+					<div class="confirm_infomain">
+						<div class="confirm_info" style="display: inline-block;">
+							<div class="confirm_info">
+					<div class="confirm_movieinfo">
+						<div class="confirm_infoline">
+							<label class="confirm_infotitle">영화</label>
 							<h5 style="display: inline-block;margin: 0;">성난변호사 2D 15세 관람가</h5>
 						</div>
-						<div class="infoline">
-							<label class="infotitle">일시</label>
+						<div class="confirm_infoline">
+							<label class="confirm_infotitle">일시</label>
 							<h5 style="display: inline-block;margin: 0;">2015.10.11(일) 20:30</h5>
 						</div>
-						<div class="infoline">
-							<label class="infotitle">인원</label>
+						<div class="confirm_infoline">
+							<label class="confirm_infotitle">인원</label>
 							<h5 style="display: inline-block;margin: 0;">일반3명</h5>
 							<h5 style="display: inline-block;margin: 0;">청소년3명</h5>
 							<h5 style="display: inline-block;margin: 0;">우대3명</h5>
 						</div>
-						<div class="infoline">
-							<label class="infotitle">좌석명</label>
+						<div class="confirm_infoline">
+							<label class="confirm_infotitle">좌석명</label>
 							<h5 style="display: inline-block;margin: 0;">일반석</h5>
 						</div>
-						<div class="infoline">
-							<label class="infotitle">좌석번호</label>
+						<div class="confirm_infoline">
+							<label class="confirm_infotitle">좌석번호</label>
 							<h5 style="display: inline-block;margin: 0;">F5, F6, F7, F8, G5, G6, G7, G8, G9</h5>
 						</div>
 					</div>
-					<div class="cal">
-						<div class="normal">
-							<label class="infotitle">일반</label>
+					<div class="confirm_cal">
+						<div class="confirm_normal">
+							<label class="confirm_infotitle">일반</label>
 							<h5 style="display: inline-block;margin: 0;">10,000원 X 3</h5>
 						</div>
-						<div class="adolescent">
-							<label class="infotitle">청소년</label>
+						<div class="confirm_adolescent">
+							<label class="confirm_infotitle">청소년</label>
 							<h5 style="display: inline-block;margin: 0;">7,000원 X 3</h5>
 						</div>
-						<div class="treatment">
-							<label class="infotitle">우대</label>
+						<div class="confirm_treatment">
+							<label class="confirm_infotitle">우대</label>
 							<h5 style="display: inline-block;margin: 0;">4,000원 X 3</h5>
 						</div>
-						<div class="sum">
-							<label class="infotitle">총금액</label>
+						<div class="confirm_sum">
+							<label class="confirm_infotitle">총금액</label>
 							<h5 style="display: inline-block;margin: 0;">63,000원</h5>
 						</div>
 					</div>
 				</div>
 						</div>
-						<div class="image" style="display: inline-table;">
+						<div class="confirm_image" style="display: inline-table;">
 							<img src="../images/ssk.jpg" alt="" height="300px" width="200px"/>
 						</div>
 					</div>
 				<form action="ticket.html">
-				<input id="resconfirm" class="resconfirm" name="next" type="submit">
-				<label class="resconfirmlabel" for="resconfirm">확 인</label>
+				<input id="confirm_resconfirm" class="confirm_resconfirm" name="next" type="submit">
+				<label class="confirm_resconfirmlabel" for="confirm_resconfirm">확 인</label>
 				</form>
 				</div>
 		</div>
