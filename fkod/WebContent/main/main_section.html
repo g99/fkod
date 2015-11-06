@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<style>
+
+.inline{display: inline}
+
+	/*<div> 무비 div 소스
+				<video width="733" height="388" controls>
+					<source src="mov_bbb.mp4" type="video/mp4">
+				</video>
+			</div> */
+#main_nav_bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+#main_nav_bar li {
+    float: left;
+    font-family: "Verdana,sans-serif"
+}
+
+#main_nav_bar a:link, a:visited {
+    display: block;
+    width: 120px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #98bf21;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#main_nav_bar a:hover, a:active {
+    background-color: #ff9900;
+}
+
+
+</style>
+
+
+</head>
+<body>
+	<div class="wrap" style= "width:100%; margin:auto">
+	<!-- 이미지 슬라이딩 섹션 기본사이즈 980, 450-->
+		<div style="width:100%; margin:auto;">
+			<div style = "width:980px; height:450px; margin:auto;">
+			<img src="../images/slide1.jpg" width="980px" height="450px" alt="Slide1"/>
+			</div>
+		</div>
+
+
+
+
+
+	<!-- 무비 셀렉션 컷팅 이미지 -->
+		<div style="width: 100%; margin: auto;">
+			<div style="width: 980px; height: 41px; margin: auto">
+				<img src="../images/selection_sample.PNG" alt="sample1"
+					width="980px" height="41px" />
+			</div>
+		</div>
+
+		<!-- 무비셀렉션 섹션 (최신 영화 및 포스터 섹션)-->
+		<div style="width: 100%;">
+
+			<div style="width: 1000px; height: 388px; margin: auto;">
+				<div class="inline"
+					style="width: 733px; height: 388px; margin: auto;">
+					<!-- video -->
+					<iframe width="733px" height="388px"
+						src="https://www.youtube.com/embed/4OrCA1OInoo"> </iframe>
+				</div>
+				<div class="inline"
+					style="width: 240px; height: 388px; margin: auto;">
+					<!-- 포스터, 이미지에 링크 걸어주기 -->
+					<img src="../images/sample_image1.jpg" alt="sample_img"
+						width="240px" height="388px" />
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- 이벤트 아티클 컷팅 이미지 -->
+		<div style="width: 100%; margin: auto;">
+			<div style="width: 980px; height: 41px; margin: auto">
+				<img src="../images/eventcut.PNG" alt="sample2"
+					width="980px" height="40px" />
+			</div>
+		</div>
+		
+		
+		
+		<!-- 이벤트아티클 파트 -->
+		<div id = "main_nav_bar" style="width: 100%;">
+			<ul style="width: 700px; height: 30; margin: auto">
+				<li><a href="#극장스페셜">극장스페셜</a></li>
+				<li><a href="#예매이벤트">예매이벤트</a></li>
+				<li><a href="#독립영화전용관">독립영화전용관</a></li>
+				<li><a href="#할인혜택">할인혜택</a></li>
+				<li><a href="#멤버쉽">멤버쉽</a></li>
+			</ul>
+		</div>
+		<div style="width: 100%; height: 10px;"></div>
+		
+		<div style="width:100%; margin: auto;">
+			<div style="width: 980px; height: 210px; margin: auto;">
+			<a href="http://www.naver.com"><img src="../images/banner1.jpg" alt="banner1" width="240" height="200" /></a>	
+			<img src="../images/banner2.jpg" alt="banner2" width="240" height="200" />		
+			<img src="../images/banner3.jpg" alt="banner3" width="240" height="200" />		
+			<img src="../images/banner4.jpg" alt="banner4" width="240" height="200" />		
+			</div>
+		</div>
+		
+		<div style="width: 990px; height: 335px; margin: auto;">
+				<a href="#생략된 기능입니다."><img src="../images/bottom_sam.PNG" alt="" /></a>
+		</div>
+
+
+	
+
+
+
+
+
+	</div>
+</body>
+</html>

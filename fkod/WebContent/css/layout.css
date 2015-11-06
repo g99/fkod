@@ -1,1 +1,10 @@
 @CHARSET "UTF-8";
+.bg_color_orange{
+	background-color: orange;
+}
+.bg_color_aqua{
+	background-color: aqua;
+}
+.bg_color_black{
+	background-color: black;
+}

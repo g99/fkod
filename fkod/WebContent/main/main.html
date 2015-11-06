@@ -2,9 +2,120 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>영화 그 이상의 감동 fk5d!!</title>
+<link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<style>
+.inline {
+	display: inline
+}
+
+.header {
+	background-color: #8ac007;
+	color: white;
+	text-align: center;
+	padding: 5px;
+}
+
+.topheader {
+	background-color: white;
+	border: 4px solid #8ac007;
+	color: black;
+	text-align: left;
+}
+
+.event_text {
+	font-family: "Verdana,sans-serif";
+	font-size: 19pt;
+	text-align: center;
+}
+
+li {
+display: inline;
+}
+
+.table_std{border-collapse: collapse; }
+.t_std{padding: 5px }
+.th_std{text-align: right; font-size: 17px; }
+
+</style>
+
 </head>
 <body>
+	<div class="wrap">
+		<div>
+			<div class="topheader">
+				<!-- 앱 설치 및 회원가입 최상단 바 -->
+				<ul style="font-size: 15px;">
+					<li><a href="#앱 설치 주소값">앱 설치</a></li>
+					<li><a href="../join/join1.html">회원가입</a></li>
+				</ul>
+			</div>
 
+			<div class="header">
+			
+				<!-- 상단 메인 헤더 + 로고 들어가야됨-->
+				
+				<!-- 로고 헤더 -->
+			<!-- 	<div style="width:130px; height:140px;  float: left; margin-left: 45px; margin-bottom: 100px"> -->
+				<!-- <a href="main.html"><img src="../images/main_logo.png" alt="" /></a> -->
+				<!-- </div> -->
+				
+				<!-- 상단 로그인 헤더 -->
+				<form action="#" method="GET" target="_blank" style="float: right;">
+					<table class="table_std">
+						<tr class="t_std">
+							<th class="t_std th_std">ID:</th>
+							<td class="t_std"><input type="text" name="firstname"
+								placeholder="아이디를 입력하세요" autofocus autocomplete="on" required>
+							</td>
+							<td rowspan="2" class="t_std"><input type="submit"
+								value="Log-in"></td>
+						</tr>
+						<tr class="t_std">
+							<th class="t_std th_std">비밀번호:</th>
+							<td class="t_std"><input type="password" name="password"
+								placeholder="비밀번호를 입력하세요" required></td>
+						</tr>
+
+					</table>
+				</form>
+
+				
+				
+				<div>
+					<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOVIEPLEX</h1>
+					<!-- 메인 페이지 제목 -->
+				</div>
+				<div class="bg_color_white">
+					<h2></h2>
+					<ul id="mainmenu" class="inline" style= "font-style: sans-serif; font-size: 20px; ">
+						<li class="movie"><a href="#영화페이지 링크">영화</a></li>
+						<li class="reser"><a href="#예매 페이지 링크">예매</a></li>
+						<li class="theaters"><a href="#극장 페이지 링크">극장</a></li>
+						<li class="reser"><a href="#이벤트&컬쳐 페이지 링크">이벤트&컬처</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<hr />
+		<div>
+			<p class="event_text">
+				<a href="#해당 메인 이벤트 페이지로 이동">메인 이벤트 텍스트</a>
+			</p>
+		</div>
+		<hr />
+		<iframe src="main_section.html" width=100% height="2000">
+		</iframe>
+
+
+
+
+
+
+
+
+	</div>
 </body>
 </html>
