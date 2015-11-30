@@ -3,5 +3,6 @@
 <script type="text/javascript">
 	$(function() {
 		console.log("메인시작");
+		location.href = "${context}/global/Main.do";
 	});
 </script>

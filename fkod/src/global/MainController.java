@@ -18,7 +18,6 @@ public class MainController extends HttpServlet {
      * Default constructor. 
      */
     public MainController() {
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -28,5 +27,5 @@ public class MainController extends HttpServlet {
 		Seperator.init(request);
 		DispatcherServlet.getInstance().runDispatcher(request, response, Seperator.command.getView());
 	}
-
 }
+
