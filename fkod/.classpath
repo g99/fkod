@@ -3,12 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/cos.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/gson-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/json_simple-1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/jstl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/standard.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
@@ -19,5 +13,11 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/HB/Downloads/gson-2.2.4.jar/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Downloads/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Downloads/jstl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Downloads/standard.jar"/>
+	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/jse2/JSP/설치파일/cos-26Dec2008/lib/cos.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
