@@ -1,5 +1,8 @@
 package movie;
 
-public class MovieController {
+import javax.servlet.http.HttpServlet;
 
+public class MovieController extends HttpServlet{
+	
+	
 }
