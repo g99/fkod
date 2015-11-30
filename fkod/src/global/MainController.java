@@ -18,7 +18,6 @@ public class MainController extends HttpServlet {
      * Default constructor. 
      */
     public MainController() {
-        // TODO Auto-generated constructor stub
     }
 
 	/**
