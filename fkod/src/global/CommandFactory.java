@@ -18,11 +18,12 @@ public class CommandFactory {
 		StringTokenizer token = new StringTokenizer(path, "/");
 		String directory = token.nextToken(); // global
 		String action = token.nextToken(); // Main.do
+		String file = action.substring(0, action.indexOf(".")); // Main
 		System.out.println("디렉토리 : " + directory);
 		System.out.println("액    션 : " + action);
 		Command command = Command.getInstance();
 		if (page == null) { // 메인화면일경우
-			page = "Main";
+			page = file;
 		}
 		command.setDirectory(directory); // 디렉토리 세팅
 		command.setPage(page); // 페이지를 세팅하고
@@ -31,3 +32,4 @@ public class CommandFactory {
 		return command;
 	}
 }
+

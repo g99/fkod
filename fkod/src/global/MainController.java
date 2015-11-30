@@ -27,5 +27,5 @@ public class MainController extends HttpServlet {
 		Seperator.init(request);
 		DispatcherServlet.getInstance().runDispatcher(request, response, Seperator.command.getView());
 	}
-
 }
+

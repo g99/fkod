@@ -44,6 +44,4 @@ public class Command {
 	public void setView() {
 		this.view = Constants.VIEW + directory + "/" + page + ".jsp";
 	}
-	
-
 }
