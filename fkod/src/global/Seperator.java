@@ -10,3 +10,4 @@ public class Seperator {
 		command = CommandFactory.getInstance().createCommand(path, page);
 	}
 }
+

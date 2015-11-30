@@ -16,3 +16,4 @@ public class Constants {
 	public static final String MARIA_URL = "jdbc:mariadb://localhost:3306/test_db";
 	public static final String VIEW = "/WEB-INF/view/";
 }
+
