@@ -4,5 +4,11 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/cos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/gson-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/json_simple-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/jstl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/HB/Desktop/jsp라이브러리/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
