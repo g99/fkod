@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MainController
  */
-@WebServlet("/MainController")
+@WebServlet("/global/Main.do")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,8 @@ public class MainController extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Seperator.init(request);
+		DispatcherServlet.getInstance().runDispatcher(request, response, Seperator.command.getView());
 	}
 
 }
