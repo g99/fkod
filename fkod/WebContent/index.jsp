@@ -2,6 +2,6 @@
 <h1>하하하</h1>
 <script type="text/javascript">
 	$(function() {
-		
+		console.log("메인시작");
 	});
 </script>
