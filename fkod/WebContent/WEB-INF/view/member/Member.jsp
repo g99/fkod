@@ -2,8 +2,10 @@
 
 <script src="${context}/js/global.js"></script>
 <script type="text/javascript">
-	$(function() {
+$(function() {
 		Global.init();
-		$("#header").load("${context}/global/Main.do?page=header"); 
+		$('#header').load('${context}/global/header.do')
 	});
+	
+
 </script>
