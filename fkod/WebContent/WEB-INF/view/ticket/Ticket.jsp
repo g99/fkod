@@ -4,7 +4,6 @@
 	<form action="seats.html">
 		<!-- FLEX-CONTAINER -->
 		<div class="ticket_flex-container">
-
 			<div class="ticket_flex-item ticket_item1">
 				<h4>영화</h4>
 				<!-- CONTAINER -->
