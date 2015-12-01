@@ -4,6 +4,10 @@ create user movie identified by movie;
 grant dba to movie;
 
 <!-- movie 스키마로 이동한후 수행 -->
+create table theater(
+	theater_name varchar2(50),
+	constraint theater_pk primary key(theater_name)
+);
 
 create table member(
 	id varchar2(50),
@@ -16,6 +20,8 @@ create table member(
 	email varchar2(50),
 	my_theater varchar2(100),
 	regdate date,
+	constraint member_fk foreign key(my_theater)
+		references theater(theater_name),
 	constraint member_pk primary key(id)
 );
 
@@ -37,41 +43,46 @@ create table movie(
 	constraint movie_pk primary key(film_number)
 );
 
-
-create table theater(
-	theater_name varchar2(50),
-	constraint theater_pk primary key(theater_name)
-);
-
 create table room(
 	theater_name varchar2(50),
 	room_name varchar2(50),
-	seat_number number,
+	a number,
+	b number,
+	c number,
+	d number,
+	e number,
+	f number,
+	g number,
+	h number,
+	i number,
+	j number,
 	constraint room_fk foreign key(theater_name)
 		references theater(theater_name),
 	constraint room_pk primary key(theater_name,room_name)
 );
 
-create table seat(
-	theater_name varchar2(50),
+create sequence seq;
+create table schedule(
+	seq number,
+	film_number varchar2(50),
 	room_name varchar2(50),
-	seat_number number,
-	is_empty varchar2(10) check(is_empty in('false','true')),
-	constraint seat_fk foreign key(theater_name,room_name)
+	theater_name varchar2(50),
+	show_date varchar2(50),
+	show_time varchar2(50),
+	seat_status number,
+	constraint schedule_fk foreign key(film_number)
+		references movie(film_number),
+	constraint schedule_fk2 foreign key(theater_name,room_name)
 		references room(theater_name,room_name),
-	constraint seat_pk primary key(theater_name,room_name,seat_number)
+	constraint schedule_pk primary key(seq)
 );
 
-create table theater_info(
-	theater_name varchar2(50),
-	room_name varchar2(50),
-	start_time date,
-	film_number varchar2(50),
-	constraint theater_info_fk foreign key(theater_name,room_name)
-		references room(theater_name,room_name),
-	constraint theater_info_fk2 foreign key(film_number)
-		references movie(film_number),
-	constraint theater_info_pk primary key(theater_name,room_name,start_time)
+create table seat(
+	seq number,
+	seat_number number,
+	constraint seat_fk foreign key(seq)
+		references schedule(seq),
+	constraint seat_pk primary key(seq,seat_number)
 );
 
 create table ticket(
@@ -80,19 +91,20 @@ create table ticket(
 	film_number varchar2(50),
 	theater_name varchar2(50),
 	room_name varchar2(50),
+	today varchar2(50),
+	ticket_date varchar2(50),
+	start_time varchar2(50),
+	end_time varchar2(50),
 	seat_number number,
-	start_time date,
-	ticket_date date,
 	adult number,
 	old_man number,
 	teenager number,
-	constraint ticket_fk foreign key(theater_name,room_name,start_time)
-		references theater_info(theater_name,room_name,start_time),
-	constraint ticket_fk2 foreign key(theater_name,room_name,seat_number)
-		references seat(theater_name,room_name,seat_number),
-	constraint ticket_fk3 foreign key(film_number)
+	price number,
+	constraint ticket_fk foreign key(theater_name,room_name)
+		references room(theater_name,room_name),
+	constraint ticket_fk2 foreign key(film_number)
 		references movie(film_number),
-	constraint ticket_fk4 foreign key(id)
+	constraint ticket_fk3 foreign key(id)
 		references member(id),
 	constraint ticket_pk primary key(ticket_number)	
 );
