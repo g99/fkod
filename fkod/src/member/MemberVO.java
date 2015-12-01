@@ -15,12 +15,13 @@ public class MemberVO {
 	private String email; // 이메일
 	private String gender; // 성별
 	private String addr; // 주소
+	private String regdate;
 	
 	public MemberVO() {
 	}
 	
 	public MemberVO(String id, String password, String name, String birth, 
-			String phone, String email, String gender, String addr) {
+			String phone, String email, String gender, String addr, String regdate) {
 			this.id = id;
 			this.password = password;
 			this.name = name;
@@ -29,6 +30,7 @@ public class MemberVO {
 			this.email = email;
 			this.gender = gender;
 			this.addr = addr;
+			this.regdate = regdate;
 	}
 	
 	
@@ -81,6 +83,13 @@ public class MemberVO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+
 	
 	@Override
 	public String toString() {
