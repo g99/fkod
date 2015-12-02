@@ -6349,9 +6349,6 @@ button.close {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
   background-repeat: repeat-x;
 }
-
-.carousel-control.right:active,
-.carousel-control.left:active,
 .carousel-control:hover,
 .carousel-control:focus {
   color: #fff;
@@ -6360,7 +6357,6 @@ button.close {
   outline: 0;
   opacity: .9;
 }
-
 .carousel-control .icon-prev,
 .carousel-control .icon-next,
 .carousel-control .glyphicon-chevron-left,

@@ -88,7 +88,7 @@
 					$("#frm_login").empty();
 					$("#frm_login").append('<p>' + data.id +'님 반갑습니다.</p><p class="clearfix"><input id="login_btn" type="submit" name="submit" value="로그아웃"></p>');
 					if(data.admin === "yes") {
-						$("#wrapper").append('<table id="admin_nav"><tr><td id="admin_home">홈</td></tr><tr><td id="admin_member">회원관리</td></tr><tr><td id="admin_movie">영화관리</td></tr><tr><td id="admin_statistics">통계보기</td></tr><tr><td>게시판관리</td></tr></table>');
+						$("#wrapper").append('<table id="admin_nav"><tr><td><button id="admin_home">홈</button></td></tr><tr><td id="admin_member">회원관리</td></tr><tr><td id="admin_movie">영화관리</td></tr><tr><td id="admin_statistics">통계보기</td></tr><tr><td>게시판관리</td></tr></table>');
 						$("#admin_nav").css({
 							"text-align": "center",
 							"height": "450px",
@@ -98,7 +98,7 @@
 							"top": "300px"
 						});
 						$("#admin_home").click(function() {
-							
+							$("#box").load("${context}/admin/Admin.do");
 						});
 					}
 				},
