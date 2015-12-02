@@ -1,4 +1,5 @@
 var Global = {
+
    init : function() {
       var wrapper = document.createElement("div");
       wrapper.id = "wrapper";
@@ -10,3 +11,4 @@ var Global = {
       $("<div id='footer'></div>").appendTo($("#wrapper"));
    }
 };
+

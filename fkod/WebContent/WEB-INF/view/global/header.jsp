@@ -2,7 +2,6 @@
 
 	<!-- 메인 파일의 배경은 비지니스-캐쥬얼.css에 url('../images/bg.jpg')로 존재함 -->
 
-
     <title>무비 시어터 박스 - Culture MTB</title>
 
     <!-- Bootstrap Core CSS -->
@@ -30,9 +29,6 @@
 	<div>
 
 		<form class="form-2" action="{context}/member.do?page=">
-			<h1>
-				<span class="log-in">로그인</span> or <span class="sign-up">회원 가입</span>
-			</h1>
 			<p class="float">
 				<label for="login"><i class="icon-user"></i>ID</label> <input
 					type="text" name="login" placeholder="UserID">
@@ -43,7 +39,7 @@
 					class="showpassword">
 			</p>
 			<p class="clearfix">
-				<a href="#회원가입 링크로 연결" class="log-twitter">회원 가입</a> 
+				<a href="${context}/member/Member.do" class="log-twitter">회원 가입</a> 
 				<input type="submit" name="submit" value="로그인">
 			</p>
 		</form>
@@ -57,7 +53,7 @@
 	</div>
 
 	<!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation" style="padding-left: 30px; margin-top: 50px;">
+    <nav class="navbar navbar-default" role="navigation" style="padding-left: 30px;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

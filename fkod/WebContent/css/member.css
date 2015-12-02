@@ -3,9 +3,10 @@
     /* Size and position */
     float: right; 
     width: 300px;
-    height:200px;
+    height:150px;
     margin-right: 75px;
     margin-top: 20px;
+    padding-top: 10px;
     padding-left: 30px;
     position: relative;
 
@@ -169,5 +170,181 @@
     background: #2a8ac4;
 }
 
-
 /* 위의 css 로그인 폼의 css이고, 메인 헤더쪽으로 넘어가 작용을 한다. */
+
+
+
+
+/* 2. 멤버조인(회원가입)의 CSS*/
+
+.inline{display: inline}
+
+#mainDiv{
+width: 100%;
+margin : auto;
+}
+
+#subDiv{
+width: 920px;
+height: 600px;
+margin-top: 100px;
+margin-left: 170px;
+}
+
+#imgDiv{
+width: 160px;
+height: 200px;
+margin: auto;
+}
+#p_f{
+font-size: 11px;
+}
+
+
+
+
+
+
+/* 3. 약관 CSS */
+
+#prov_wrap{
+	width: 100%; 
+	margin: auto;
+}
+
+#prov_form{
+	width: 1100px; 
+	height: 1250px; 
+	margin-top: 100px; 
+	margin-left: 170px;	
+}
+
+#provOne_Text{
+	padding-left: 20px;
+	font-size: 17px; 
+	font-weight: 500;
+}
+
+#textOne_form{
+	margin: auto;
+}
+
+#textTwo_form{
+	margin: auto;
+}
+
+#textThree_form{
+	margin: auto;
+}
+
+.term_check{
+	float: right; 
+	width: 450px; 
+	height: 50px;
+}
+
+#p_two{
+	padding-left: 20px;
+	font-size: 17px;
+	font-weight: 500;
+}
+
+.term_check_second{
+	float: right; 
+	width: 570px; 
+	height: 50px;
+}
+
+#p_three{
+	padding-left: 100px;
+	font-size: 17px; 
+	font-weight: 500;
+}
+
+#tr_One{
+	border:solid 1px #848484; 
+	border-bottom:none;
+}
+#tr_Two{
+	border:solid 1px #848484;
+}
+
+.th_one{
+	border-right:1px solid #848484; 
+	text-align:center; 
+	width:300px;
+}
+.th_two{
+	border-right:1px solid #848484; 
+	text-align:center;
+}
+
+#td_One{
+	border:solid 1px #848484; 
+	padding-left:6px;"
+}
+
+#check_Form{
+	float: right; 
+	width: 630px; 
+	height: 50px;
+}
+
+#check_Form_Two{
+	float: right; 
+	width: 370px; 
+	height: 50px;
+}
+
+#agree{
+	width: 121px; 
+	height: 41px; 
+	margin: auto;
+}
+
+#img_btn{
+	width: 120px;
+	height: 40px;
+}
+
+.maintext{
+font-size: 27px;
+font-weight: bold;
+padding-left: 30px;
+padding-top: 50px;
+display: inline;
+}
+
+.subtext{
+font-size: 16px;
+padding-left: 14px;
+display: inline;
+}
+
+.term_text {
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 900px;
+    height: 157px;
+    padding: 10px;
+    border: 1px solid #e8e7e7;
+    font-size: 12px;
+}
+
+
+
+/* 회원가입 폼 내부 CSS */
+.join_wrap{
+	width: 100%; 
+	margin: auto;
+}
+
+.form_Main{
+	width: 540px; 
+	height: 565px; 
+	margin-top: 100px; 
+	margin-left: 170px;
+}
+
+.inline{display: inline}
+
