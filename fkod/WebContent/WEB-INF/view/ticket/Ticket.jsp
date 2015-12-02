@@ -2,134 +2,31 @@
 <link rel="stylesheet" href="../css/common.css" type="text/css" />
 	<div class="ticket_wrap">
 	<form action="seats.html">
-		<!-- FLEX-CONTAINER -->
 		<div class="ticket_flex-container">
 			<div class="ticket_flex-item ticket_item1">
 				<h4>영화</h4>
-				<!-- CONTAINER -->
-				<div id="ticket_container"> <!-- MENU -->
+				<div id="ticket_container">
 				<nav id="ticket_menu">
-					<!-- INSET -->
 					<dl class="ticket_inset">
-						<!-- category -->
 						<dt class="ticket_category">
-							<!-- LINK -->
 							<input id="ticket_resrate" class="ticket_radio" name="links"
 								type="radio"> <label class="ticket_link"
-								for="ticket_resrate">예매율</label>
-							<!-- /// END LINK -->
-							<!-- SUB -->
-							<div class="ticket_sub">
-								<!-- LIST category -->
-								<div class="ticket_list-category">
-									<dl>
-										<dt>
-											<a href="#">마션</a>
-										</dt>
-										<dt>
-											<a href="#">인턴</a>
-										</dt>
-										<dt>
-											<a href="#">탐정-더비기닝</a>
-										</dt>
-										<dt>
-											<a href="#">팬</a>
-										</dt>
-										<dt>
-											<a href="#">퐁네프의연인들</a>
-										</dt>
-										<dt>
-											<a href="#">마션</a>
-										</dt>
-										<dt>
-											<a href="#">인턴</a>
-										</dt>
-										<dt>
-											<a href="#">탐정-더비기닝</a>
-										</dt>
-										<dt>
-											<a href="#">팬</a>
-										</dt>
-										<dt>
-											<a href="#">퐁네프의연인들</a>
-										</dt>
-										<dt>
-											<a href="#">마션</a>
-										</dt>
-										<dt>
-											<a href="#">인턴</a>
-										</dt>
-										<dt>
-											<a href="#">탐정-더비기닝</a>
-										</dt>
-										<dt>
-											<a href="#">팬</a>
-										</dt>
-										<dt>
-											<a href="#">퐁네프의연인들</a>
-										</dt>
-										<dt>
-											<a href="#">마션</a>
-										</dt>
-										<dt>
-											<a href="#">인턴</a>
-										</dt>
-										<dt>
-											<a href="#">탐정-더비기닝</a>
-										</dt>
-										<dt>
-											<a href="#">팬</a>
-										</dt>
-										<dt>
-											<a href="#">퐁네프의연인들</a>
-										</dt>
-									</dl>
-								</div>
-								<!-- /// END LIST category -->
+								for="ticket_resrate" id="rate_list">예매율</label>
+							<div class="ticket_sub" id="movie_rate_list">
+								
 							</div>
-							<!-- /// END SUB -->
 						</dt>
-						<!-- /// END category -->
-						<!-- category -->
 						<dt class="ticket_category">
-							<!-- LINK -->
 							<input id="ticket_koreanorder" class="ticket_radio" name="links"
 								type="radio"> <label class="ticket_link"
-								for="ticket_koreanorder">가나다</label>
-							<!-- /// END LINK -->
-							<!-- SUB -->
-							<div class="ticket_sub">
-								<!-- LIST category -->
-								<div class="ticket_list-category">
-									<dl>
-										<dt>
-											<a href="#">마션</a>
-										</dt>
-										<dt>
-											<a href="#">인턴</a>
-										</dt>
-										<dt>
-											<a href="#">탐정-더비기닝</a>
-										</dt>
-										<dt>
-											<a href="#">팬</a>
-										</dt>
-										<dt>
-											<a href="#">퐁네프의연인들</a>
-										</dt>
-									</dl>
-								</div>
-								<!-- /// END LIST category -->
+								for="ticket_koreanorder" id="asc_list">가나다</label>
+							<div class="ticket_sub" id="movie_asc_list">
+								
 							</div>
-							<!-- /// END SUB -->
 						</dt>
-						<!-- /// END category -->
 					</dl>
-					<!-- /// END INSET -->
 				</nav>
-				<!-- /// END MENU -->
 				</div>
-				<!-- /// END CONTAINER -->
 			</div>
 			<div class="ticket_flex-item ticket_item2">
 				<h4>극장</h4>
@@ -148,129 +45,27 @@
 							</dt>
 						</dl>
 					</div>
-					
 				</div>
-				<div id="ticket_container">
-				<nav id="ticket_menu">
-					<dl class="ticket_inset">
-						<dt class="ticket_category">
-							<input id="ticket_normal" class="ticket_radio" name="links2"
-								type="radio"> <label class="ticket_link"
-								for="ticket_normal">일반</label>
-							<div class="ticket_sub">
-								<div class="ticket_list-category">
-									<dl>
-										<dt>
-											<a href="#">강남</a>
-										</dt>
-										<dt>
-											<a href="#">압구정</a>
-										</dt>
-										<dt>
-											<a href="#">강변</a>
-										</dt>
-										<dt>
-											<a href="#">목동</a>
-										</dt>
-										<dt>
-											<a href="#">명동</a>
-										</dt>
-										<dt>
-											<a href="#">대학로</a>
-										</dt>
-										<dt>
-											<a href="#">강동</a>
-										</dt>
-										<dt>
-											<a href="#">구로</a>
-										</dt>
-										<dt>
-											<a href="#">강남</a>
-										</dt>
-										<dt>
-											<a href="#">압구정</a>
-										</dt>
-										<dt>
-											<a href="#">강변</a>
-										</dt>
-										<dt>
-											<a href="#">목동</a>
-										</dt>
-										<dt>
-											<a href="#">명동</a>
-										</dt>
-										<dt>
-											<a href="#">대학로</a>
-										</dt>
-										<dt>
-											<a href="#">강동</a>
-										</dt>
-										<dt>
-											<a href="#">구로</a>
-										</dt>
-									</dl>
-								</div>
-							</div>
-						</dt>
-						<dt class="ticket_category">
-							<input id="ticket_art" class="ticket_radio" name="links2"
-								type="radio"> <label class="ticket_link"
-								for="ticket_art">아트</label>
-							<div class="ticket_sub">
-								<div class="ticket_list-category">
-									<dl>
-										<dt>
-											<a href="#">강남</a>
-										</dt>
-										<dt>
-											<a href="#">압구정</a>
-										</dt>
-									</dl>
-								</div>
-							</div>
-						</dt>
-					</dl>
-				</nav>
+				<div class="ticket_normal">
+					<label class="ticket_subtitle">일반</label>
+					<div id="theater_list">
+					
+					</div>
 				</div>
 			</div>
 			<div class="ticket_flex-item ticket_item3">
 				<h4>날짜</h4>
-				<div class="ticket_date">
-					<input type="date" name="bday" min="2015-11-05" max="2015-12-05"><br>
+				<div class="ticket_normal">
+					<label class="ticket_subtitle">12월</label>
+					<div id="date_list">
+					
+					</div>
 				</div>
 			</div>
 			<div class="ticket_flex-item ticket_item4">
 				<h4>시간</h4>
-				<div class="ticket_times">
-					<div class="ticket_list-category">
-						<label class="ticket_hall">6관</label>
-						<dl>
-							<dt>
-								<a href="#">⊙08:00</a>
-							</dt>
-							<dt>
-								<a href="#">10:30</a>
-							</dt>
-							<dt>
-								<a href="#">13:00</a>
-							</dt>
-							<dt>
-								<a href="#">15:30</a>
-							</dt>
-							<dt>
-								<a href="#">18:00</a>
-							</dt>
-							<dt>
-								<a href="#">20:30</a>
-							</dt>
-							<dt>
-								<a href="#">23:00</a>
-							</dt>
-							<dt>
-								<a href="#">★01:30</a>
-							</dt>
-						</dl>
-					</div>
+				<div class="ticket_times" id="times_list">
+					
 				</div>
 				<input id="ticket_choiceseat" class="ticket_choiceseat" name="next" type="submit">
 				<label class="ticket_choiceseatlabel" for="ticket_choiceseat">좌석선택</label>
@@ -279,32 +74,83 @@
 		</form>
 	</div>
 <script type="text/javascript">
+
 $(function() {
-	//Global.init();
-	$('#header').load('${context}/admin.do?page=header');
-	$('#footer').load('${context}/admin.do?page=footer');
+	var res_info = {
+			movie : null,
+			theater : null,
+			date : null
+	};
+	/* 리스트 초기화 */
 	
-	$('#mgmt_member').click(function() {
-		Admin.memberList();
-	});
-});
-var Ticket = {
-		movieList : function() {
-			$.getJSON('${context}/admin.do?page=member_list', function(data) {
-				var table = 
-					'<table id="tab_member"><tr><th>아이디</th><th>이름</th><th>성별</th><th>생년원일</th><th>전화번호</th><th>이메일</th></tr>';
-					$.each(data, function() {		// ajax의 for문
-						table += '<tr><td>'+this.userid+'</td><td>'+this.name+'</td><td>'+this.gender+'</td><td>'+this.birth+'</td><td>'+this.phone+'</td><td>'+this.email+'</td></tr>';
-					});
-					table += '</table>';
-					$(table).appendTo($('#main_right').empty());
-			});
-		},
-		memberNotExist : function() {
-			var table = '<h1 style="margin-top:10px">회원목록</h1>';
-			table += '<table id="tab_member"><tr><th>아이디</th><th>이름</th><th>성별</th><th>생년원일</th><th>전화번호</th><th>이메일</th></tr>';
-			table += '<tr><td colspan="6"><h2>회원목록이 없습니다.</h2></td></tr></table>';
-			$(table).appendTo($('#main_right').empty());
+	var movie_asc_list = 
+		'<div class="ticket_list-category"><dl><dt><a href="#">마션</a></dt><dt><input type="radio" name="movie" value="인턴"/> 인턴</dt><dt><a href="#">탐정-더비기닝</a></dt><dt><a href="#">팬</a></dt><dt><a href="#">퐁네프의연인들</a></dt></dl></div>';
+	$(movie_asc_list).appendTo($('#movie_asc_list').empty());
+	var theater_list = '<div class="ticket_list-category"><dl><dt><input type="radio" name="theater" value="강남"/> 강남</dt><dt><a href="#">압구정</a></dt><dt><a href="#">강변</a></dt><dt><a href="#">목동</a></dt><dt><a href="#">명동</a></dt><dt><a href="#">대학로</a></dt><dt><a href="#">강동</a></dt><dt><a href="#">구로</a></dt><dt><a href="#">강남</a></dt><dt><a href="#">압구정</a></dt><dt><a href="#">강변</a></dt><dt><a href="#">목동</a></dt><dt><a href="#">명동</a></dt><dt><a href="#">대학로</a></dt><dt><a href="#">강동</a></dt><dt><a href="#">구로</a></dt></dl></div>';
+	$(theater_list).appendTo($('#theater_list').empty());
+	var date_list = '<div class="ticket_list-category"><dl><dt><input type="radio" name="date" value="3"/> 3</dt><dt><a href="#">4</a></dt><dt><a href="#">5</a></dt><dt><a href="#">6</a></dt><dt><a href="#">7</a></dt><dt><a href="#">8</a></dt><dt><a href="#">9</a></dt><dt><a href="#">10</a></dt><dt><a href="#">11</a></dt><dt><a href="#">12</a></dt><dt><a href="#">13</a></dt><dt><a href="#">14</a></dt></dl></div>';
+	$(date_list).appendTo($('#date_list').empty());
+	var times_list = '';
+	$(times_list).appendTo($('#times_list').empty());
+	
+	$('.ticket_sub').click(function() {
+		var theater_list = '<div class="ticket_list-category"><dl><dt><input type="radio" name="theater" value="강남"/> 강남</dt></dl></div>';
+		$(theater_list).appendTo($('#theater_list').empty());
+		var date_list = '<div class="ticket_list-category"><dl><dt><a href="#">3</a></dt><dt><a href="#">4</a></dt><dt><a href="#">5</a></dt><dt><a href="#">6</a></dt><dt><a href="#">7</a></dt><dt><a href="#">8</a></dt></dl></div>';
+		$(date_list).appendTo($('#date_list').empty());
+		res_info.movie=$("input:radio[name=movie]:checked").val();
+		alert(res_info.movie+", "+res_info.theater+", "+res_info.date);
+		if (res_info.movie!=null&&res_info.theater!=null&&res_info.date!=null) {
+			var times_list = '<div class="ticket_list-category"><label class="ticket_hall">6관</label><dl><dt><a href="#">⊙08:00</a></dt><dt><a href="#">10:30</a></dt><dt><a href="#">13:00</a></dt><dt><a href="#">15:30</a></dt><dt><a href="#">18:00</a></dt><dt><a href="#">20:30</a></dt><dt><a href="#">23:00</a></dt><dt><a href="#">★01:30</a></dt></dl></div>';
+			$(times_list).appendTo($('#times_list').empty());
 		}
-};
+	});
+	$('#theater_list').click(function() {
+		var movie_rate_list = 
+			'<div class="ticket_list-category"><dl><dt><input type="radio" name="movie" value="마션"/> 마션</dt></dl></div>';
+		$(movie_rate_list).appendTo($('#movie_rate_list').empty());
+		var movie_asc_list = 
+			'<div class="ticket_list-category"><dl><dt><input type="radio" name="movie" value="인턴"/> 인턴</dt></dl></div>';
+		$(movie_asc_list).appendTo($('#movie_asc_list').empty());
+		var date_list = '<div class="ticket_list-category"><dl><dt><input type="radio" name="date" value="7"/> 7</dt><dt><a href="#">8</a></dt></dl></div>';
+		$(date_list).appendTo($('#date_list').empty());
+		res_info.theater=$("input:radio[name=theater]:checked").val();
+		alert(res_info.movie+", "+res_info.theater+", "+res_info.date);
+		if (res_info.movie!=null&&res_info.theater!=null&&res_info.date!=null) {
+			var times_list = '<div class="ticket_list-category"><label class="ticket_hall">6관</label><dl><dt><a href="#">⊙08:00</a></dt><dt><a href="#">10:30</a></dt><dt><a href="#">13:00</a></dt><dt><a href="#">15:30</a></dt><dt><a href="#">18:00</a></dt><dt><a href="#">20:30</a></dt><dt><a href="#">23:00</a></dt><dt><a href="#">★01:30</a></dt></dl></div>';
+			$(times_list).appendTo($('#times_list').empty());
+		}
+	});
+	$('#date_list').click(function() {
+		var movie_rate_list = 
+			'<div class="ticket_list-category"><dl><dt><input type="radio" name="movie" value="마션"/> 마션</dt><dt><a href="#">인턴</a></dt><dt><a href="#">탐정-더비기닝</a></dt><dt><a href="#">팬</a></dt><dt><a href="#">퐁네프의연인들</a></dt><dt><a href="#">마션</a></dt><dt><a href="#">인턴</a></dt><dt><a href="#">탐정-더비기닝</a></dt><dt><a href="#">팬</a></dt><dt><a href="#">퐁네프의연인들</a></dt><dt><a href="#">마션</a></dt><dt><a href="#">인턴</a></dt><dt><a href="#">탐정-더비기닝</a></dt></dl></div>';
+		$(movie_rate_list).appendTo($('#movie_rate_list').empty());
+		var movie_asc_list = 
+			'<div class="ticket_list-category"><dl><dt><input type="radio" name="movie" value="탐정-더비기닝"/> 탐정-더비기닝</a></dt><dt><a href="#">팬</a></dt><dt><a href="#">퐁네프의연인들</a></dt></dl></div>';
+		$(movie_asc_list).appendTo($('#movie_asc_list').empty());
+		var theater_list = '<div class="ticket_list-category"><dl><dt><input type="radio" name="theater" value="압구정"/> 압구정</dt><dt><a href="#">강변</a></dt></dl></div>';
+		$(theater_list).appendTo($('#theatesr_list').empty());
+		res_info.date=$("input:radio[name=date]:checked").val();
+		alert(res_info.movie+", "+res_info.theater+", "+res_info.date);
+		if (res_info.movie!=null&&res_info.theater!=null&&res_info.date!=null) {
+			var times_list = '<div class="ticket_list-category"><label class="ticket_hall">6관</label><dl><dt><a href="#">⊙08:00</a></dt><dt><a href="#">10:30</a></dt><dt><a href="#">13:00</a></dt><dt><a href="#">15:30</a></dt><dt><a href="#">18:00</a></dt><dt><a href="#">20:30</a></dt><dt><a href="#">23:00</a></dt><dt><a href="#">★01:30</a></dt></dl></div>';
+			$(times_list).appendTo($('#times_list').empty());
+		}
+	});
+	var Ticket = {
+			movieList : function() {
+				$.getJSON('${context}/ticket/Ticket.do?page=temp', function(data) {
+					var movie_rate_list = 
+						'<div class="ticket_list-category"><dl>';
+						$.each(data, function() {
+							movie_rate_list += '<dt><input type="radio" name="movie" value="'+this+'"/>'+this+'</dt>';
+						});
+						movie_rate_list += '</dl></div>';
+						$(movie_rate_list).appendTo($('#movie_rate_list').empty());
+				});
+			}
+	};
+	Ticket.movieList();
+});
+
 </script>
