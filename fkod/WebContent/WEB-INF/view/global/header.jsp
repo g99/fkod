@@ -26,9 +26,6 @@
 	<div>
 
 		<form class="form-2" action="{context}/member.do?page=">
-			<h1>
-				<span class="log-in">로그인</span> or <span class="sign-up">회원 가입</span>
-			</h1>
 			<p class="float">
 				<label for="login"><i class="icon-user"></i>ID</label> <input
 					type="text" name="login" placeholder="UserID">
@@ -53,7 +50,7 @@
 	</div>
 
 	<!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation" style="padding-left: 30px; margin-top: 50px;">
+    <nav class="navbar navbar-default" role="navigation" style="padding-left: 30px;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
