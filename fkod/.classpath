@@ -13,11 +13,11 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/HB/Downloads/gson-2.2.4.jar/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Downloads/json_simple-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Downloads/jstl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/HB/Downloads/standard.jar"/>
-	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/jse2/JSP/설치파일/cos-26Dec2008/lib/cos.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

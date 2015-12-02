@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import global.Constants;
-import global.DQL;
+/*import global.DQL;*/
 import global.DatabaseFactory;
 import global.Vendor;
 
@@ -35,7 +35,7 @@ public class AdminDAOImpl implements AdminDAO {
 		List<AdminVO> list = new ArrayList<AdminVO>();
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery(DQL.serchAll("member"));
+			/*rs = stmt.executeQuery(DQL.serchAll("member"));*/
 			
 			while (rs.next()) {
 				AdminVO temp = new AdminVO();
