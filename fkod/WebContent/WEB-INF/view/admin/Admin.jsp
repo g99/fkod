@@ -27,18 +27,41 @@ $(function() {
 	    "margin-left" : "3%",
 		"width" : "50%"
 	});
-	$("#tab_member").css({
-		"border" : "5px solid black",
-		"text-align" : "center",
-		"width" : "200%",
-		"padding" : "10px"
-	});
 	$('#mgmt_member').click(function() {
 		Admin.memberList();
 	});
 	$('#mgmt_movie').click(function() {
 		Admin.movie();
 	});
+	$('#btn_login').click(function() {
+		$.ajax({
+			url : "${context}/member.do",
+			data : {
+				userid : $("#userid").val(),
+				password : $("#password").val(),
+				page : "login"
+			}, 
+			dataType : "json",
+			contentType : "application/x-www-form-urlencoded; charset=utf-8",
+			success : function(data) {
+				if (data.result === "success") {
+					$('<div id="login_result"></div>').appendTo($('#frm_login').empty());
+					$("#login_result").html(
+							'<div>환영합니다'+data.name+'님</div><button id="close">창닫기</button>'
+					);
+					$("#close").click(function() {
+						window.opener.top.location.href = "${context}/main.do?page=auth&userid=" + data.userid;
+						window.close();
+					});
+				}else {
+					alert("로그인 실패");
+				}
+				
+			},
+			error : function() {
+				alert("ajax 실패");
+			}
+		});
 });	
 /*  $('#btn_admin_table').click(function() {
     $('#btn_admin_table').submit();
@@ -58,6 +81,11 @@ $(function() {
 									+'<td>'+this.regdate+'</td></tr>'
 							});
 							table += '</table>';
+							$("#tab_member").css({
+								"border" : "1px solid black",
+								"border-collapse" : "collapse",
+								"text-align" : "center",
+							});
 							$(table).appendTo($('#main_right').empty());
 				});
 			},
@@ -76,6 +104,8 @@ $(function() {
 					 +'';
 				});
 			}
+						
+
  }
 
  
