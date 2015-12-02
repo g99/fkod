@@ -30,6 +30,7 @@ public class AdminController extends HttpServlet {
 		Seperator.init(request);
 		switch (Seperator.command.getPage()) {
 		case "Admin":
+			System.out.println("어드민 메인 진입");
 			break;
 		case "member_list":
 		System.out.println("회원목록 진입");

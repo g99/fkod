@@ -7,6 +7,8 @@
     <![endif]-->
 	
 	<div>
+	<div id="frm_toggle">
+	<c:if test="${empty sessionScope.user}">
 	   	<!-- 로그인 안한 상태 -->
 		<div id="frm_login" class="form-2">
 			<p class="float">
@@ -20,10 +22,19 @@
 				<input id="login_btn" type="submit" name="submit" value="로그인">
 			</p>
 		</div>
+		</c:if>
+		<c:if test="${not empty sessionScope.user}">
+			<div id="frm_logined" class="form-2">
+				<p>${user.name}님 반갑습니다.</p><p class="clearfix">
+					<input id="logout_btn" type="submit" name="submit" value="로그아웃">
+				</p>
+			</div>
+		</c:if>
+		</div>
 
-		<div class="brand" style="padding-left: 390px;">MTB BOX</div>
+		<div id="home" class="brand" style="padding-left: 390px; padding-right: 390px;">MTB BOX</div>
 
-		<div class="address-bar" style="padding-left: 400px;">
+		<div class="address-bar" style="padding-left: 400px; padding-right: 400px;">
 		세상을 바꾸는 힘, Culture MTB(Movie Theater BOX)</div>
 	</div>
 
@@ -64,6 +75,9 @@
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$("#home").click(function() {
+			$("#box").load("${context}/global/Main.do?page=default");
+		});
 		$("#movie_btn").click(function() {
 			$("#box").load("${context}/global/Main.do?page=header");
 		});
@@ -75,9 +89,16 @@
 		$("#join_btn").click(function() {
 			$("#box").load();
 		});
-		
+	
 		$("#login_btn").click(function() {
-			alert("로그인 버튼 클릭");
+			Member.login();
+		});
+		$("#logout_btn").click(function() {
+			Member.logout();
+		});
+	});
+	var Member = {
+		login : function() {
 			$.ajax("${context}/member/Member.do?page=login",{
 				data : {
 					id : $(".form-2 input:text[name=login]").val(),
@@ -85,10 +106,16 @@
 				},
 				dataType : "json",
 				success : function(data) {
-					$("#frm_login").empty();
-					$("#frm_login").append('<p>' + data.id +'님 반갑습니다.</p><p class="clearfix"><input id="login_btn" type="submit" name="submit" value="로그아웃"></p>');
+					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_logined", function() {
+						$("#logout_btn").click(function() {
+							//새로고침 하지 않은 경우에 로그아웃
+							Member.logout();
+						});
+					});
 					if(data.admin === "yes") {
-						$("#wrapper").append('<table id="admin_nav"><tr><td><button id="admin_home">홈</button></td></tr><tr><td id="admin_member">회원관리</td></tr><tr><td id="admin_movie">영화관리</td></tr><tr><td id="admin_statistics">통계보기</td></tr><tr><td>게시판관리</td></tr></table>');
+						$("#wrapper").append(
+								'<table id="admin_nav"><tr><td><a href="#" class="list-group-item" id="admin_home">홈</a></td></tr>'+
+								'<tr><td><a href="#" class="list-group-item" id="admin_member">회원관리</a></td></tr><tr><td><a href="#" class="list-group-item" id="admin_movie">영화관리</a></td></tr><tr><td><a href="#" class="list-group-item" id="admin_statistics">통계보기</a></td></tr><tr><td>게시판관리</td></tr></table>');
 						$("#admin_nav").css({
 							"text-align": "center",
 							"height": "450px",
@@ -96,6 +123,12 @@
 							"position": "absolute",
 							"right": "20px",
 							"top": "300px"
+						});
+						$("#admin_home").click(function() {
+							$("#box").load("${context}/admin/Admin.do?page=member");
+						});
+						$("#admin_home").click(function() {
+							$("#box").load("${context}/admin/Admin.do");
 						});
 						$("#admin_home").click(function() {
 							$("#box").load("${context}/admin/Admin.do");
@@ -106,7 +139,24 @@
 					
 				}
 			});
-		});
-	});
+		},
+		logout : function() {
+			alert("로그아웃 클릭");
+			$.ajax("${context}/member/Member.do?page=logout",{
+				dataType : "json",
+				success : function(data) {
+					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_login", function() {
+						$("#login_btn").click(function() {
+							Member.login();
+						});
+					});
+					$("#box").load("${context}/global/Main.do?page=default");
+					$("#admin_nav").remove();
+				},
+				error : function() {
+				}
+			});
+		}
+	};
 </script>
 
