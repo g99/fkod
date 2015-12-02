@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
 	<!-- 메인 파일의 배경은 비지니스-캐쥬얼.css에 url('../images/bg.jpg')로 존재함 -->
-    <meta charset="utf-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+
 
     <title>무비 시어터 박스 - Culture MTB</title>
 
@@ -35,9 +27,6 @@
 
 
 
-</head>
-
-<body>
 	<div>
 
 		<form class="form-2" action="{context}/member.do?page=">
@@ -103,6 +92,9 @@
         <!-- /.container -->
     </nav>
     
+    
+    
+    
    	<script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script>
@@ -111,7 +103,3 @@
     })
     </script>
 
-
-    </body>
-
-</html>
