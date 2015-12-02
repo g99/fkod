@@ -3,12 +3,12 @@ package admin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import global.Constants;
+import global.DQL;
 /*import global.DQL;*/
 import global.DatabaseFactory;
 import global.Vendor;
@@ -35,11 +35,11 @@ public class AdminDAOImpl implements AdminDAO {
 		List<AdminVO> list = new ArrayList<AdminVO>();
 		try {
 			stmt = con.createStatement();
-			/*rs = stmt.executeQuery(DQL.serchAll("member"));*/
+			rs = stmt.executeQuery(DQL.serchAll("member"));
 			
 			while (rs.next()) {
 				AdminVO temp = new AdminVO();
-				temp.setUserid(rs.getString("userid"));
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
 				temp.setBirth(rs.getString("birth"));
@@ -47,6 +47,7 @@ public class AdminDAOImpl implements AdminDAO {
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));
 				temp.setPhone(rs.getString("phone"));
+				temp.setRegdate(rs.getString("regdate"));
 				list.add(temp);
 			}
 		} catch (Exception e) {
@@ -60,7 +61,7 @@ public class AdminDAOImpl implements AdminDAO {
 		try {
 			String sql = "update member set password = ?, addr = ?, email = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, member.getUserid());
+			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPassword());
 			pstmt.setString(3, member.getAddr());
 			pstmt.setString(4, member.getEmail());
