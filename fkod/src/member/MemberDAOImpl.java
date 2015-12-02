@@ -119,11 +119,11 @@ public class MemberDAOImpl implements MemberDAO {
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery("select * from member where id = '"+id+"'");
-			while (rs.next()) {
-				temp.setId(rs.getString("userid"));
+			if (rs.next()) {
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
-				temp.setBirth(rs.getString("age"));
+				temp.setBirth(rs.getString("birth"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));
@@ -156,7 +156,7 @@ public class MemberDAOImpl implements MemberDAO {
 	// R - 로그인
 	@Override
 	public MemberVO login(String id, String password) {
-		MemberVO loginMember = new MemberVO();
+		MemberVO loginMember = null;
 		loginMember = this.selectOneBy(id);
 		if (loginMember.getId() == null) {
 			return null;

@@ -4,13 +4,15 @@
 /* <link rel="stylesheet" href="path" type="text/css"/>  */
 
 @CHARSET "UTF-8";
-@IMPORT url("ticket.css");   
+@IMPORT url("member.css");
+@IMPORT url("admin.css");
 @IMPORT url("movie.css");
-@IMPORT url("admin.css");  
-@IMPORT url("main.css");
+@IMPORT url("ticket.css");
+@IMPORT url("global.css");
 @IMPORT url("bootstrap.css");
 @IMPORT url("business-casual.css");
 @IMPORT url("bootstrap.min.css");
+
 
 
 
