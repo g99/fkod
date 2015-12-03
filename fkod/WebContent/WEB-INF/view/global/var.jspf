@@ -6,3 +6,4 @@
 <c:set var="context" value="<%=request.getContextPath() %>"></c:set> 
 <link rel="stylesheet" href="${context}/css/common.css" />
 
+
