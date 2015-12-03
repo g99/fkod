@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<div class="list-group" id="main_left">
+<div style="background:white; height: 100%">
+<!-- <div class="list-group" id="main_left">
   <a href="#" class="list-group-item active">
     관리자 기능
   </a>
@@ -8,9 +8,10 @@
   <a href="#" class="list-group-item" id="mgmt_member">회원관리</a>
   <a href="#" class="list-group-item" id="mgmt_movie">영화관리</a>
   <a href="#" class="list-group-item" id="mgmt_stat">통계보기</a>
-</div>
+</div> -->
 <div id="main_right">
 	<h1>관리자 페이지 입니다</h1>
+</div>
 </div>
 <script>
 $(function() {
@@ -27,16 +28,10 @@ $(function() {
 	    "margin-left" : "3%",
 		"width" : "50%"
 	});
-	$("#tab_member").css({
-		"border" : "5px solid black",
-		"text-align" : "center",
-		"width" : "200%",
-		"padding" : "10px"
-	});
-	$('#mgmt_member').click(function() {
+	$('#admin_member').click(function() {
 		Admin.memberList();
 	});
-	$('#mgmt_movie').click(function() {
+	$('#admin_movie').click(function() {
 		Admin.movie();
 	});
 });	
@@ -59,6 +54,11 @@ $(function() {
 							});
 							table += '</table>';
 							$(table).appendTo($('#main_right').empty());
+							$("#tab_member").add("#tab_member tr").add("#tab_member th").add("#tab_member td").css({
+								"border" : "1px solid black",
+								"border-collapse" : "collapse",
+								"text-align" : "center",
+							});
 				});
 			},
 			memberNotExist : function() {

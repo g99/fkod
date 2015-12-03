@@ -22,6 +22,8 @@ public class MemberController extends HttpServlet {
 	MemberVO member;
 	MemberService service = MemberServiceImpl.getInstance();
 	HttpSession session = null;
+	String id = null, pw = null;
+	JSONObject json = new JSONObject();
 	
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -31,16 +33,23 @@ public class MemberController extends HttpServlet {
 			break;
 		case "header":
 			break;
+		case "logout":
+			System.out.println("Member : 로그아웃 진입");
+			session.invalidate();
+			json.put("result", "success");
+			response. setContentType("application/x-json; charset=utf-8");
+            response. getWriter().println(json);
+           
+			return;
 		case "login":
 			System.out.println("Member : 로그인 진입");
-			String id = request.getParameter( "id");
-            String pw = request.getParameter ("pw") ;
+			id = request.getParameter("id");
+            pw = request.getParameter ("pw") ;
             System. out.println ("유저아이디 : " + id );
             System. out.println ("유저비  번 : " + pw );
             member = service.login(id, pw);
             session = request.getSession();
             session.setAttribute("user",member);
-            JSONObject json = new JSONObject();
             json.put("id", id);
             json.put("pw", pw);
             if (id.equals("choa")) {
@@ -50,6 +59,7 @@ public class MemberController extends HttpServlet {
 			}
 			response. setContentType("application/x-json; charset=utf-8");
             response. getWriter().println(json);
+            json.clear();
 			return;
 		default:
 			break;
