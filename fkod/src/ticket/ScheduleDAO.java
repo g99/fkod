@@ -20,4 +20,30 @@ public interface ScheduleDAO {
 		
 		// D
 		public int delete(String filmNumber);
+
+		public List<String> selectTheaterByM(String movie);
+
+		public List<String> selectDateByM(String movie);
+
+		public List selectTheaterByMD(String movie, String date);
+
+		public List selectDateByMT(String movie, String theater);
+
+		public List selectMovieRateByTD(String theater, String date);
+		
+		public List selectMovieAscByTD(String theater, String date);
+
+		public List selectMovieRateByT(String theater);
+
+		public List selectMovieAscByT(String theater);
+
+		public List selectDateByT(String theater);
+
+		public List selectMovieRateByD(String date);
+
+		public List selectMovieAscByD(String date);
+
+		public List selectTheaterByD(String date);
+
+		public List selectTime(String movie, String theater, String date);
 }

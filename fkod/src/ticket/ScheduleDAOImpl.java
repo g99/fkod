@@ -123,6 +123,188 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public List<String> selectTheaterByM(String movie) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.theater_name as theatername from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and seat_status > 0 order by schedule.theater_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("theatername"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List<String> selectDateByM(String movie) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.show_date as showdate from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and seat_status > 0 order by schedule.show_date asc");
+			while (rs.next()) {
+				list.add(rs.getString("showdate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectTheaterByMD(String movie, String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.theater_name as theatername from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and schedule.show_date = '"+date+"' and seat_status > 0 order by schedule.theater_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("theatername"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectDateByMT(String movie, String theater) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.show_date as showdate from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and schedule.theater_name = '"+theater+"' and seat_status > 0 order by schedule.show_date asc");
+			while (rs.next()) {
+				list.add(rs.getString("showdate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectMovieRateByTD(String theater, String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct movie.film_name as moviename from schedule, movie where schedule.film_number = movie.film_number and theater_name = '"+theater+"' and show_date = '"+date+"' and seat_status > 0 order by movie.film_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("moviename"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectMovieAscByTD(String theater, String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct movie.film_name as moviename from schedule, movie where schedule.film_number = movie.film_number and theater_name = '"+theater+"' and show_date = '"+date+"' and seat_status > 0 order by movie.film_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("moviename"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectMovieRateByT(String theater) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct movie.film_name as moviename from schedule, movie where schedule.film_number = movie.film_number and theater_name = '"+theater+"' and seat_status > 0 order by movie.film_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("moviename"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectMovieAscByT(String theater) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct movie.film_name as moviename from schedule, movie where schedule.film_number = movie.film_number and theater_name = '"+theater+"' and seat_status > 0 order by movie.film_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("moviename"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectDateByT(String theater) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.show_date as showdate from schedule, movie where schedule.theater_name = '"+theater+"' and seat_status > 0 order by schedule.show_date asc");
+			while (rs.next()) {
+				list.add(rs.getString("showdate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectMovieRateByD(String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct movie.film_name as moviename from schedule, movie where schedule.film_number = movie.film_number and show_date = '"+date+"' and seat_status > 0 order by movie.film_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("moviename"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectMovieAscByD(String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct movie.film_name as moviename from schedule, movie where schedule.film_number = movie.film_number and show_date = '"+date+"' and seat_status > 0 order by movie.film_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("moviename"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectTheaterByD(String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.theater_name as theatername from schedule, movie where schedule.film_number = movie.film_number and schedule.show_date = '"+date+"' and seat_status > 0 order by schedule.theater_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("theatername"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	@Override
+	public List selectTime(String movie, String theater, String date) {
+		List<String> list = new ArrayList<String>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select distinct schedule.show_time as showtime from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and schedule.theater_name = '"+theater+"' and schedule.show_date = '"+date+"' and seat_status > 0 order by schedule.theater_name asc");
+			while (rs.next()) {
+				list.add(rs.getString("showtime"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 
 }
