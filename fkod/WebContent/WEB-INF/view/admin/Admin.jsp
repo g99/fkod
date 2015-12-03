@@ -13,6 +13,7 @@
 	<h1>관리자 페이지 입니다</h1>
 </div>
 </div>
+
 <script>
 $(function() {
 	$("#main_left").css({
@@ -34,6 +35,7 @@ $(function() {
 	$('#admin_movie').click(function() {
 		Admin.movie();
 	});
+	
 });	
 /*  $('#btn_admin_table').click(function() {
     $('#btn_admin_table').submit();
@@ -41,12 +43,12 @@ $(function() {
  var Admin = {
 			memberList : function() {
 				 $.getJSON('${context}/admin/Admin.do?page=member_list', function(data) {
-					 var table = '<h1>회원목록</h1>'
+					 var table = '<h1>회원목록</h1>' 
 							+'<table id="tab_member"><tr><th>아이디</th><th>비밀번호</th>'
 							+'<th>이름</th><th>생년</th><th>성별</th>'
 							+'<th>전화번호</th><th>주소</th><th>이메일</th><th>등록일</th></th>';
 							$.each(data, function() {
-								table +='<tr><td>'+this.id+'</td><td>'+this.password+'</td>'
+								table +='<tr><td><a id="' +this.id+'" href="#">'+this.id+'</a></td><td>'+this.password+'</td>'
 									+'<td>'+this.name+'</td><td>'+this.birth+'</td>'
 									+'<td>'+this.gender+'</td><td>'+this.phone+'</td>'
 									+'<td>'+this.addr+'</td><td>'+this.email+'</td>'
@@ -54,6 +56,10 @@ $(function() {
 							});
 							table += '</table>';
 							$(table).appendTo($('#main_right').empty());
+							$("#"+this.id).click(function() {
+								alert("환영");
+							});
+							
 							$("#tab_member").add("#tab_member tr").add("#tab_member th").add("#tab_member td").css({
 								"border" : "1px solid black",
 								"border-collapse" : "collapse",

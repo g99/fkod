@@ -40,6 +40,7 @@ public class AdminController extends HttpServlet {
 		response.setContentType("application/x-json; charset=utf-8");
 		response.getWriter().print(memberList);
 		return;
+		case "modify":
 		case "movie":
 			System.out.println("영화 목록 진입");
 			return;
