@@ -37,7 +37,7 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = 0;
 		try {
 		String sql = "insert into member(id,password,name,birth,"
-				+ "addr,gender,email,phone,regdate) values(?,?,?,?,?,?,?,?,sysdate)";
+				+ "addr,gender,email,phone,theater_name,regdate) values(?,?,?,?,?,?,?,?,?,sysdate)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPassword());
@@ -47,6 +47,7 @@ public class MemberDAOImpl implements MemberDAO {
 			pstmt.setString(6, member.getGender());
 			pstmt.setString(7, member.getEmail());
 			pstmt.setString(8, member.getPhone());
+			pstmt.setString(9, member.getTheater_name());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -64,13 +65,12 @@ public class MemberDAOImpl implements MemberDAO {
 		try {
 			stmt = con.createStatement(); // 쿼리를 실행하는 객체
 			rs = stmt.executeQuery("select * from member");
-		     
 			while (rs.next()) {
 				MemberVO temp = new MemberVO(); 
-				temp.setId(rs.getString("userid"));
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
-				temp.setBirth(rs.getString("age"));
+				temp.setBirth(rs.getString("birth"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));

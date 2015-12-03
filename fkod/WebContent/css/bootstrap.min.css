@@ -5149,8 +5149,8 @@ border-bottom-right-radius
 }
 
 .navbar-default {
-	background-color: #f8f8f8;
-	border-color: #e7e7e7
+	border: none;
+    background: rgba(105, 4, 4, 0.41);
 }
 
 .navbar-default .navbar-brand {
@@ -5168,7 +5168,8 @@ border-bottom-right-radius
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #777
+	color: white;
+	font-weight: 900;
 }
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover

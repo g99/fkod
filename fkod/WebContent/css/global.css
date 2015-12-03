@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
-#wrapper {
+#outbox {
 	position: relative;	
+}
+
+#box {
+	width: 93%;
+	padding-left: 6%;
 }

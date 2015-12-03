@@ -15,11 +15,11 @@
 				<label for="login"><i class="icon-user">ID</i></label> <input type="text" name="login" placeholder="UserID">
 			</p>
 			<p class="float">
-				<label for="password"><i class="icon-lock">PW</i></label> <input type="password" name="password" placeholder="Password" class="showpassword">
+				<label for="password"><i class="icon-user">PW</i></label> <input type="password" name="password" placeholder="Password" class="showpassword">
 			</p>
 			<p class="clearfix">
-				<a id="join_btn" href="#회원가입 링크로 연결" class="log-twitter">회원 가입</a> 
-				<input id="login_btn" type="submit" name="submit" value="로그인">
+				<a id="join_btn" class="log-twitter">회원 가입</a> 
+				<a id="login_btn" class="log-twitter" style="margin-left:10px;">로그인</a> 
 			</p>
 		</div>
 		</c:if>
@@ -61,102 +61,66 @@
                         <a id="ticket_btn" href="#" >예매</a>
                     </li>
                     <li>
-                        <a href="#" >극장</a>
+                        <a id="theater_btn" href="#" >극장</a>
                     </li>
                     <li>
-                        <a href="#" >이벤트&컬쳐</a>
+                        <a id="event_btn" href="#" >이벤트&컬쳐</a>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
     </nav>
-    
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="${context}/js/global.js"></script>  
+<script src="${context}/js/jquery.js"></script>
+<script src="${context}/js/bootstrap.js"></script>
+<script src="${context}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		/* 메인 버튼 */
 		$("#home").click(function() {
 			$("#box").load("${context}/global/Main.do?page=default");
 		});
+		
+		/* 네비게이션 버튼 */
 		$("#movie_btn").click(function() {
-			$("#box").load("${context}/global/Main.do?page=header");
+			$("#box").load();
 		});
 		
 		$("#ticket_btn").click(function() {
+			$("#box").load();
+		});
+		
+		$("#theater_btn").click(function() {
+			$("#box").load();
+		});
+		
+		$("#event_btn").click(function() {
 			$("#box").load("${context}/global/Main.do?page=default");
 		});
 		
-		$("#join_btn").click(function() {
-			$("#box").load();
+		/* 로그인 버튼 */
+		$("#header").on("click","#join_btn",function() {
+			//회원가입 버튼
 		});
 	
-		$("#login_btn").click(function() {
-			Member.login();
+		$("#header").on("click","#login_btn",function() {
+			Member.login("${context}");
 		});
-		$("#logout_btn").click(function() {
-			Member.logout();
+		
+		$("#header").on("click","#logout_btn",function() {
+			Member.logout("${context}");
+		});
+		
+		/* 관리자 버튼 */
+		$("#outbox").on("click","#admin_home",function() {
+			Admin.home("${context}");
+		});
+		$("#outbox").on("click","#admin_member",function() {
+			Admin.member("${context}");
+		});
+		$("#outbox").on("click","#admin_movie",function() {
+			Admin.movie("${context}");
 		});
 	});
-	var Member = {
-		login : function() {
-			$.ajax("${context}/member/Member.do?page=login",{
-				data : {
-					id : $(".form-2 input:text[name=login]").val(),
-					pw : $(".form-2 input:password[name=password]").val()
-				},
-				dataType : "json",
-				success : function(data) {
-					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_logined", function() {
-						$("#logout_btn").click(function() {
-							//새로고침 하지 않은 경우에 로그아웃
-							Member.logout();
-						});
-					});
-					if(data.admin === "yes") {
-						$("#wrapper").append(
-								'<table id="admin_nav"><tr><td><a href="#" class="list-group-item" id="admin_home">홈</a></td></tr>'+
-								'<tr><td><a href="#" class="list-group-item" id="admin_member">회원관리</a></td></tr><tr><td><a href="#" class="list-group-item" id="admin_movie">영화관리</a></td></tr><tr><td><a href="#" class="list-group-item" id="admin_statistics">통계보기</a></td></tr><tr><td>게시판관리</td></tr></table>');
-						$("#admin_nav").css({
-							"text-align": "center",
-							"height": "450px",
-							"background": "#fffaf6",
-							"position": "absolute",
-							"right": "20px",
-							"top": "300px"
-						});
-						$("#admin_home").click(function() {
-							$("#box").load("${context}/admin/Admin.do?page=member");
-						});
-						$("#admin_home").click(function() {
-							$("#box").load("${context}/admin/Admin.do");
-						});
-						$("#admin_home").click(function() {
-							$("#box").load("${context}/admin/Admin.do");
-						});
-					}
-				},
-				error : function() {
-					
-				}
-			});
-		},
-		logout : function() {
-			alert("로그아웃 클릭");
-			$.ajax("${context}/member/Member.do?page=logout",{
-				dataType : "json",
-				success : function(data) {
-					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_login", function() {
-						$("#login_btn").click(function() {
-							Member.login();
-						});
-					});
-					$("#box").load("${context}/global/Main.do?page=default");
-					$("#admin_nav").remove();
-				},
-				error : function() {
-				}
-			});
-		}
-	};
+	
 </script>
-

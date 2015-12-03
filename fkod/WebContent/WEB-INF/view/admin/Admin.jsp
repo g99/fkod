@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div style="background:white; height: 100%">
+<div style="background:white; height: 1000px">
 <!-- <div class="list-group" id="main_left">
   <a href="#" class="list-group-item active">
     관리자 기능
@@ -29,6 +29,7 @@ $(function() {
 	    "margin-left" : "3%",
 		"width" : "50%"
 	});
+
 	$('#admin_member').click(function() {
 		Admin.memberList();
 	});
@@ -36,10 +37,13 @@ $(function() {
 		Admin.movie();
 	});
 	
+
+
 });	
 /*  $('#btn_admin_table').click(function() {
     $('#btn_admin_table').submit();
   }); */
+
  var Admin = {
 			memberList : function() {
 				 $.getJSON('${context}/admin/Admin.do?page=member_list', function(data) {
@@ -78,10 +82,12 @@ $(function() {
 			movie : function() {
 				 $.getJSON('${context}/admin/Admin.do?movie', function(data) {
 					 var table = '<h1>영화관리</h1>'
-					 +
+					 	 table
+					 	 table
 					 +'';
 				});
 			}
  }
+
  
 </script>
