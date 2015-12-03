@@ -38,8 +38,6 @@ public class MemberController extends HttpServlet {
 			System.out.println("id는 정상으로 들어왓나?"+id);
 			return;
 		case "join_Result":
-			
-			
 			break;
 		case "logout":
 			System.out.println("Member : 로그아웃 진입");

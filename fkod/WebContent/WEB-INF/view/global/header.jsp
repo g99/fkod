@@ -18,8 +18,8 @@
 				<label for="password"><i class="icon-user">PW</i></label> <input type="password" name="password" placeholder="Password" class="showpassword">
 			</p>
 			<p class="clearfix">
-				<a id="join_btn" href="#회원가입 링크로 연결" class="log-twitter">회원 가입</a> 
-				<a id="login_btn" href="#회원가입 링크로 연결" class="log-twitter" style="margin-left:10px;">로그인</a> 
+				<a id="join_btn" class="log-twitter">회원 가입</a> 
+				<a id="login_btn" class="log-twitter" style="margin-left:10px;">로그인</a> 
 			</p>
 		</div>
 		</c:if>
@@ -70,10 +70,10 @@
             </div>
             <!-- /.navbar-collapse -->
     </nav>
-    
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<script src="${context}/js/global.js"></script>  
+<script src="${context}/js/jquery.js"></script>
+<script src="${context}/js/bootstrap.js"></script>
+<script src="${context}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		/* 메인 버튼 */
@@ -104,125 +104,23 @@
 		});
 	
 		$("#header").on("click","#login_btn",function() {
-			Member.login();
+			Member.login("${context}");
 		});
 		
 		$("#header").on("click","#logout_btn",function() {
-			Member.logout();
+			Member.logout("${context}");
 		});
 		
 		/* 관리자 버튼 */
 		$("#outbox").on("click","#admin_home",function() {
-			Admin.home();
+			Admin.home("${context}");
 		});
 		$("#outbox").on("click","#admin_member",function() {
-			Admin.member();
+			Admin.member("${context}");
 		});
 		$("#outbox").on("click","#admin_movie",function() {
-			Admin.movie();
+			Admin.movie("${context}");
 		});
 	});
-	var Member = {
-		login : function() {
-			$.ajax("${context}/member/Member.do?page=login",{
-				data : {
-					id : $(".form-2 input:text[name=login]").val(),
-					pw : $(".form-2 input:password[name=password]").val()
-				},
-				dataType : "json",
-				success : function(data) {
-					//로그인 결과가 성공이면
-					if(data.result === "success"){
-						$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_logined");
-						// 관리자 아이디로 확인되면
-						if(data.admin === "yes") {
-							$("#outbox").append(
-								'<table id="admin_nav"><tr><td><a href="#" id="admin_home">홈</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_member">회원관리</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_movie">영화관리</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_statistics">통계보기</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_board">게시판관리</a></td></tr></table>');
-							$("#admin_nav").css({
-											"text-align": "center",
-											"height": "450px",
-											"background": "rgba(105, 4, 4, 0.41)",
-											"position": "absolute",
-											"right": "20px",
-											"top": "40px"
-							});
-							$("#admin_nav a").css({
-												"border":"none",
-												"color":"white",
-												"font-weight":"900"
-												});
-						}
-					} else{
-					//로그인 결과가 실패면
-						alert("아이디 패스워드를 다시한번 확인해주세요");
-					}
-				},
-				error : function() {
-					
-				}
-			});
-		},
-		logout : function() {
-			$.ajax("${context}/member/Member.do?page=logout",{
-				dataType : "json",
-				success : function(data) {
-					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_login");
-					$("#box").load("${context}/global/Main.do?page=default");
-					$("#admin_nav").remove();
-				},
-				error : function() {
-				}
-			});
-		}
-	};
-	 var Admin = {
-			 	home : function() {
-					$("#box").load("${context}/admin/Admin.do");
-				},
-				member : function() {
-					 $.getJSON('${context}/admin/Admin.do?page=member_list', function(data) {
-						 var table = '<div id="member_list"><h1>회원목록</h1>'
-								+'<table id="tab_member"><tr><th>아이디</th><th>비밀번호</th>'
-								+'<th>이름</th><th>생년</th><th>성별</th>'
-								+'<th>전화번호</th><th>주소</th><th>이메일</th><th>등록일</th></th>';
-								$.each(data, function() {
-									table +='<tr><td>'+this.id+'</td><td>'+this.password+'</td>'
-										+'<td>'+this.name+'</td><td>'+this.birth+'</td>'
-										+'<td>'+this.gender+'</td><td>'+this.phone+'</td>'
-										+'<td>'+this.addr+'</td><td>'+this.email+'</td>'
-										+'<td>'+this.regdate+'</td></tr>'
-								});
-								table += '</table></div>';
-								$(table).appendTo($('#box').empty());
-								$("#member_list").css({
-														"background":"white",
-														"height":"1000px"
-														});
-								$("#tab_member").add("#tab_member tr").add("#tab_member th").add("#tab_member td").css({
-									"border" : "1px solid black",
-									"border-collapse" : "collapse",
-									"text-align" : "center",
-								});
-					});
-				},
-				memberNotExist : function() {
-					var table ='<h1>회원목록'
-						teble ='</h1><table id="tab_member"><tr><th>아이디</th><tr><th>비밀번호</th>';
-						table += '<th>이름</th><th>생년</th><th>성별</th><th>전화번호</th><th>주소</th></tr>';
-						table += '<th>이메일</th><th>등록일</th></tr>';
-						table += '<tr><td colspan="6"><h2>회원목록이 없습니다.</h2></td></tr></table>';
-						$(table).appendTo($('#main_right').empty());
-				},
-				movie : function() {
-					 $.getJSON('${context}/admin/Admin.do?movie', function(data) {
-						 var table = '<h1>영화관리</h1>'
-						 +
-						 +'';
-					});
-				}
-	 };
+	
 </script>

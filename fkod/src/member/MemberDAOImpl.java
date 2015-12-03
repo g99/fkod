@@ -65,13 +65,12 @@ public class MemberDAOImpl implements MemberDAO {
 		try {
 			stmt = con.createStatement(); // 쿼리를 실행하는 객체
 			rs = stmt.executeQuery("select * from member");
-		     
 			while (rs.next()) {
 				MemberVO temp = new MemberVO(); 
-				temp.setId(rs.getString("userid"));
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
-				temp.setBirth(rs.getString("age"));
+				temp.setBirth(rs.getString("birth"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));
