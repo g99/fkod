@@ -83,7 +83,7 @@
 		
 		/* 네비게이션 버튼 */
 		$("#movie_btn").click(function() {
-			$("#box").load();
+			$("#box").load("${context}/movie/Movie.do");
 		});
 		
 		$("#ticket_btn").click(function() {

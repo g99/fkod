@@ -12,7 +12,7 @@
 /*=================movie.html==================*/
 /*=============================================*/
 .movie_wrap table{border-collapse: collapse;}
-.movie_wrap tr, th, td{border : 1px solid white; padding: 5px;}
+.movie_wrap tr, .movie_wrap th, .movie_wrap td{border : 1px solid white; padding: 5px;}
 .movie_wrap th{ text-align: left; font-size: 15px;}
 .movie_wrap p{font-size: 17px}
 .movie_info{border : 1px solid black;
@@ -157,7 +157,7 @@ div.chart_ranking{ text-align: center;
 	border-collapse: collapse;
 }
 
-.cut_wrap tr, th, td {
+.cut_wrap tr, .cut_wrap th, .cut_wrap td {
 	border: 1px solid white;
 	padding: 5px;
 }
