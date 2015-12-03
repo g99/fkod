@@ -15,11 +15,11 @@
 				<label for="login"><i class="icon-user">ID</i></label> <input type="text" name="login" placeholder="UserID">
 			</p>
 			<p class="float">
-				<label for="password"><i class="icon-lock">PW</i></label> <input type="password" name="password" placeholder="Password" class="showpassword">
+				<label for="password"><i class="icon-user">PW</i></label> <input type="password" name="password" placeholder="Password" class="showpassword">
 			</p>
 			<p class="clearfix">
 				<a id="join_btn" href="#회원가입 링크로 연결" class="log-twitter">회원 가입</a> 
-				<input id="login_btn" type="submit" name="submit" value="로그인">
+				<a id="login_btn" href="#회원가입 링크로 연결" class="log-twitter" style="margin-left:10px;">로그인</a> 
 			</p>
 		</div>
 		</c:if>
@@ -72,6 +72,7 @@
     </nav>
     
 <script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -136,19 +137,24 @@
 						// 관리자 아이디로 확인되면
 						if(data.admin === "yes") {
 							$("#outbox").append(
-								'<table id="admin_nav"><tr><td><a href="#" class="list-group-item" id="admin_home">홈</a></td></tr>'+
-								'<tr><td><a href="#" class="list-group-item" id="admin_member">회원관리</a></td></tr>'+
-								'<tr><td><a href="#" class="list-group-item" id="admin_movie">영화관리</a></td></tr>'+
-								'<tr><td><a href="#" class="list-group-item" id="admin_statistics">통계보기</a></td></tr>'+
-								'<tr><td>게시판관리</td></tr></table>');
+								'<table id="admin_nav"><tr><td><a href="#" id="admin_home">홈</a></td></tr>'+
+								'<tr><td><a href="#" id="admin_member">회원관리</a></td></tr>'+
+								'<tr><td><a href="#" id="admin_movie">영화관리</a></td></tr>'+
+								'<tr><td><a href="#" id="admin_statistics">통계보기</a></td></tr>'+
+								'<tr><td><a href="#" id="admin_board">게시판관리</a></td></tr></table>');
 							$("#admin_nav").css({
 											"text-align": "center",
 											"height": "450px",
-											"background": "#fffaf6",
+											"background": "rgba(105, 4, 4, 0.41)",
 											"position": "absolute",
 											"right": "20px",
 											"top": "40px"
 							});
+							$("#admin_nav a").css({
+												"border":"none",
+												"color":"white",
+												"font-weight":"900"
+												});
 						}
 					} else{
 					//로그인 결과가 실패면
@@ -220,4 +226,3 @@
 				}
 	 };
 </script>
-

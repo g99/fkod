@@ -1,59 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-
-<!-- <style>
-
-.maintext{
-font-size: 27px;
-font-weight: bold;
-padding-left: 30px;
-padding-top: 50px;
-display: inline;
-
-}
-
-.subtext{
-font-size: 16px;
-padding-left: 14px;
-display: inline;
-}
-
-
-.term_text {
-    overflow: hidden;
-    overflow-y: scroll;
-    width: 900px;
-    height: 157px;
-    padding: 10px;
-    border: 1px solid #e8e7e7;
-    font-size: 12px;
-}
-
-
-</style> -->
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" href="../css/member.css" />
 
-</head>
-<body>
-<div class="wrap" style="width: 100%; margin: auto">
+<form id="prov_wrap">
 	
-	<div style="width: 1100px; height: 1250px; margin-top: 100px; margin-left: 170px">
+	<div id="prov_form">
 		<p class="maintext"> 약관동의</p>
 		<p class="subtext"> 서비스 이용약관 및 정보이용 안내에 대한 동의를 해주세요.</p>
 		<br />
 		<br />
 		
-		
-		<form>
 		<!-- 약관 1 -->
-		<p style="padding-left: 20px;font-size: 17px; font-weight: 500;">이용약관</p>
-		<div class = "term_text" style="margin: auto">
+		<p id= "provOne_Text">이용약관</p>
+		<div class = "term_text" id ="textOne_form">
 제1조. 목적
 이 약관은 무비(주)(이하 '회사'라 합니다)가 제공하는 온라인, 오프라인 서비스(이하 "서비스"라 합니다) 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.<br />
 <br /><br />
@@ -237,7 +196,7 @@ display: inline;
 (변경) 종전의 약관은 본 약관으로 대체합니다.
 		</div>
 		
-			<div class="term_check" style=" float: right; width: 450px; height: 50px;">
+			<div class="term_check">
 				<input type="checkbox" name="clause" value="bike"> 위의 ‘이용약관’을 읽고 동의 합니다. (필수 동의)
 			</div>
 
@@ -248,8 +207,8 @@ display: inline;
 		<br />
 		
 		
-		<p style="padding-left: 20px;font-size: 17px; font-weight: 500;">개인정보수집 및 이용안내</p>
-		<div class = "term_text" style="margin: auto">
+		<p id="p_two">개인정보수집 및 이용안내</p>
+		<div class ="term_text" id = "textTwo_form">
 		<dl>
 				<dd>
 				메가박스(주)가 개인정보를 수집하는 목적은 보다 다양하고 원활한 고객서비스를 제공하기 위함입니다.
@@ -298,7 +257,7 @@ display: inline;
 			</dl>
 		</div>
 		
-			<div class="term_check" style=" float: right; width: 570px; height: 50px;">
+			<div class="term_check_second">
 				<input type="checkbox" name="clause" value="bike"> 위의 ‘개인정보수집 및 이용안내’를 읽고 동의 합니다. (필수 동의)
 			</div>
 
@@ -310,28 +269,28 @@ display: inline;
 		<br />
 		<br />
 		<br />
-		<p style="padding-left: 20px;font-size: 17px; font-weight: 500;">개인정보 제3자 제공에 관한 안내</p>
-		<div class = "term_text" style="margin: auto">
+		<p id= "p_three">개인정보 제3자 제공에 관한 안내</p>
+		<div class = "term_text" id = "#textThree_form" style="margin-left: 100px;">
 		<dl>
 				<dd> 1. 회사는 고객의 요청에 의하여 해당 고객의 개인정보를 제 3자에게 제공하는 경우, 
 					그 제공하는 목적, 제공하는 개인정보의 항목, 개인정보를 제공받는 자 및 그 보유 • 이용기간은 다음 표와 같습니다.<br>
 					<table summary="개인정보 제3자 제공에 관한 안내">
 					
 						<caption class="blind">개인정보 제3자 제공에 관한 안내:제공받는 업체, 제공하는 항목, 제공받는 자의 이용목적, 보유 및 이용기간 등의 정보제공</caption>
-						<thead>
-							<tr style="border:solid 1px #848484; border-bottom:none;">
-								<th style="border-right:1px solid #848484; text-align:center; width:300px;">제공받는 업체</th>
-								<th style="border-right:1px solid #848484; text-align:center">제공하는 항목</th>
-								<th style="border-right:1px solid #848484; text-align:center">제공받는 자의 이용목적</th>
-								<th style="border-right:1px solid #848484; text-align:center">보유 및 이용기간</th>
+						<thead id= "td_One">
+							<tr id ="tr_One">
+								<th class="th_one">제공받는 업체</th>
+								<th class="th_two">제공하는 항목</th>
+								<th class="th_two">제공받는 자의 이용목적</th>
+								<th class="th_two">보유 및 이용기간</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr style="border:solid 1px #848484">
-								<td style="border:solid 1px #848484; padding-left:6px;">SK플래닛㈜, ㈜케이티, LG U+㈜, 삼성카드㈜, KB국민카드㈜, ㈜다음커뮤니케이션, ㈜비엔에스웍스(SK플래닛㈜의 Syrup 모바일 서비스 대행사), ㈜쿠프마케팅(삼성카드㈜의 삼성M포켓, KB국민카드㈜의 KB와이즈월렛 모바일 서비스 대행사), ㈜오케이터치(LGU+ 스마트월렛 모바일 서비스 대행사), ㈜아이팝콘(삼성전자㈜의 삼성스마트월렛 모바일 서비스 대행사)</td>
-								<td style="border:solid 1px #848484; padding-left:6px;">메가박스 멤버십 카드번호, 포인트 내역, 휴대폰번호, 성명, 메가박스 WEB ID, 예매 정보</td>
-								<td style="border:solid 1px #848484; padding-left:6px;">메가박스 포인트 적립 및 사용, 포인트 내역 제공, 예매 정보 제공 등 제휴 서비스 제공 활동</td>
-								<td style="border:solid 1px #848484; padding-left:6px;">해당 제휴사 회원 가입 시 동의한 보유 및 이용기간까지</td>
+							<tr id ="tr_Two">
+								<td id = "td_One">SK플래닛㈜, ㈜케이티, LG U+㈜, 삼성카드㈜, KB국민카드㈜, ㈜다음커뮤니케이션, ㈜비엔에스웍스(SK플래닛㈜의 Syrup 모바일 서비스 대행사), ㈜쿠프마케팅(삼성카드㈜의 삼성M포켓, KB국민카드㈜의 KB와이즈월렛 모바일 서비스 대행사), ㈜오케이터치(LGU+ 스마트월렛 모바일 서비스 대행사), ㈜아이팝콘(삼성전자㈜의 삼성스마트월렛 모바일 서비스 대행사)</td>
+								<td id = "td_One">메가박스 멤버십 카드번호, 포인트 내역, 휴대폰번호, 성명, 메가박스 WEB ID, 예매 정보</td>
+								<td id = "td_One">메가박스 포인트 적립 및 사용, 포인트 내역 제공, 예매 정보 제공 등 제휴 서비스 제공 활동</td>
+								<td id = "td_One">해당 제휴사 회원 가입 시 동의한 보유 및 이용기간까지</td>
 							</tr>
 						</tbody>
 					</table>
@@ -347,14 +306,14 @@ display: inline;
 			
 			
 			
-			<div class="term_check" style=" float: right; width: 630px; height: 50px;">
-				<input type="checkbox" name="clause" value="bike"> 위의 ‘개인정보 제3자 제공에 관한 안내’를 읽고 동의 합니다. (선택 동의)
+			<div id="check_Form">
+				<input type="checkbox" name="clause" value="agree"> 위의 ‘개인정보 제3자 제공에 관한 안내’를 읽고 동의 합니다. (선택 동의)
 			</div>
 			<br />
 			<br />
 		<hr />
-		<div class="term_check" style=" float: right; width: 370px; height: 50px;">
-				<input type="checkbox" name="clause" value="bike"> 위의 모든 약관을 읽고 동의합니다.
+		<div id="check_Form_Two">
+				<input type="checkbox" name="clause" value="agree"> 위의 모든 약관을 읽고 동의합니다.
 			</div>
 	
 					
@@ -366,16 +325,18 @@ display: inline;
 		<br>
 		<br>
 		<br>
-		</form>
-		<div style="width: 121px; height: 41px; margin: auto;">
-		<a href="join3.html"><img width="120px" height="40px" src="../images/suc.PNG" alt="" /></a>
+		<div id="agree">
+		<img id="img_btn" src="../images/suc.PNG" alt="" />
 		</div>
 		
 	</div>
-
+	</form>
 	
-
-
-	</div>
-</body>
-</html>
+	
+	<script>
+	$('#img_btn').click(function() {
+		$('#box').empty();
+		$('#box').load('${context}/member/Member.do?page=join');
+		
+	})
+	</script>

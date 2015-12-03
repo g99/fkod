@@ -16,12 +16,13 @@ public class MemberVO {
 	private String gender; // 성별
 	private String addr; // 주소
 	private String regdate;
+	private String theater_name;
 	
 	public MemberVO() {
 	}
 	
 	public MemberVO(String id, String password, String name, String birth, 
-			String phone, String email, String gender, String addr, String regdate) {
+			String phone, String email, String gender, String addr, String theater_name, String regdate) {
 			this.id = id;
 			this.password = password;
 			this.name = name;
@@ -31,6 +32,7 @@ public class MemberVO {
 			this.gender = gender;
 			this.addr = addr;
 			this.regdate = regdate;
+			this.theater_name = theater_name;
 	}
 	
 	
@@ -89,8 +91,16 @@ public class MemberVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-
 	
+	public String getTheater_name() {
+		return theater_name;
+	}
+
+	public void setTheater_name(String theater_name) {
+		this.theater_name = theater_name;
+	}
+	
+
 	@Override
 	public String toString() {
 		return " 회원 [아이디=" + id 
