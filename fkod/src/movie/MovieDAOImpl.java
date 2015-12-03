@@ -30,7 +30,7 @@ public class MovieDAOImpl implements MovieDAO{
 		List<MovieVO> list = new ArrayList<MovieVO>();
 		try {
 			stmt = con.createStatement(); // 쿼리를 실행하는 객체
-			rs = stmt.executeQuery("select * from movie");
+			rs = stmt.executeQuery("select * from movie where film_name = '내부자들'");
 			while (rs.next()) {
 				MovieVO temp = new MovieVO(); 
 				temp.setFilmNumber(rs.getString("film_Number"));
@@ -116,7 +116,8 @@ public class MovieDAOImpl implements MovieDAO{
 		MovieVO temp = new MovieVO();
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("select * from movie where film_name = '"+key+"'");
+			rs = stmt.executeQuery("select * from movie where film_number = '"+key+"'");
+			/*rs = stmt.executeQuery("select * from movie where film_name = '내부자들'");*/
 			
 			while (rs.next()) {
 
@@ -129,7 +130,7 @@ public class MovieDAOImpl implements MovieDAO{
 				temp.setPrice(rs.getInt("price"));
 				temp.setGenre(rs.getString("genre"));
 				temp.setReleaseDate(rs.getDate("release_Date"));
-				temp.setEndDate(rs.getDate("endDate"));
+				temp.setEndDate(rs.getDate("end_Date"));
 				temp.setStory(rs.getString("story"));
 				temp.setCut(rs.getString("cut"));
 				temp.setTrailer(rs.getString("trailer"));
@@ -137,7 +138,7 @@ public class MovieDAOImpl implements MovieDAO{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("영화 DAO "+ temp.getFilmName());
+		System.out.println("영화 DAO 이름검색 "+ temp.getFilmName());
 		return temp;
 	}
 

@@ -4,8 +4,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <c:set var="context" value="<%=request.getContextPath() %>"></c:set> 
-<<<<<<< HEAD
 <link rel="stylesheet" href="${context}/css/common.css" />
-=======
-<link rel="stylesheet" href="${context}/css/common.css" />
->>>>>>> refs/remotes/origin/master_0_2_1

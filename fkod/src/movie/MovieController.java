@@ -29,19 +29,22 @@ public class MovieController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MovieService service = MovieServiceImpl.getInstance();
 	MovieVO movie = new MovieVO();
+	MovieDAO dao = MovieDAOImpl.getInstance();
 	JSONObject obj = new JSONObject();
 	Gson gson = new Gson();
 	List list = new ArrayList<>();
+	String filmName, filmNumber, json;
     public MovieController() {
         super();
     }
 
+	@SuppressWarnings("unchecked")
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Seperator.init(request);
 		
 		HttpSession session = request.getSession();
 		switch (Seperator.command.getPage()) {
-		case "movie":break;
+		case "Movie":break;
 		case "movie_info":
 			System.out.println("movie_info case진입");
 			list = service.getList();
@@ -49,9 +52,32 @@ public class MovieController extends HttpServlet {
 			JsonArray movieList = element.getAsJsonArray();
 			response.setContentType("application/json; charset=UTF-8");
 			response.getWriter().print(movieList);
+			System.out.println(movieList);
 			return;
+		case "movie_name" : 
+			filmNumber = request.getParameter("filmNumber");
+			System.out.println("film넘버 : "+filmNumber);
+			movie = service.searchByName(filmNumber);
+			System.out.println("영화제목 : "+movie.getFilmName());
+			/*obj.put("filmName", movie.getFilmName());
+			System.out.println("obj : "+ obj);
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(obj);*/
 			
-
+			
+			json = gson.toJson(movie);
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(json);
+			return;
+		case "movie_Cut" : 
+			filmNumber = request.getParameter("filmNumber");
+			System.out.println("movie컷의 film넘버 : "+filmNumber);
+			movie = service.searchByName(filmNumber);
+			System.out.println("movie컷의영화제목 : "+movie.getFilmName());
+			json = gson.toJson(movie);
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(json);
+			return;
 		default:
 			break;
 		}
