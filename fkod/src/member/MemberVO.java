@@ -16,7 +16,7 @@ public class MemberVO {
 	private String gender; // 성별
 	private String addr; // 주소
 	private String regdate;
-	private String theater_name;
+	private String my_Theater;
 	
 	public MemberVO() {
 	}
@@ -32,7 +32,7 @@ public class MemberVO {
 			this.gender = gender;
 			this.addr = addr;
 			this.regdate = regdate;
-			this.theater_name = theater_name;
+			this.my_Theater = theater_name;
 	}
 	
 	
@@ -91,15 +91,14 @@ public class MemberVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	
-	public String getTheater_name() {
-		return theater_name;
+
+	public String getMy_Theater() {
+		return my_Theater;
 	}
 
-	public void setTheater_name(String theater_name) {
-		this.theater_name = theater_name;
+	public void setMy_Theater(String my_Theater) {
+		this.my_Theater = my_Theater;
 	}
-	
 
 	@Override
 	public String toString() {

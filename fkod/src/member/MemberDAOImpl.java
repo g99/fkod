@@ -35,21 +35,21 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int insert(MemberVO member) {
 		int result = 0;
+		System.out.println("DAO impl로 들어옴");
 		try {
-		String sql = "insert into member(id,password,name,birth,"
-				+ "addr,gender,email,phone,theater_name,regdate) values(?,?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "INSERT INTO MEMBER (ID,PASSWORD,NAME,BIRTH,GENDER,PHONE,ADDR,EMAIL,REGDATE) VALUES (?,?,?,?,?,?,?,?,sysdate)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPassword());
 			pstmt.setString(3, member.getName());
 			pstmt.setString(4, member.getBirth());
-			pstmt.setString(5, member.getAddr());
-			pstmt.setString(6, member.getGender());
-			pstmt.setString(7, member.getEmail());
-			pstmt.setString(8, member.getPhone());
-			pstmt.setString(9, member.getTheater_name());
+			pstmt.setString(5, member.getGender());
+			pstmt.setString(6, member.getPhone());
+			pstmt.setString(7, member.getAddr());
+			pstmt.setString(8, member.getEmail());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
+			System.out.println("에러발생"+e);
 			e.printStackTrace();
 		}
 		System.out.println("DAOImpl 회원가입 결과:"+result);
@@ -68,10 +68,10 @@ public class MemberDAOImpl implements MemberDAO {
 		     
 			while (rs.next()) {
 				MemberVO temp = new MemberVO(); 
-				temp.setId(rs.getString("userid"));
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
-				temp.setBirth(rs.getString("age"));
+				temp.setBirth(rs.getString("birth"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));
@@ -95,10 +95,10 @@ public class MemberDAOImpl implements MemberDAO {
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				MemberVO temp = new MemberVO();
-				temp.setId(rs.getString("userid"));
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
-				temp.setBirth(rs.getString("age"));
+				temp.setBirth(rs.getString("birth"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));
@@ -121,10 +121,10 @@ public class MemberDAOImpl implements MemberDAO {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery("select * from member where id = '"+id+"'");
 			while (rs.next()) {
-				temp.setId(rs.getString("userid"));
+				temp.setId(rs.getString("id"));
 				temp.setPassword(rs.getString("password"));
 				temp.setName(rs.getString("name"));
-				temp.setBirth(rs.getString("age"));
+				temp.setBirth(rs.getString("birth"));
 				temp.setAddr(rs.getString("addr"));
 				temp.setGender(rs.getString("gender"));
 				temp.setEmail(rs.getString("email"));
@@ -134,7 +134,7 @@ public class MemberDAOImpl implements MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("DAOImpl 조회된 ID"+temp.getId());
+		System.out.println("DAOImpl 조회된 ID는"+temp.getId());
 		return temp;
 	}
 	// R - 총 회원수 조회
