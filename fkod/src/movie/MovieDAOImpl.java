@@ -30,7 +30,7 @@ public class MovieDAOImpl implements MovieDAO{
 		List<MovieVO> list = new ArrayList<MovieVO>();
 		try {
 			stmt = con.createStatement(); // 쿼리를 실행하는 객체
-			rs = stmt.executeQuery("select * from movie where film_name = '내부자들'");
+			rs = stmt.executeQuery("select * from movie");
 			while (rs.next()) {
 				MovieVO temp = new MovieVO(); 
 				temp.setFilmNumber(rs.getString("film_Number"));
@@ -155,4 +155,25 @@ public class MovieDAOImpl implements MovieDAO{
 		}
 		return result;
 	}
+	public List<MovieVO> selectChart() {
+		List<MovieVO> ChartList = new ArrayList<MovieVO>();
+		try {
+			stmt = con.createStatement(); // 쿼리를 실행하는 객체
+			rs = stmt.executeQuery("select film_number from movie");
+			while (rs.next()) {
+				MovieVO temp = new MovieVO(); 
+				temp.setFilmNumber(rs.getString("film_Number"));
+				
+				ChartList.add(temp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ChartList;
+	}
+	
+	
+	
+	
+	
 }

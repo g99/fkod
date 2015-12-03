@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 
 import global.DispatcherServlet;
 import global.Seperator;
+import javafx.print.JobSettings;
 
 /**
  * Servlet implementation class MovieController
@@ -32,8 +33,10 @@ public class MovieController extends HttpServlet {
 	MovieDAO dao = MovieDAOImpl.getInstance();
 	JSONObject obj = new JSONObject();
 	Gson gson = new Gson();
+	JSONObject json = new JSONObject();
 	List list = new ArrayList<>();
-	String filmName, filmNumber, json;
+	List list2 = new ArrayList<>();
+	String filmName, filmNumber, jsonString;
     public MovieController() {
         super();
     }
@@ -63,20 +66,27 @@ public class MovieController extends HttpServlet {
 			System.out.println("obj : "+ obj);
 			response.setContentType("application/x-json; charset=utf-8");
 			response.getWriter().print(obj);*/
-			
-			
-			json = gson.toJson(movie);
+			jsonString = gson.toJson(movie);
 			response.setContentType("application/x-json; charset=utf-8");
-			response.getWriter().print(json);
+			response.getWriter().print(jsonString);
 			return;
 		case "movie_Cut" : 
 			filmNumber = request.getParameter("filmNumber");
 			System.out.println("movie컷의 film넘버 : "+filmNumber);
 			movie = service.searchByName(filmNumber);
 			System.out.println("movie컷의영화제목 : "+movie.getFilmName());
-			json = gson.toJson(movie);
+			jsonString = gson.toJson(movie);
 			response.setContentType("application/x-json; charset=utf-8");
-			response.getWriter().print(json);
+			response.getWriter().print(jsonString);
+			return;
+		case "movie_Chart" : 
+			System.out.println("movie_chart case진입");
+			list = service.getList();
+			JsonElement element2 = gson.toJsonTree(list, new TypeToken<List>(){}.getType());
+			JsonArray movieList2 = element2.getAsJsonArray();
+			response.setContentType("application/json; charset=UTF-8");
+			response.getWriter().print(movieList2);
+			System.out.println(movieList2);
 			return;
 		default:
 			break;

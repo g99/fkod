@@ -7,8 +7,8 @@
 
 $(function() {
 	$('#movie_wrap').css('margin-left', '100px').css('border-collapse', 'collapse');
-	
-	movie.movieName();
+	movie.ranking();
+	/* movie.movieName(); */
 	
 });
 	$(function() {
@@ -38,14 +38,14 @@ $(function() {
 				});
 				
 		},
-		movieName : function() {
- 			$.getJSON('${context}/movie/Movie.do?page=movie_name&filmNumber=A001', 
+		movieName : function(data) {
+ 			$.getJSON('${context}/movie/Movie.do?page=movie_name&filmNumber='+data.filmNumber, 
 			/* $.getJSON('${context}/movie/Movie.do?page=movie_name&filmNumber='+'a001', */
 					
 					function(data) {
 						
 						var movieInfom = '<h1>무비페이지</h1>'
-							+'<div id="movie_info"><div id="movie_poster"><img id="movie_float" src="../images/ma01.jpg;" alt="" width="250" height="350" /></div>'
+							+'<div id="movie_info"><div id="movie_poster"><img id="movie_float" src="../images/'+data.filmNumber+'.jpg;" alt="" width="250" height="350" /></div>'
 							+'<h2>'+data.filmName+'</h2>'
 							+'<table id="movie_tab" style= "border : 1px solid black"><tr><th style="color: grey; font-size: 18px">예매율</th><td>10.5%</td></tr><tr><th>감독</th>'
 							+'<td>'+data.director+'</td><tr><th>배우</th><td>'+data.actor+'</td></tr>'
@@ -93,10 +93,48 @@ $(function() {
 				$('#movie_wrap').empty().html(movieCut);
 				$('#movie_home').click(function() {
 					$('#movie_wrap').empty();
+					submit(this.filmNumber);
 					movie.movieName();
-				})
+				});
 			})
 			
+		},
+		
+		ranking : function() {
+			var arr = [];
+			$.getJSON('${context}/movie/Movie.do?page=movie_Chart&filmNumber', function(data) {
+				var rank = '<div id="test"><h2>무비차트</h2></div>';
+				$.each(data, function(index, value) {
+					rank += '<div class="chart_rank" id="chart_rank'+index+'"><div class="chart_ranking chart_font_17 chart_bold">'+'NO.'+(index+1)+'</div><a href="#" id='+this.filmNumber+'>'
+							+'<img src="../images/'+this.filmNumber+'.jpg" alt="" width="250" height="350"></a><div class="chart_desc chart_bold">'+this.filmName+'</div></div>';
+					arr.push(this.filmNumber);
+				})
+								
+			$('#movie_wrap').empty().append(rank);
+			$.each(data, function(i, val) {
+				$('#'+arr[i]).click(function() {
+					alert('chart랭크 클릭이벤트들어옴' + arr[i]);
+						$.ajax('${context}/movie/Movie.do', {
+							data : 	{
+								filmNumber :arr[i],
+								page : 'movie_name'
+							},
+							dataType : 'json',
+							success : function(data) {
+								alert('ajax 성공 들어옴')
+								$('#movie_wrap').empty();
+							 	movie.movieName(data);
+							},
+							error : function(xhr, status, msg) {
+								alert('에러발생 : '+ status+', 내용 : '+msg );
+							}
+						});
+					
+			});
+
+			});
+			});
+
 		}
 	
 	};

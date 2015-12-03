@@ -8,5 +8,6 @@ public interface MovieService {
 	public int remove(String filmNumber); //영화 삭제
 	public MovieVO searchByName(String filmName); //제목으로 검색
 	public List<MovieVO> getList(); //전체 영화목록
+	public List<MovieVO> getFilmNum();
 	
 }

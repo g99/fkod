@@ -28,6 +28,9 @@ public class MovieServiceImpl implements MovieService{
 	public List<MovieVO> getList() {
 		return dao.selectAll();
 	}
-	
+	@Override
+	public List<MovieVO> getFilmNum() {
+		return dao.selectChart();
+	}
 	
 }
