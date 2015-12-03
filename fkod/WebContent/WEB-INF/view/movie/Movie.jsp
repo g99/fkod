@@ -76,15 +76,15 @@ $(function() {
 						$('#movie_float').css('float', 'left');
 						$('#movie_tab').css('border', '1px solid black').css('width', '400px').css('height', '300px').css('border-collapse', 'collapse');
 						$('#cutmore').click(function() {
-							movie.cutmore();
+							movie.cutmore(data);
 						})
 					});
 							
 		},
-		cutmore : function() {
-			$.getJSON('${context}/movie/Movie.do?page=movie_Cut&filmNumber=A001', function(data) {
+		cutmore : function(data) {
+			$.getJSON('${context}/movie/Movie.do?page=movie_Cut&filmNumber='+data.filmNumber, function(data) {
 				var movieCut ='<div><h1>영화상세<a href="#"><input type="button" value="영화정보" id="movie_home" class="cut_bold cut_bg_color_orange cut_txt_color_white "></a></h1></div>'
-					+'<div id="cut_info" class="cut_info cut_margin_b20"><div class="cut_poster cut_margin_r30"><img class="float" src="../images/ma01.jpg;" alt="" width="250" height="350" /></div>'
+					+'<div id="cut_info" class="cut_info cut_margin_b20"><div class="cut_poster cut_margin_r30"><img class="float" src="../images/'+data.filmNumber+'.jpg;" alt="" width="250" height="350" /></div>'
 					+'<h2>'+data.filmName+'</h2><table style="border: solid 1px white; width: 400; height: 300px"><tr><th style="color: grey; font-size: 18px">예매율</th>'
 					+'<td>10.5%</td></tr><tr><th>감독</th><td>'+data.director+'</td><tr><th>배우</th><td>'+data.actor+'</td></tr>'
 					+'<tr><th>장르</th><td>'+data.genre+'</td></tr><tr><th>기본</th><td>'+data.rate+', '+data.runtime+'분 '+'</td></tr>'
