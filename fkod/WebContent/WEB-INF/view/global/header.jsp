@@ -61,10 +61,10 @@
                         <a id="ticket_btn" href="#" >예매</a>
                     </li>
                     <li>
-                        <a href="#" >극장</a>
+                        <a id="theater_btn" href="#" >극장</a>
                     </li>
                     <li>
-                        <a href="#" >이벤트&컬쳐</a>
+                        <a id="event_btn" href="#" >이벤트&컬쳐</a>
                     </li>
                 </ul>
             </div>
@@ -75,26 +75,50 @@
 <script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		/* 메인 버튼 */
 		$("#home").click(function() {
 			$("#box").load("${context}/global/Main.do?page=default");
 		});
+		
+		/* 네비게이션 버튼 */
 		$("#movie_btn").click(function() {
-			$("#box").load("${context}/global/Main.do?page=header");
+			$("#box").load();
 		});
 		
 		$("#ticket_btn").click(function() {
+			$("#box").load();
+		});
+		
+		$("#theater_btn").click(function() {
+			$("#box").load();
+		});
+		
+		$("#event_btn").click(function() {
 			$("#box").load("${context}/global/Main.do?page=default");
 		});
 		
-		$("#join_btn").click(function() {
-			$("#box").load();
+		/* 로그인 버튼 */
+		$("#header").on("click","#join_btn",function() {
+			//회원가입 버튼
 		});
 	
-		$("#login_btn").click(function() {
+		$("#header").on("click","#login_btn",function() {
 			Member.login();
 		});
-		$("#logout_btn").click(function() {
+		
+		$("#header").on("click","#logout_btn",function() {
 			Member.logout();
+		});
+		
+		/* 관리자 버튼 */
+		$("#outbox").on("click","#admin_home",function() {
+			Admin.home();
+		});
+		$("#outbox").on("click","#admin_member",function() {
+			Admin.member();
+		});
+		$("#outbox").on("click","#admin_movie",function() {
+			Admin.movie();
 		});
 	});
 	var Member = {
@@ -106,33 +130,29 @@
 				},
 				dataType : "json",
 				success : function(data) {
-					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_logined", function() {
-						$("#logout_btn").click(function() {
-							//새로고침 하지 않은 경우에 로그아웃
-							Member.logout();
-						});
-					});
-					if(data.admin === "yes") {
-						$("#wrapper").append(
+					//로그인 결과가 성공이면
+					if(data.result === "success"){
+						$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_logined");
+						// 관리자 아이디로 확인되면
+						if(data.admin === "yes") {
+							$("#outbox").append(
 								'<table id="admin_nav"><tr><td><a href="#" class="list-group-item" id="admin_home">홈</a></td></tr>'+
-								'<tr><td><a href="#" class="list-group-item" id="admin_member">회원관리</a></td></tr><tr><td><a href="#" class="list-group-item" id="admin_movie">영화관리</a></td></tr><tr><td><a href="#" class="list-group-item" id="admin_statistics">통계보기</a></td></tr><tr><td>게시판관리</td></tr></table>');
-						$("#admin_nav").css({
-							"text-align": "center",
-							"height": "450px",
-							"background": "#fffaf6",
-							"position": "absolute",
-							"right": "20px",
-							"top": "300px"
-						});
-						$("#admin_home").click(function() {
-							$("#box").load("${context}/admin/Admin.do?page=member");
-						});
-						$("#admin_home").click(function() {
-							$("#box").load("${context}/admin/Admin.do");
-						});
-						$("#admin_home").click(function() {
-							$("#box").load("${context}/admin/Admin.do");
-						});
+								'<tr><td><a href="#" class="list-group-item" id="admin_member">회원관리</a></td></tr>'+
+								'<tr><td><a href="#" class="list-group-item" id="admin_movie">영화관리</a></td></tr>'+
+								'<tr><td><a href="#" class="list-group-item" id="admin_statistics">통계보기</a></td></tr>'+
+								'<tr><td>게시판관리</td></tr></table>');
+							$("#admin_nav").css({
+											"text-align": "center",
+											"height": "450px",
+											"background": "#fffaf6",
+											"position": "absolute",
+											"right": "20px",
+											"top": "40px"
+							});
+						}
+					} else{
+					//로그인 결과가 실패면
+						alert("아이디 패스워드를 다시한번 확인해주세요");
 					}
 				},
 				error : function() {
@@ -141,15 +161,10 @@
 			});
 		},
 		logout : function() {
-			alert("로그아웃 클릭");
 			$.ajax("${context}/member/Member.do?page=logout",{
 				dataType : "json",
 				success : function(data) {
-					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_login", function() {
-						$("#login_btn").click(function() {
-							Member.login();
-						});
-					});
+					$("#frm_toggle").empty().load("${context}/global/Main.do?page=header #frm_login");
 					$("#box").load("${context}/global/Main.do?page=default");
 					$("#admin_nav").remove();
 				},
@@ -158,5 +173,51 @@
 			});
 		}
 	};
+	 var Admin = {
+			 	home : function() {
+					$("#box").load("${context}/admin/Admin.do");
+				},
+				member : function() {
+					 $.getJSON('${context}/admin/Admin.do?page=member_list', function(data) {
+						 var table = '<div id="member_list"><h1>회원목록</h1>'
+								+'<table id="tab_member"><tr><th>아이디</th><th>비밀번호</th>'
+								+'<th>이름</th><th>생년</th><th>성별</th>'
+								+'<th>전화번호</th><th>주소</th><th>이메일</th><th>등록일</th></th>';
+								$.each(data, function() {
+									table +='<tr><td>'+this.id+'</td><td>'+this.password+'</td>'
+										+'<td>'+this.name+'</td><td>'+this.birth+'</td>'
+										+'<td>'+this.gender+'</td><td>'+this.phone+'</td>'
+										+'<td>'+this.addr+'</td><td>'+this.email+'</td>'
+										+'<td>'+this.regdate+'</td></tr>'
+								});
+								table += '</table></div>';
+								$(table).appendTo($('#box').empty());
+								$("#member_list").css({
+														"background":"white",
+														"height":"1000px"
+														});
+								$("#tab_member").add("#tab_member tr").add("#tab_member th").add("#tab_member td").css({
+									"border" : "1px solid black",
+									"border-collapse" : "collapse",
+									"text-align" : "center",
+								});
+					});
+				},
+				memberNotExist : function() {
+					var table ='<h1>회원목록'
+						teble ='</h1><table id="tab_member"><tr><th>아이디</th><tr><th>비밀번호</th>';
+						table += '<th>이름</th><th>생년</th><th>성별</th><th>전화번호</th><th>주소</th></tr>';
+						table += '<th>이메일</th><th>등록일</th></tr>';
+						table += '<tr><td colspan="6"><h2>회원목록이 없습니다.</h2></td></tr></table>';
+						$(table).appendTo($('#main_right').empty());
+				},
+				movie : function() {
+					 $.getJSON('${context}/admin/Admin.do?movie', function(data) {
+						 var table = '<h1>영화관리</h1>'
+						 +
+						 +'';
+					});
+				}
+	 };
 </script>
 
