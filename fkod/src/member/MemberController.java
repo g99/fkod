@@ -28,6 +28,7 @@ public class MemberController extends HttpServlet {
 	String id, password, name, birth, addr, gender, email, phone, my_Theater;
 	JSONObject obj = new JSONObject();
 
+	@SuppressWarnings("unchecked")
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		Seperator.init(request);
@@ -68,9 +69,10 @@ public class MemberController extends HttpServlet {
 			member.setGender(gender);
 			member.setEmail(email);
 			member.setPhone(phone);
-			
+
 			result = service.join(member);
 			if (result == 1) {
+
 				System.out.println("회원가입 성공");
 				obj.put("result", "success");
 				obj.put("name", member.getName());
@@ -136,8 +138,18 @@ public class MemberController extends HttpServlet {
 				response.setContentType("application/x-json; charset=utf-8");
 				response.getWriter().print(obj);
 			}
+
 			obj.clear();
 			return;
+		
+		case "mypage":
+			break;
+			
+		case "detail":
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(obj);
+			return;
+
 		default:
 			break;
 		}

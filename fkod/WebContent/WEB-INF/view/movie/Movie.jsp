@@ -8,6 +8,7 @@
 $(function() {
 	Movie.ranking("${context}");
 	$('#movie_wrap').css({
+						"padding-left":"23px",
 						'margin-left':'100px',
 						'border-collapse':'collapse',
 						"background":"rgba(151, 154, 162, 0.58)",

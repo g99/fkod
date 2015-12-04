@@ -25,9 +25,9 @@
 		</c:if>
 		<c:if test="${not empty sessionScope.user}">
 			<div id="frm_logined" class="form-2">
-				<p style="color:white;">${user.name}님 반갑습니다.</p><p class="clearfix">
+				<p style="color:white;">${user.name}님 반갑습니다.</p><p class="clearfix"></p>
 					<input id="logout_btn" type="submit" name="submit" value="로그아웃">
-				</p>
+					<input id="mypage_btn" type="submit" name="submit" value="마이 페이지" style="width: 85px;">
 			</div>
 		</c:if>
 		</div>
@@ -141,6 +141,11 @@
 			Member.logout("${context}");
 		});
 		
+		/*마이페이지 버튼 */
+		$("#header").on("click", "#mypage_btn",function() {
+			$("#box").load("${context}/member/Member.do?page=mypage");
+		});
+		
 		/* 관리자 버튼 */
 		$("#outbox").on("click","#admin_home",function() {
 			history.pushState("Admin_home","","");
@@ -154,6 +159,9 @@
 			history.pushState("Admin_movie","","");
 			Admin.movie("${context}");
 		});
+		
+	
 	});
+	
 	
 </script>
