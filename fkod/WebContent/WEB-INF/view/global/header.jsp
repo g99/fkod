@@ -70,6 +70,7 @@
                     </li>
                 </ul>
             </div>
+            
             <!-- /.navbar-collapse -->
     </nav>
 <script src="${context}/js/global.js"></script>  
