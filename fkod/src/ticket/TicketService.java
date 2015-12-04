@@ -20,4 +20,6 @@ public interface TicketService {
 	public List getMovieAscByD(String date);
 	public List getTheaterListByD(String date);
 	public List getTimeList(String movie, String theater, String date);
+	public String getFilmNumberBy(String movie);
+	public List getSeatList(String theater, String room);
 }

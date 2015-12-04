@@ -46,4 +46,6 @@ public interface ScheduleDAO {
 		public List selectTheaterByD(String date);
 
 		public List selectTime(String movie, String theater, String date);
+
+		public String selectFilmNumber(String movie);
 }

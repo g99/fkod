@@ -16,6 +16,7 @@ public class TicketServiceImpl implements TicketService {
 	}
 	
 	ScheduleDAO scheduleDAO = ScheduleDAOImpl.getInstance();
+	TicketDAO ticketDAO = TicketDAOImpl.getInstance();
 	
 	@Override
 	public List<String> getRateList() {
@@ -84,5 +85,13 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public List getTimeList(String movie, String theater, String date) {
 		return scheduleDAO.selectTime(movie,theater,date);
+	}
+	@Override
+	public String getFilmNumberBy(String movie) {
+		return scheduleDAO.selectFilmNumber(movie);
+	}
+	@Override
+	public List getSeatList(String theater, String room) {
+		return ticketDAO.selectRoom(theater,room);
 	}
 }

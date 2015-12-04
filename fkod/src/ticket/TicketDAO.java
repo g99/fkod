@@ -19,4 +19,6 @@ public interface TicketDAO {
 	
 	// D
 	public int delete(String filmNumber);
+
+	public List selectRoom(String theater, String room);
 }

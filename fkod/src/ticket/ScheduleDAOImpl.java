@@ -294,16 +294,38 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 	@Override
 	public List selectTime(String movie, String theater, String date) {
 		List<String> list = new ArrayList<String>();
+		//String roomName="";
+		String roomtime="";
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("select distinct schedule.show_time as showtime from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and schedule.theater_name = '"+theater+"' and schedule.show_date = '"+date+"' and seat_status > 0 order by schedule.theater_name asc");
+			rs = stmt.executeQuery("select distinct schedule.show_time as showtime, schedule.room_name as roomname from schedule, movie where schedule.film_number = movie.film_number and movie.film_name = '"+movie+"' and schedule.theater_name = '"+theater+"' and schedule.show_date = '"+date+"' and seat_status > 0 order by schedule.theater_name asc");
 			while (rs.next()) {
+				roomtime=rs.getString("roomname")+" "+rs.getString("showtime");
+				list.add(roomtime);
+				/*if (!roomName.equals(rs.getString("roomname"))) {
+					list.add(rs.getString("roomname"));
+				}
 				list.add(rs.getString("showtime"));
+				roomName=rs.getString("roomname");*/
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	@Override
+	public String selectFilmNumber(String movie) {
+		String filmNumber = "";
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select film_number from movie where film_name = '"+movie+"'");
+			while (rs.next()) {
+				filmNumber = rs.getString("film_number");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return filmNumber;
 	}
 	
 

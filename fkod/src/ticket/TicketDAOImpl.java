@@ -42,7 +42,7 @@ public class TicketDAOImpl implements TicketDAO {
 			pstmt.setString(3, ticket.getFilmNumber());
 			pstmt.setString(4, ticket.getTheaterName());
 			pstmt.setString(5, ticket.getRoomName());
-			pstmt.setInt(6, ticket.getSeatNumber());
+			pstmt.setString(6, ticket.getSeatNumber());
 			pstmt.setInt(7, ticket.getAdult());
 			pstmt.setInt(8, ticket.getOldMan());
 			pstmt.setInt(9, ticket.getTeenager());
@@ -67,8 +67,8 @@ public class TicketDAOImpl implements TicketDAO {
 				temp.setFilmNumber(rs.getString("film_number"));
 				temp.setTheaterName(rs.getString("theater_name"));
 				temp.setRoomName(rs.getString("room_name"));
-				temp.setSeatNumber(rs.getInt("seat_number"));
-				temp.setDate(rs.getDate("date"));
+				temp.setSeatNumber(rs.getString("seat_number"));
+				temp.setDate(rs.getString("date"));
 				temp.setAdult(rs.getInt("adult"));
 				temp.setOldMan(rs.getInt("old_man"));
 				temp.setTeenager(rs.getInt("teenager"));
@@ -92,8 +92,8 @@ public class TicketDAOImpl implements TicketDAO {
 				temp.setFilmNumber(rs.getString("film_number"));
 				temp.setTheaterName(rs.getString("theater_name"));
 				temp.setRoomName(rs.getString("room_name"));
-				temp.setSeatNumber(rs.getInt("seat_number"));
-				temp.setDate(rs.getDate("date"));
+				temp.setSeatNumber(rs.getString("seat_number"));
+				temp.setDate(rs.getString("date"));
 				temp.setAdult(rs.getInt("adult"));
 				temp.setOldMan(rs.getInt("old_man"));
 				temp.setTeenager(rs.getInt("teenager"));
@@ -166,6 +166,30 @@ public class TicketDAOImpl implements TicketDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	@Override
+	public List selectRoom(String theater, String room) {
+		List<Integer> temp = new ArrayList<Integer>();
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery("select * from room where theater_name = '"+theater+"' and room_name = '"+room+"'");
+			while (rs.next()) {
+				temp.add(rs.getInt("a"));
+				temp.add(rs.getInt("b"));
+				temp.add(rs.getInt("c"));
+				temp.add(rs.getInt("d"));
+				temp.add(rs.getInt("e"));
+				temp.add(rs.getInt("f"));
+				temp.add(rs.getInt("g"));
+				temp.add(rs.getInt("h"));
+				temp.add(rs.getInt("i"));
+				temp.add(rs.getInt("j"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("좌석"+ temp);
+		return temp;
 	}
 
 }

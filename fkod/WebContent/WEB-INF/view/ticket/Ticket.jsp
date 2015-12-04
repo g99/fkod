@@ -68,7 +68,6 @@
 			<div class="ticket_flex-item ticket_item3">
 				<h4>날짜</h4>
 				<div class="ticket_normal">
-					<label class="ticket_subtitle">12월</label>
 					<div id="date_list">
 					
 					</div>
@@ -77,10 +76,8 @@
 			<div class="ticket_flex-item ticket_item4">
 				<h4>시간</h4>
 				<div class="ticket_times" id="times_list">
-					
 				</div>
-				<input id="ticket_choiceseat" class="ticket_choiceseat" name="next" type="submit">
-				<label class="ticket_choiceseatlabel" for="ticket_choiceseat">좌석선택</label>
+				<label id="ticket_choiceseat" class="ticket_choiceseatlabel">좌석선택</label>
 			</div>
 		</div>
 	</div>
@@ -89,10 +86,10 @@
 $(function() {
 	tabs.make();
 	Ticket.initList();
-	
 	$('.ticket_sub').click(function() {Ticket.ticket_sub();});
 	$('#theater_list').click(function() {Ticket.theater_list();});
 	$('#date_list').click(function() {Ticket.date_list();});
+	$('#ticket_choiceseat').click(function() {Ticket.ticket_choiceseat();});
 	
 });
 var Ticket = {
@@ -100,9 +97,13 @@ var Ticket = {
 		theater : null,
 		date : null,
 		time : null,
+		$movieratelist : null,
+		$movieasclist : null,
+		$theaterlist : null,
+		$datelist : null,
 		
 		ticket_sub : function() {
-			alert(this.movie+", "+this.theater+", "+this.date);
+			/* alert(this.movie+", "+this.theater+", "+this.date); */
 			$.ajax('${context}/ticket/Ticket.do',{
 				type : 'get',
 				data : {
@@ -114,12 +115,26 @@ var Ticket = {
 				async : true,
 				dataType : 'json',
 				success : function(data) {
-					if (Ticket.movie===null) {
-						alert("기존"+Ticket.movie+"현재선택"+$("input:radio[name=movie]:checked").val());
+					var $tl = null;
+					var $dl = null;
+					var $timel = null;
+					$.each(data, function(index,val) {
+						if (index===0) {
+						$tl = val;
+						} else if (index===1) {
+						$dl = val;
+						} else if (index===2) {
+						$timel = val;
+						}
+					});
+					/* alert("$dl"+$dl); */
+					if (Ticket.theater===null || Ticket.$theaterlist!==$tl) {
+						/* alert("기존"+Ticket.movie+"현재선택"+$("input:radio[name=movie]:checked").val()); */
 						var theater_list = 
 							'<div class="ticket_list-category"><dl>';
 							$.each(data, function(index,val) {
 								if (index===0) {
+									Ticket.$theaterlist = val;
 								$.each(val, function() {
 									theater_list += '<dt><input type="radio" name="theater" value="'+this+'"/>'+this+'</dt>';
 								});
@@ -128,11 +143,12 @@ var Ticket = {
 							theater_list += '</dl></div>';
 							$(theater_list).appendTo($('#theater_list').empty());
 					}
-					if (Ticket.date===null) {
+					if (Ticket.date===null || Ticket.$datelist!==$dl) {
 						var date_list = 
 							'<div class="ticket_list-category"><dl>';
 							$.each(data, function(index,val) {
 								if (index===1) {
+									Ticket.$datelist = val;
 								$.each(val, function() {
 									date_list += '<dt><input type="radio" name="date" value="'+this+'"/>'+this+'</dt>';
 								});
@@ -147,7 +163,7 @@ var Ticket = {
 							$.each(data, function(index,val) {
 								if (index===2) {
 								$.each(val, function() {
-									times_list += '<dt><input type="radio" name="date" value="'+this+'"/>'+this+'</dt>';
+									times_list += '<dt><input type="radio" name="time" value="'+this+'"/>'+this+'</dt>';
 								});
 								}
 							});
@@ -160,10 +176,10 @@ var Ticket = {
 				}
 			});
 			this.movie=$("input:radio[name=movie]:checked").val();
-			alert(this.movie+", "+this.theater+", "+this.date);
+			/* alert(this.movie+", "+this.theater+", "+this.date); */
 		},
 	theater_list: function() {
-		alert(this.movie+", "+this.theater+", "+this.date);
+		/* alert(this.movie+", "+this.theater+", "+this.date); */
 		$.ajax('${context}/ticket/Ticket.do',{
 			type : 'get',
 			data : {
@@ -175,11 +191,27 @@ var Ticket = {
 			async : true,
 			dataType : 'json',
 			success : function(data) {
+				var $mrl = null;
+				var $mal = null;
+				var $dl = null;
+				var $timel = null;
+				$.each(data, function(index,val) {
+					if (index===0) {
+						$mrl = val;
+					} else if (index===1) {
+						$mal = val;
+					} else if (index===2) {
+						$dl = val;
+					} else if (index===3) {
+						$timel = val;
+					}
+				});
 				if (Ticket.movie===null) {
 					var movie_rate_list = 
 						'<div class="ticket_list-category"><dl>';
 						$.each(data, function(index,val) {
 							if (index===0) {
+								Ticket.$movieratelist = val;
 							$.each(val, function() {
 							movie_rate_list += '<dt><input type="radio" name="movie" value="'+this+'"/>'+this+'</dt>';
 							});
@@ -191,6 +223,7 @@ var Ticket = {
 						'<div class="ticket_list-category"><dl>';
 						$.each(data, function(index,val) {
 							if (index===1) {
+								Ticket.$movieasclist = val;
 							$.each(val, function() {
 								movie_asc_list += '<dt><input type="radio" name="movie" value="'+this+'"/>'+this+'</dt>';
 							});
@@ -204,6 +237,7 @@ var Ticket = {
 					'<div class="ticket_list-category"><dl>';
 					$.each(data, function(index,val) {
 						if (index===2) {
+							Ticket.$datelist = val;
 						$.each(val, function() {
 							date_list += '<dt><input type="radio" name="date" value="'+this+'"/>'+this+'</dt>';
 						});
@@ -218,7 +252,7 @@ var Ticket = {
 						$.each(data, function(index,val) {
 							if (index===3) {
 							$.each(val, function() {
-								times_list += '<dt><input type="radio" name="date" value="'+this+'"/>'+this+'</dt>';
+								times_list += '<dt><input type="radio" name="time" value="'+this+'"/>'+this+'</dt>';
 							});
 							}
 						});
@@ -231,11 +265,11 @@ var Ticket = {
 			}
 		});
 		this.theater=$("input:radio[name=theater]:checked").val();
-		alert(this.movie+", "+this.theater+", "+this.date);
+		/* alert(this.movie+", "+this.theater+", "+this.date); */
 	},
 	date_list : function() {
 		
-		alert(this.movie+", "+this.theater+", "+this.date);
+		/* alert(this.movie+", "+this.theater+", "+this.date); */
 		$.ajax('${context}/ticket/Ticket.do',{
 			type : 'get',
 			data : {
@@ -247,11 +281,27 @@ var Ticket = {
 			async : true,
 			dataType : 'json',
 			success : function(data) {
+				var $mrl = null;
+				var $mal = null;
+				var $tl = null;
+				var $timel = null;
+				$.each(data, function(index,val) {
+					if (index===0) {
+						$mrl = val;
+					} else if (index===1) {
+						$mal = val;
+					} else if (index===2) {
+						$tl = val;
+					} else if (index===3) {
+						$timel = val;
+					}
+				});
 				if (Ticket.movie===null) {
 					var movie_rate_list = 
 						'<div class="ticket_list-category"><dl>';
 						$.each(data, function(index,val) {
 							if (index===0) {
+								Ticket.$movieratelist = val;
 							$.each(val, function() {
 							movie_rate_list += '<dt><input type="radio" name="movie" value="'+this+'"/>'+this+'</dt>';
 							});
@@ -263,6 +313,7 @@ var Ticket = {
 						'<div class="ticket_list-category"><dl>';
 						$.each(data, function(index,val) {
 							if (index===1) {
+								Ticket.$movieasclist = val;
 							$.each(val, function() {
 								movie_asc_list += '<dt><input type="radio" name="movie" value="'+this+'"/>'+this+'</dt>';
 							});
@@ -276,6 +327,7 @@ var Ticket = {
 					'<div class="ticket_list-category"><dl>';
 					$.each(data, function(index,val) {
 						if (index===2) {
+							Ticket.$theaterlist = val;
 						$.each(val, function() {
 							theater_list += '<dt><input type="radio" name="theater" value="'+this+'"/>'+this+'</dt>';
 						});
@@ -290,7 +342,7 @@ var Ticket = {
 						$.each(data, function(index,val) {
 							if (index===3) {
 							$.each(val, function() {
-								times_list += '<dt><input type="radio" name="date" value="'+this+'"/>'+this+'</dt>';
+								times_list += '<dt><input type="radio" name="time" value="'+this+'"/>'+this+'</dt>';
 							});
 							}
 						});
@@ -303,8 +355,29 @@ var Ticket = {
 			}
 		});
 		this.date=$("input:radio[name=date]:checked").val();
-		alert(this.movie+", "+this.theater+", "+this.date);
+		/* alert(this.movie+", "+this.theater+", "+this.date); */
 	},
+	ticket_choiceseat : function() {
+		$.ajax('${context}/ticket/Ticket.do',{
+			type : 'get',
+			data : {
+				movie : $("input:radio[name=movie]:checked").val(),
+				theater : $("input:radio[name=theater]:checked").val(),
+				date : $("input:radio[name=date]:checked").val(),
+				time : $("input:radio[name=time]:checked").val(),
+				page : "choiceseat"
+			},
+			async : true,
+			dataType : 'json',
+			success : function(data) {
+				location.href="${context}/ticket/Ticket.do?page=Seats";
+			},
+			error : function(xhr, status, msg) {
+				alert('에러발생상테 : '+status+',내용:'+msg);
+			}
+		});
+	},
+	
 	
 	initList : function() {
 		$.getJSON('${context}/ticket/Ticket.do?page=initList', function(data) {
