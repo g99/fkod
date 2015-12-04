@@ -27,7 +27,7 @@ public class MemberController extends HttpServlet {
 
 	HttpSession session = null;
 	String id, password, name, birth, addr, gender, email, phone, my_Theater;
-	JSONObject obj;
+	JSONObject obj = new JSONObject();
 
 	@SuppressWarnings("unchecked")
 	public void service(HttpServletRequest request, HttpServletResponse response) 
@@ -67,7 +67,6 @@ public class MemberController extends HttpServlet {
 			
 			int result1 = service.join(member);
 			if (result1 == 1) {
-				obj = new JSONObject();
 				System.out.println("회원가입 성공");
 				obj.put("result", "success");
 				obj.put("name", member.getName());
@@ -121,7 +120,6 @@ public class MemberController extends HttpServlet {
 		case "check_Overlap":
 			System.out.println("컨트롤러 / 중복체크로 진입");
 			id = request.getParameter("id");
-			obj = new JSONObject();
 			if (service.selectById(id).getId() == null) {
 				obj.put("result", "usable");
 				obj.put("id", id);
@@ -134,6 +132,16 @@ public class MemberController extends HttpServlet {
 				response.getWriter().print(obj);
 			}
 			return;
+			
+			
+		case "mypage":
+			break;
+			
+		case "detail":
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(obj);
+			return;
+		
 		default:
 			break;
 		}

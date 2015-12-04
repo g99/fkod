@@ -70,7 +70,6 @@
                     </li>
                 </ul>
             </div>
-            
             <!-- /.navbar-collapse -->
     </nav>
 <script src="${context}/js/global.js"></script>  
@@ -114,6 +113,11 @@
 			Member.logout("${context}");
 		});
 		
+		/*마이페이지 버튼 */
+		$("#header").on("click", "#mypage_btn",function() {
+			$("#box").load("${context}/member/Member.do?page=mypage");
+		});
+		
 		/* 관리자 버튼 */
 		$("#outbox").on("click","#admin_home",function() {
 			Admin.home("${context}");
@@ -125,18 +129,8 @@
 			Admin.movie("${context}");
 		});
 		
-		/*마이페이지 버튼 */
-		$("mypage_btn").click(function() {
-			alert('마이페이지 버튼 클릭');
-			Member.detail("${context}");
-		});
-		
-		/* $("#outbox").on("click","#mypage_btn",function() {
-			alert('마이페이지 버튼 클릭');
-			Member.detail("${context}");
-		
-		}); */
-		
+	
 	});
+	
 	
 </script>
