@@ -116,7 +116,7 @@ public class MovieDAOImpl implements MovieDAO{
 		MovieVO temp = new MovieVO();
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("select * from movie where film_number = '"+key+"'");
+			rs = stmt.executeQuery("select * from movie where film_name = '"+key+"'");
 			/*rs = stmt.executeQuery("select * from movie where film_name = '내부자들'");*/
 			
 			while (rs.next()) {

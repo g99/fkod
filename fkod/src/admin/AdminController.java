@@ -1,7 +1,6 @@
 package admin;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -22,17 +21,22 @@ import global.Seperator;
 import member.MemberService;
 import member.MemberServiceImpl;
 import member.MemberVO;
+import movie.MovieService;
+import movie.MovieServiceImpl;
+import movie.MovieVO;
 
 @WebServlet("/admin/Admin.do")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MemberService service = MemberServiceImpl.getInstance();
-	
+	MovieService movie	= MovieServiceImpl.getInstance();
 	List<MemberVO> list;
-	String id, password, email, addr, phone;
+	List<MovieVO> movie_list;
+	String id, password, email, addr, phone, filmName, film_Name, story, key;
 	int result;
 	JSONObject json = new JSONObject();
 	MemberVO member;
+	MovieVO movie_Name;
 	Gson gson = new Gson();
  
 
@@ -42,9 +46,14 @@ public class AdminController extends HttpServlet {
 		case "Admin":
 			System.out.println("어드민 메인 진입");
 			break;
-		case "movie":
-			
-			break;
+		case "movie_list":
+			System.out.println("영화목록 진입");
+			movie_list = movie.getList();
+			JsonElement element2 = gson.toJsonTree(movie_list, new TypeToken<List>() {}.getType());
+			JsonArray movieList = element2.getAsJsonArray();
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(movieList);
+			return;
 		case "member_list":
 			System.out.println("회원목록 진입");
 			list = service.getList();
@@ -60,7 +69,14 @@ public class AdminController extends HttpServlet {
 			member = service.selectById(id);
 			request.setAttribute("member", member);
 			break;
-
+		case "movie_profile":
+			System.out.println("영화 목록 진입");
+			filmName = request.getParameter("filmName");
+			System.out.println("가져온 영화 제목 "  + filmName);
+			movie_Name = movie.searchByName(filmName);
+			System.out.println("서치된 이름"  + filmName);
+			request.setAttribute("movie_Number", movie_Name);
+			break;
 		case "insert":
 			System.out.println("인서트 진입");
 			id = request.getParameter("id");
@@ -80,6 +96,20 @@ public class AdminController extends HttpServlet {
 			member.setAddr(addr);
 			result = service.change(member);
 			json.put("result", id + " 님의 정보수정을 완료했습니다.");
+			response.setContentType("application/x-json; charset=utf-8");
+			response.getWriter().print(json);
+			json.clear();
+			return;
+		case "insert2":
+			System.out.println("인서트 진입");
+			filmName = request.getParameter("filmName");
+			System.out.println("영화 이름 " +filmName);
+			story = request.getParameter("story");
+			System.out.println("중거리" + story);
+			movie_Name = movie.searchByName(filmName);
+			movie_Name.setStory(story);
+			result = movie.change(movie_Name);
+			json.put("result", filmName + " 정보수정을 완료했습니다.");
 			response.setContentType("application/x-json; charset=utf-8");
 			response.getWriter().print(json);
 			json.clear();
