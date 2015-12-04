@@ -55,16 +55,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style=" margin-left:33%;" >
                 <ul class="nav navbar-nav">
                     <li>
-                        <a id="movie_btn" href="#">영화</a> <!-- 네비바 해당 링크 존재 -->
+                        <button id="movie_btn">영화</button> <!-- 네비바 해당 링크 존재 -->
                     </li>
                     <li>
-                        <a id="ticket_btn" href="#" >예매</a>
+                        <button id="ticket_btn" href="#" >예매</button>
                     </li>
                     <li>
-                        <a id="theater_btn" href="#" >극장</a>
+                        <button id="theater_btn" href="#" >극장</button>
                     </li>
                     <li>
-                        <a id="event_btn" href="#" >이벤트&컬쳐</a>
+                        <button id="event_btn" href="#" >이벤트&컬쳐</button>
                     </li>
                 </ul>
             </div>
@@ -86,10 +86,18 @@
 			case "Admin_member":
 				Admin.member("${context}");
 				break;
+			case "Movie_home":
+				Movie.home("${context}");
+				break;
+			case "Member_join":
+				Member.join("${context}");
+				break;0
 			default:
+				$("#box").load("${context}/global/Main.do?page=default");
 				break;
 			}
 		});
+		
 		/* 메인 버튼 */
 		$("#home").click(function() {
 			$("#box").load("${context}/global/Main.do?page=default");
@@ -97,24 +105,29 @@
 		
 		/* 네비게이션 버튼 */
 		$("#movie_btn").click(function() {
-			$("#box").load("${context}/movie/Movie.do");
+			history.pushState("Movie_home","","");
+			Movie.home("${context}");
 		});
 		
 		$("#ticket_btn").click(function() {
+			history.pushState("Ticket_home","","");
 			$("#box").load();
 		});
 		
 		$("#theater_btn").click(function() {
+			history.pushState("Theater_home","","");
 			$("#box").load();
 		});
 		
 		$("#event_btn").click(function() {
-			$("#box").load("${context}/global/Main.do?page=default");
+			history.pushState("Event_home","","");
+			$("#box").load();
 		});
 		
 		/* 로그인 버튼 */
 		$("#header").on("click","#join_btn",function() {
-			$("#box").load("${context}/member/Member.do")
+			history.pushState("Member_join","","");
+			Member.join("${context}");
 		});
 	
 		$("#header").on("click","#login_btn",function() {
@@ -127,9 +140,11 @@
 		
 		/* 관리자 버튼 */
 		$("#outbox").on("click","#admin_home",function() {
+			history.pushState("Admin_home","","");
 			Admin.home("${context}");
 		});
 		$("#outbox").on("click","#admin_member",function() {
+			history.pushState("Admin_member","","");
 			Admin.member("${context}");
 		});
 		$("#outbox").on("click","#admin_movie",function() {

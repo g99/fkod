@@ -5167,6 +5167,18 @@ border-bottom-right-radius
 	color: #777
 }
 
+.navbar-nav>li>button {
+	color: white;
+	background : none;
+	border : none;
+	margin-top : 10px;
+	margin-left : 50px;
+	display : inline;
+}
+
+.navbar-nav>li>button:hover, .navbar-nav>li>button:focus {
+	color: #FCCC5F;
+}
 .navbar-default .navbar-nav>li>a {
 	color: white;
 	font-weight: 900;

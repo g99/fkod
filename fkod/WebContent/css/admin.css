@@ -3,6 +3,14 @@
 /*=============================================*/
 /*=================admin.html==================*/
 /*=============================================*/
+#admin_nav button {
+	color: white;
+	background : none;
+	border : none;
+}
+#admin_nav button:hover, #admin_nav button:focus {
+	color: #FCCC5F;
+}
 #div_admin_member {
 	padding : 20px;
 	background:white;

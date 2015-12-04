@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
-import org.json.simple.JSONObject;
 
 import global.DispatcherServlet;
 import global.Seperator;
@@ -33,6 +32,12 @@ public class MemberController extends HttpServlet {
 			throws ServletException, IOException {
 		Seperator.init(request);
 		switch (Seperator.command.getPage()) {
+		case "admin_home":
+			System.out.println("어드민홈 입장!!!!");
+			Seperator.command.setDirectory("admin");
+			Seperator.command.setPage("Admin");
+			Seperator.command.setView();
+			break;
 		case "provision":
 			break;
 		case "join_member":

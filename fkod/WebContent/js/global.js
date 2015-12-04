@@ -15,6 +15,9 @@ var Global = {
 /*=======================================================================================================*/
 /*=======================================================================================================*/
 var Member = {
+		join : function(project) {
+			$("#box").load(project + "/member/Member.do");
+		},
 		login : function(project) {
 			$.ajax(project + "/member/Member.do?page=login",{
 				data : {
@@ -29,11 +32,11 @@ var Member = {
 						// 관리자 아이디로 확인되면
 						if(data.admin === "yes") {
 							$("#outbox").append(
-								'<table id="admin_nav"><tr><td><a href="#" id="admin_home">홈</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_member">회원관리</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_movie">영화관리</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_statistics">통계보기</a></td></tr>'+
-								'<tr><td><a href="#" id="admin_board">게시판관리</a></td></tr></table>');
+								'<table id="admin_nav"><tr><td><button id="admin_home">홈</button></td></tr>'+
+								'<tr><td><button id="admin_member">회원관리</button></td></tr>'+
+								'<tr><td><button id="admin_movie">영화관리</button></td></tr>'+
+								'<tr><td><button id="admin_statistics">통계보기</button></td></tr>'+
+								'<tr><td><button id="admin_board">게시판관리</button></td></tr></table>');
 							$("#admin_nav").css({
 											"text-align": "center",
 											"height": "450px",
@@ -82,9 +85,9 @@ var Member = {
 			);
 			
 			$("#join").click(function(){
-			Member.webEmpty();
-			Member.provision(project);
-			
+				history.pushState("Member_provision","","");
+				Member.webEmpty();
+				Member.provision(project);
 			});
 			
 		},
@@ -107,7 +110,7 @@ var Member = {
 /*=======================================================================================================*/
 	var Admin = {
 			 	home : function(project) {
-					$("#box").load(project + "/admin/Admin.do");
+					$("#box").load(project + "/member/Member.do?page=admin_home");
 				},
 				member : function(project) {
 					 $.getJSON(project + '/admin/Admin.do?page=member_list', function(data) {
@@ -118,7 +121,7 @@ var Member = {
 								+'<th>전화번호</th><th>주소</th><th>이메일</th><th>등록일</th></th>';
 								$.each(data, function() {
 									arr.push(this.id);
-									table +='<tr><td><a id="' + this.id + '" href=#>'+this.id+'</a></td><td>'+this.password+'</td>'
+									table +='<tr><td><button id="' + this.id + '" href=#>'+this.id+'</button></td><td>'+this.password+'</td>'
 										+'<td>'+this.name+'</td><td>'+this.birth+'</td>'
 										+'<td>'+this.gender+'</td><td>'+this.phone+'</td>'
 										+'<td>'+this.addr+'</td><td>'+this.email+'</td>'
@@ -140,6 +143,11 @@ var Member = {
 														"background":"white",
 														"height":"1000px"
 														});
+								$("#member_list button").css({
+									"border":"none",
+									"background":"none"
+									
+								});
 								$("#tab_member").css("width","90%");
 								$("#tab_member").add("#tab_member tr").add("#tab_member th").add("#tab_member td").css({
 									"border" : "1px solid black",
@@ -178,6 +186,9 @@ var Member = {
  /*=======================================================================================================*/
  /*=======================================================================================================*/
 	 var Movie = {
+			 	home : function(project) {
+					$("#box").load(project + "/movie/Movie.do");
+				},
 				ranking : function(project) {
 					var arr = [];
 					$.getJSON(project + '/movie/Movie.do?page=movie_Chart', function(data) {
