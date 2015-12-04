@@ -3,46 +3,46 @@
 <table id="tab_admin_movie">
 	<tr>
 		<th>영화번호</th>
-		<td id="movie_filmNumber">${movie_filmNumber}</td>
+		<td id="movie_filmNumber">${movie.filmNumber}</td>
 	</tr>
 	<tr>
 		<th>영화이름</th>
-		<td id="movie_filmName">${movie_filmName}</td>
+		<td id="movie_filmName">${movie.filmName}</td>
 	</tr>
 	<tr>
 		<th>감독</th>
-		<td id="movie_director">${movie_director}</td>
+		<td id="movie_director">${movie.director}</td>
 	</tr>
 	<tr>
 		<th>배우</th>
-		<td id="movie_actor">${movie_actor}</td>
+		<td id="movie_actor">${movie.actor}</td>
 	</tr>
 	<tr>
 		<th>등급</th>
-		<td id="movie_rate">${movie_rate}</td>
+		<td id="movie_rate">${movie.rate}</td>
 	</tr>
 	<tr>
 		<th>런타임</th>
-		<td id="movie_runtime">${movie_runtime}</td>
+		<td id="movie_runtime">${movie.runtime}</td>
 	</tr>
 	<tr>
 		<th>가격</th>
-		<td id="movie_price">${movie_price}</td>
+		<td id="movie_price">${movie.price}</td>
 	</tr>
 	<tr>
 		<th>장르</th>
-		<td id="movie_genre">${movie_genre}</td>
+		<td id="movie_genre">${movie.genre}</td>
 	</tr>
 	<tr>
 		<th>개봉일</th>
-		<td id="movie_releaseDate">${movie_releaseDate}</td>
+		<td id="movie_releaseDate">${movie.releaseDate}</td>
 	</tr>	
 	<tr>
 		<th>종료일</th>
-		<td id="movie_endDate">${movie_endDate}</td>
+		<td id="movie_endDate">${movie.endDate}</td>
 	</tr>	<tr>
 		<th>줄거리</th>
-		<td id="movie_story">${movie_story}</td>
+		<td id="movie_story">${movie.story}</td>
 	</tr>	
 	<tr>
 		<th>스틸컷</th>

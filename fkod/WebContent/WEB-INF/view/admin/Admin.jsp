@@ -69,7 +69,7 @@ var Admin = {
 					 	       + '<th>스틸컷</th><th>트레일러</th></tr>';
 						 $.each(data, function() {
 							arr.push(this.filmName);
-							table +='<tr><td>'+this.filmNumber+'</td><td><a id="' + this.filmName + '" href=#>'+this.filmName+'</a></td>'
+							table +='<tr><td><a id="' + this.filmName + '" href=#>'+this.filmNumber+'</a></td><td>'+this.filmName+'</td>'
 								+'<td>'+this.director+'</td><td>'+this.actor+'</td>'
 								+'<td>'+this.rate+'</td><td>'+this.runtime+'</td>'
 								+'<td>'+this.price+'</td><td>'+this.genre+'</td>'
