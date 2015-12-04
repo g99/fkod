@@ -100,7 +100,7 @@
 		
 		/* 로그인 버튼 */
 		$("#header").on("click","#join_btn",function() {
-			//회원가입 버튼
+			$("#box").load("${context}/member/Member.do")
 		});
 	
 		$("#header").on("click","#login_btn",function() {

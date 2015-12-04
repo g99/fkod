@@ -335,8 +335,8 @@
 	
 	<script>
 	$('#img_btn').click(function() {
-		$('#box').empty();
-		$('#box').load('${context}/member/Member.do?page=join');
+		$('#big_wrap').empty();
+		$('#big_wrap').load('${context}/member/Member.do?page=join');
 		
 	})
 	</script>
