@@ -286,3 +286,35 @@ insert into schedule values(seq.nextval,'A010','강남','5관','2015/11/22','23:
 
 commit;
 
+update movie set STORY='A001S' where film_number='A001';
+update movie set STORY='A002S' where film_number='A002';
+update movie set STORY='A003S' where film_number='A003';
+update movie set STORY='A004S' where film_number='A004';
+update movie set STORY='A005S' where film_number='A005';
+update movie set STORY='A006S' where film_number='A006';
+update movie set STORY='A007S' where film_number='A007';
+update movie set STORY='A008S' where film_number='A008';
+update movie set STORY='A009S' where film_number='A009';
+update movie set STORY='A010S' where film_number='A010';
+
+update movie set cut='A001/A0011/A0012/A0013/A0014/A0015/A0016/A0017' where film_number='A001';
+update movie set cut='A002/A0021/A0022/A0023/A0024/A0025/A0026' where film_number='A002';
+update movie set cut='A003/A0031/A0032/A0033/A0034/A0035/A0036/A0037/A0038/A0039' where film_number='A003';
+update movie set cut='A004/A0041/A0042/A0043/A0044/A0045/A0046/A0047/A0048/A0049' where film_number='A004';
+update movie set cut='A005/A0051/A0052/A0053/A0054/A0055/A0056' where film_number='A005';
+update movie set cut='A006/A0061/A0062/A0063/A0064/A0065/A0066/A0067/A0068' where film_number='A006';
+update movie set cut='A007/A0071/A0072/A0073/A0074/A0075' where film_number='A007';
+update movie set cut='A008/A0081/A0082/A0083/A0084/A0085/A0086/A0087/A0088/A0089' where film_number='A008';
+update movie set cut='A009/A0091/A0092/A0093/A0094/A0095/A0096/A0097/A0098/A0099/A00910/A00911' where film_number='A009';
+update movie set cut='A010/A0101/A0102/A0103/A0104/A0105/A0106' where film_number='A010';
+
+update movie set TRAILER='PjAxHoauiTs/BKO8Zl5DR5Q/UZy8aopPmwE' where film_number='A001';
+update movie set TRAILER='Zyzop2nzR4k/EHhHewjBCb4/yE-f1alkq9I' where film_number='A002';
+update movie set TRAILER='_Mq89LG2gfw/TJeM0pD-vus/B0D9Gg8PI6s' where film_number='A003';
+update movie set TRAILER='gZZin4RKaXw/WThABv8Kq1w/BzctMGVtnQA' where film_number='A004';
+update movie set TRAILER='wo7X8NwnZAw/dOXRB9JiydQ/NF6wZOR2CCU' where film_number='A005';
+update movie set TRAILER='u7YshVJx23A/MM_RRIhRpPg/gxAwcS_ErAY' where film_number='A006';
+update movie set TRAILER='_hCceaMeHOE/x-8VXx5I0gg/uRnetgm_jUA' where film_number='A007';
+update movie set TRAILER='i_WNdO0EsdE/mU20xVCPi2o/hPAxmoUXu_k' where film_number='A008';
+update movie set TRAILER='FKWCV61We7I/5GrThQMuPK0/-wT76eIL5mo' where film_number='A009';
+update movie set TRAILER='fvIzZ9qezV8/foMNxnyfLFU/vQFU-UKfEvE' where film_number='A010';

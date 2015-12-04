@@ -25,7 +25,7 @@
 		</c:if>
 		<c:if test="${not empty sessionScope.user}">
 			<div id="frm_logined" class="form-2">
-				<p>${user.name}님 반갑습니다.</p><p class="clearfix">
+				<p style="color:white;">${user.name}님 반갑습니다.</p><p class="clearfix">
 					<input id="logout_btn" type="submit" name="submit" value="로그아웃">
 				</p>
 			</div>

@@ -13,6 +13,7 @@ public class MovieVO implements Serializable{
 	private int runtime;
 	private int price;
 	private String genre;
+	private String country;
 	private Date releaseDate;
 	private Date endDate;
 	private String story;
@@ -81,6 +82,9 @@ public class MovieVO implements Serializable{
 	public String getTrailer() {
 		return trailer;
 	}
+	public String getCountry() {
+		return country;
+	}
 	public void setFilmNumber(String filmNumber) {
 		this.filmNumber = filmNumber;
 	}
@@ -119,6 +123,9 @@ public class MovieVO implements Serializable{
 	}
 	public void setTrailer(String trailer) {
 		this.trailer = trailer;
+	}
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	

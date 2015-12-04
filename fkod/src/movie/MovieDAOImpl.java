@@ -46,6 +46,7 @@ public class MovieDAOImpl implements MovieDAO{
 				temp.setStory(rs.getString("story"));
 				temp.setCut(rs.getString("cut"));
 				temp.setTrailer(rs.getString("trailer"));
+				temp.setCountry(rs.getString("country"));
 				list.add(temp);
 			}
 		} catch (SQLException e) {
@@ -58,8 +59,8 @@ public class MovieDAOImpl implements MovieDAO{
 		int result = 0;
 		try {
 			String sql = "insert into  movie("
-					+"film_number, film_name, director, actor, rate, runtime, price, genre, release_date, end_date, story, cut, trailer"
-					+") values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+"film_number, film_name, director, actor, rate, runtime, price, genre, release_date, end_date, story, cut, trailer, country"
+					+") values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, o.getFilmNumber());
 			pstmt.setString(2, o.getFilmName());
@@ -74,6 +75,7 @@ public class MovieDAOImpl implements MovieDAO{
 			pstmt.setString(11, o.getStory());
 			pstmt.setString(12, o.getCut());
 			pstmt.setString(13, o.getTrailer());
+			pstmt.setString(14, o.getCountry());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +87,7 @@ public class MovieDAOImpl implements MovieDAO{
 		int result = 0;
 		try {
 			/*String sql = DML.update("movie", "?,?,?", "userid", o.getUserid());*/
-			String sql = "update movie set film_number= ?, film_name=?, director=?, actor=?, rate=?, runtime=?, price=?, genre=?, release_date=?, end_date=?, story=?, cut=?, trailer=? "
+			String sql = "update movie set film_number= ?, film_name=?, director=?, actor=?, rate=?, runtime=?, price=?, genre=?, release_date=?, end_date=?, story=?, cut=?, trailer=?, country=? "
 					+"where film_number = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, o.getFilmNumber());
@@ -101,7 +103,8 @@ public class MovieDAOImpl implements MovieDAO{
 			pstmt.setString(11, o.getStory());
 			pstmt.setString(12, o.getCut());
 			pstmt.setString(13, o.getTrailer());
-			pstmt.setString(14, o.getFilmNumber());
+			pstmt.setString(14, o.getCountry());
+			pstmt.setString(15, o.getFilmNumber());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -131,6 +134,7 @@ public class MovieDAOImpl implements MovieDAO{
 				temp.setStory(rs.getString("story"));
 				temp.setCut(rs.getString("cut"));
 				temp.setTrailer(rs.getString("trailer"));
+				temp.setCountry(rs.getString("country"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
