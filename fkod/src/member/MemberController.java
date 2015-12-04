@@ -141,7 +141,9 @@ public class MemberController extends HttpServlet {
 			response.setContentType("application/x-json; charset=utf-8");
 			response.getWriter().print(obj);
 			return;
-		
+		case "update":
+			return;
+			
 		default:
 			break;
 		}
