@@ -56,10 +56,10 @@
 
 .movie_story_lay{border : 1px solid black;
 			width: 1300px;
-			height: 400px;}
+			height: auto;}
 .movie_story{border : 1px solid black;
 			width: 1200px;
-			height: 280px;}
+			height: auto;}
 			
 .movie_tra_lay{border : 1px solid black;
 			width: 1300px;
