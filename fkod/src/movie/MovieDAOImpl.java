@@ -117,12 +117,9 @@ public class MovieDAOImpl implements MovieDAO{
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery("select * from movie where film_number = '"+key+"'");
-			/*rs = stmt.executeQuery("select * from movie where film_name = '내부자들'");*/
-			
 			while (rs.next()) {
-
-				temp.setFilmNumber(rs.getString("film_Number"));
-				temp.setFilmName(rs.getString("film_Name"));
+				temp.setFilmNumber(rs.getString("film_number"));
+				temp.setFilmName(rs.getString("film_name"));
 				temp.setDirector(rs.getString("director"));
 				temp.setActor(rs.getString("actor"));
 				temp.setRate(rs.getString("rate"));

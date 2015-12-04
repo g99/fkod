@@ -3,6 +3,7 @@
 /*=============================================*/
 /*=================admin.html==================*/
 /*=============================================*/
+
 #admin_nav button {
 	color: white;
 	background : none;
@@ -11,6 +12,27 @@
 #admin_nav button:hover, #admin_nav button:focus {
 	color: #FCCC5F;
 }
+
+#div_admin_movie {
+	padding : 20px;
+	background:white;
+	height:500px;
+	width:400px;
+}
+#tab_admin_movie {
+	height: 450px;
+	width:350px;
+	text-align:center;
+}
+#tab_admin_movie th {
+	width: 100px;
+	text-align:center;
+}
+#tab_admin_movie, #tab_admin_movie tr, #tab_admin_movie td {
+	border : 1px solid black;
+	border-collapse : collapse;
+} 
+
 #div_admin_member {
 	padding : 20px;
 	background:white;

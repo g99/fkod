@@ -157,10 +157,47 @@ var Member = {
 					});
 				},
 				movie : function(project) {
-					 $.getJSON(project + '/admin/Admin.do?movie', function(data) {
-						 var table = '<h1>영화관리</h1>'
-						 +
-						 +'';
+					 $.getJSON(project + '/admin/Admin.do?page=movie_list', function(data) {
+						 var arr = [];
+						 var table = '<div id="movie_list"><h1>영화목록</h1>'
+						 	 	   + '<table id="tab_movie"><tr><th>영화번호</th><th>영화이름</th>'
+						 	       + '<th>감독</th><th>배우</th><th>등급</th><th>런타임</th><th>가격</th>'
+						 	       + '<th>장르</th><th>개봉일</th><th>종료일</th><th>줄거리</th>'
+						 	       + '<th>스틸컷</th><th>트레일러</th></tr>';
+							 $.each(data, function() {
+								arr.push(this.filmNumber);
+								table +='<tr><td><button id="'+this.filmNumber+'">'+this.filmNumber+'</button</td><td>'+this.filmName+'</td>'
+									+'<td>'+this.director+'</td><td>'+this.actor+'</td>'
+									+'<td>'+this.rate+'</td><td>'+this.runtime+'</td>'
+									+'<td>'+this.price+'</td><td>'+this.genre+'</td>'
+									+'<td>'+this.releaseDate+'</td><td>'+this.endDate+'</td>'
+									+'<td>'+this.story+'</td><td>'+this.cut+'</td>'
+									+'<td>'+this.trailer+'</td></tr>'
+								});
+								table += '</table>';
+								$(table).appendTo($('#box').empty());
+								// 아이디별로 버튼 달기
+								$.each(data, function(index) {
+									$("#"+this.filmNumber).click(function() {
+										Bom2.popup(project,arr[index]);
+									});
+								});
+								
+								$("#movie_list").css({
+									"padding-top" : "20px",
+									"padding-left" : "20px",
+									"padding-right" : "20px",
+									"background":"white",
+									"height":"1000px",
+									});
+								$("#movie_list button").css({
+									"background":"none",
+									"border":"none"
+								});
+								$("#tab_movie").css("width","100%");
+								$("#tab_movie tr").css({"border" : "1px solid black", "border-collapse" : "collapse", "text-align" : "center"});
+								$("#tab_movie th").css({"border" : "1px solid black", "border-collapse" : "collapse", "text-align" : "center"});
+								$("#tab_movie td").css({"border" : "1px solid black", "border-collapse" : "collapse", "text-align" : "center"});
 					});
 				}
 	 };
@@ -182,6 +219,26 @@ var Member = {
 			window.open(url,"",style);
 			}
 		};
+
+ /*=======================================================================================================*/
+ /*=======================================================================================================*/
+ /*=======================================================================================================*/
+
+	 var Bom2 = {
+				popup : function(project,filmNumber) {
+					var url = project + "/admin/Admin.do?";
+					var name = "팝업";
+					var style = "toolbar=no, status=no, directories=no, scrollbars=yes, location=no, resizable=no, border=0, menubar=no";
+					var param = "page=movie_profile&filmNumber="+filmNumber;
+					var width = 400;
+					var height = 500;
+					var xpos = (screen.availWidth - width) / 2;
+					var ypos = (screen.availHeight - height) / 2;
+					style = style + ",top=" + ypos + ",left=" + xpos + ",width=" + width + ",height=" + height;
+					url = url + param;
+					window.open(url,"",style);
+					}
+				};
  /*=======================================================================================================*/
  /*=======================================================================================================*/
  /*=======================================================================================================*/

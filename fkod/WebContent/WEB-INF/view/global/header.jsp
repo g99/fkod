@@ -86,12 +86,15 @@
 			case "Admin_member":
 				Admin.member("${context}");
 				break;
+			case "Admin_moive":
+				Member.movie("${context}");
+				break;
 			case "Movie_home":
 				Movie.home("${context}");
 				break;
 			case "Member_join":
 				Member.join("${context}");
-				break;0
+				break;
 			default:
 				$("#box").load("${context}/global/Main.do?page=default");
 				break;
@@ -148,6 +151,7 @@
 			Admin.member("${context}");
 		});
 		$("#outbox").on("click","#admin_movie",function() {
+			history.pushState("Admin_movie","","");
 			Admin.movie("${context}");
 		});
 	});

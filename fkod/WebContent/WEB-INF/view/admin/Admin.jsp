@@ -13,24 +13,4 @@
 	<h1>관리자 페이지 입니다</h1>
 </div>
 </div>
-<script>
-$(function() {
-	$("#main_left").css({
-		"float" : "left",
-		"margin-top" : "1%",
-		"margin-bottom" : "5%",
-		"margin-left" : "1%",
-		"width" : "12%",
-		"text-align" : "center",
-	});
-	$("#main_right").css({
-		"float" : "left",
-	    "margin-left" : "3%",
-		"width" : "50%"
-	});
-});	
-/*  $('#btn_admin_table').click(function() {
-    $('#btn_admin_table').submit();
-  }); */
- 
-</script>
+
