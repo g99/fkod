@@ -29,6 +29,7 @@ public class MemberController extends HttpServlet {
 	String id, password, name, birth, addr, gender, email, phone, my_Theater;
 	JSONObject obj;
 
+	@SuppressWarnings("unchecked")
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		Seperator.init(request);

@@ -25,9 +25,11 @@
 		</c:if>
 		<c:if test="${not empty sessionScope.user}">
 			<div id="frm_logined" class="form-2">
-				<p>${user.name}님 반갑습니다.</p><p class="clearfix">
-					<input id="logout_btn" type="submit" name="submit" value="로그아웃">
-				</p>
+				<p>${user.name}님 반갑습니다.</p>
+					<div class="clearfix" style="float: left;">
+						<input id="logout_btn" type="submit" name="submit" value="로그아웃">
+						<input id="mypage_btn" type="submit" name="submit" value="마이 페이지" style="width: 85px;">
+					</div>
 			</div>
 		</c:if>
 		</div>
@@ -121,6 +123,19 @@
 		$("#outbox").on("click","#admin_movie",function() {
 			Admin.movie("${context}");
 		});
+		
+		/*마이페이지 버튼 */
+		$("mypage_btn").click(function() {
+			alert('마이페이지 버튼 클릭');
+			Member.detail("${context}");
+		});
+		
+		/* $("#outbox").on("click","#mypage_btn",function() {
+			alert('마이페이지 버튼 클릭');
+			Member.detail("${context}");
+		
+		}); */
+		
 	});
 	
 </script>
