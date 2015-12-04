@@ -25,7 +25,7 @@ var Member = {
 				success : function(data) {
 					//로그인 결과가 성공이면
 					if(data.result === "success"){
-						$("#frm_toggle").empty().load(project + "/global/Main.do?page=header #frm_logined");
+						$("#frm_toggle").load(project + "/global/Main.do?page=header #frm_logined");
 						// 관리자 아이디로 확인되면
 						if(data.admin === "yes") {
 							$("#outbox").append(
@@ -108,11 +108,9 @@ var Member = {
 	var Admin = {
 			 	home : function(project) {
 					$("#box").load(project + "/admin/Admin.do");
-					document.location.hash =1; 
 				},
 				member : function(project) {
 					 $.getJSON(project + '/admin/Admin.do?page=member_list', function(data) {
-						 document.location.hash =2; 
 						 var arr = [];
 						 var table = '<div id="member_list"><h1>회원목록</h1>'
 								+'<table id="tab_member"><tr><th>아이디</th><th>비밀번호</th>'

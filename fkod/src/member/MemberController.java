@@ -24,10 +24,10 @@ public class MemberController extends HttpServlet {
 
 	MemberService service = MemberServiceImpl.getInstance();
 	MemberVO member = new MemberVO();
-
+	int result;
 	HttpSession session = null;
 	String id, password, name, birth, addr, gender, email, phone, my_Theater;
-	JSONObject obj;
+	JSONObject obj = new JSONObject();
 
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -64,9 +64,8 @@ public class MemberController extends HttpServlet {
 			member.setEmail(email);
 			member.setPhone(phone);
 			
-			int result1 = service.join(member);
-			if (result1 == 1) {
-				obj = new JSONObject();
+			result = service.join(member);
+			if (result == 1) {
 				System.out.println("회원가입 성공");
 				obj.put("result", "success");
 				obj.put("name", member.getName());
@@ -79,6 +78,7 @@ public class MemberController extends HttpServlet {
 				response.setContentType("application/x-json; charset=utf-8");
 				response.getWriter().print(obj);
 			}
+			obj.clear();
 			return;
 		case "join_Result":
 			break;
@@ -120,7 +120,6 @@ public class MemberController extends HttpServlet {
 		case "check_Overlap":
 			System.out.println("컨트롤러 / 중복체크로 진입");
 			id = request.getParameter("id");
-			obj = new JSONObject();
 			if (service.selectById(id).getId() == null) {
 				obj.put("result", "usable");
 				obj.put("id", id);
@@ -132,6 +131,7 @@ public class MemberController extends HttpServlet {
 				response.setContentType("application/x-json; charset=utf-8");
 				response.getWriter().print(obj);
 			}
+			obj.clear();
 			return;
 		default:
 			break;

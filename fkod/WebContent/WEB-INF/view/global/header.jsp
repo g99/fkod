@@ -76,6 +76,20 @@
 <script src="${context}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$(window).on("popstate", function(event) {
+		    var e = event.originalEvent.state;  // 이부분으로 뒤로가기 할때마다 아까 저장한 히스토리 스택에 쌓인 URL을 불러 온다
+		    console.log("푸쉬상태 : " + e);
+		    switch (e) {
+			case "Admin_home":
+				Admin.home("${context}");
+				break;
+			case "Admin_member":
+				Admin.member("${context}");
+				break;
+			default:
+				break;
+			}
+		});
 		/* 메인 버튼 */
 		$("#home").click(function() {
 			$("#box").load("${context}/global/Main.do?page=default");

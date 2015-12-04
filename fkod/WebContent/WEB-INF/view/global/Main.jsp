@@ -6,4 +6,5 @@
 		$("#header").load("${context}/global/Main.do?page=header"); 
 		$("#box").load("${context}/global/Main.do?page=default");
 	});
+		
 </script>
