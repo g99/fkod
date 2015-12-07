@@ -114,7 +114,7 @@
 		
 		$("#ticket_btn").click(function() {
 			history.pushState("Ticket_home","","");
-			$("#box").load();
+			$("#box").load("${context}/ticket/Ticket.do");
 		});
 		
 		$("#theater_btn").click(function() {

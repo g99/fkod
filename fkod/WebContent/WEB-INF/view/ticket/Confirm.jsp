@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="../css/common.css" type="text/css">
-</head>
-<body>
-	<div class="confirm_wrap">
+<div class="confirm_wrap">
 		<form action="ticket.html">
 		<!-- FLEX-CONTAINER -->
 		<div class="confirm_flex-container">
@@ -19,43 +12,39 @@
 					<div class="confirm_movieinfo">
 						<div class="confirm_infoline">
 							<label class="confirm_infotitle">영화</label>
-							<h5 style="display: inline-block;margin: 0;">성난변호사 2D 15세 관람가</h5>
+							<h5 style="display: inline-block;margin: 0;">${movie}</h5>
 						</div>
 						<div class="confirm_infoline">
 							<label class="confirm_infotitle">일시</label>
-							<h5 style="display: inline-block;margin: 0;">2015.10.11(일) 20:30</h5>
+							<h5 style="display: inline-block;margin: 0;">${ticket.date} ${ticket.startTime}</h5>
 						</div>
 						<div class="confirm_infoline">
 							<label class="confirm_infotitle">인원</label>
-							<h5 style="display: inline-block;margin: 0;">일반3명</h5>
-							<h5 style="display: inline-block;margin: 0;">청소년3명</h5>
-							<h5 style="display: inline-block;margin: 0;">우대3명</h5>
-						</div>
-						<div class="confirm_infoline">
-							<label class="confirm_infotitle">좌석명</label>
-							<h5 style="display: inline-block;margin: 0;">일반석</h5>
+							<h5 style="display: inline-block;margin: 0;">일반${ticket.adult}명</h5>
+							<h5 style="display: inline-block;margin: 0;">청소년${ticket.teenager}명</h5>
+							<h5 style="display: inline-block;margin: 0;">우대${ticket.oldMan}명</h5>
 						</div>
 						<div class="confirm_infoline">
 							<label class="confirm_infotitle">좌석번호</label>
-							<h5 style="display: inline-block;margin: 0;">F5, F6, F7, F8, G5, G6, G7, G8, G9</h5>
+							<h5 style="display: inline-block;margin: 0;">${ticket.seatNumber}</h5>
 						</div>
 					</div>
 					<div class="confirm_cal">
 						<div class="confirm_normal">
 							<label class="confirm_infotitle">일반</label>
-							<h5 style="display: inline-block;margin: 0;">10,000원 X 3</h5>
+							<h5 style="display: inline-block;margin: 0;">10,000원 X ${ticket.adult}</h5>
 						</div>
 						<div class="confirm_adolescent">
 							<label class="confirm_infotitle">청소년</label>
-							<h5 style="display: inline-block;margin: 0;">7,000원 X 3</h5>
+							<h5 style="display: inline-block;margin: 0;">7,000원 X ${ticket.teenager}</h5>
 						</div>
 						<div class="confirm_treatment">
 							<label class="confirm_infotitle">우대</label>
-							<h5 style="display: inline-block;margin: 0;">4,000원 X 3</h5>
+							<h5 style="display: inline-block;margin: 0;">4,000원 X ${ticket.oldMan}</h5>
 						</div>
 						<div class="confirm_sum">
 							<label class="confirm_infotitle">총금액</label>
-							<h5 style="display: inline-block;margin: 0;">63,000원</h5>
+							<h5 style="display: inline-block;margin: 0;">${ticket.price}원</h5>
 						</div>
 					</div>
 				</div>
@@ -71,9 +60,3 @@
 		</div>
 		</form>
 	</div>
-</body>
-</html>
-
-
-
-

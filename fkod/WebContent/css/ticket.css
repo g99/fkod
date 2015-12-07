@@ -178,12 +178,31 @@
 	font-weight: bold;
 	line-height: 15px;
 }
+.ticket_normal .ticket_subtitle {
+	height: 20px;
+	padding: 8px;
+	display: block;
+	color: #333;
+	font-weight: bold;
+	line-height: 15px;
+}
 
 .ticket_bookmark dl {
 	border-top: 3px solid #ticket_81B300;
 	border-bottom: 3px solid #ticket_81B300;
 	min-height: 70px;
 	max-height: 70px;
+	overflow: auto;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.ticket_normal dl {
+	border-top: 3px solid #ticket_81B300;
+	border-bottom: 3px solid #ticket_81B300;
+	min-height: 300px;
+	max-height: 300px;
 	overflow: auto;
 	margin-top: 0px;
 	margin-bottom: 10px;
@@ -203,8 +222,18 @@
 	color: #FFF;
 	text-decoration: none;
 }
+.ticket_normal .ticket_list-category a {
+	padding: 2px 5px;
+	display: block;
+	font-size: 90%;
+	color: #FFF;
+	text-decoration: none;
+}
 
 .ticket_bookmark .ticket_list-category a:hover {
+	background: hsla(0, 0%, 100%, .1);
+}
+.ticket_normal .ticket_list-category a:hover {
 	background: hsla(0, 0%, 100%, .1);
 }
 
@@ -253,7 +282,7 @@
 
 .ticket_item4 .ticket_choiceseatlabel {
 	position: absolute;
-	top: 448px;
+	top: 710px;
 	left: 777px;
 	margin-left: 300px;
 	/* vertical-align: middle; */
